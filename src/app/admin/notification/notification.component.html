@@ -1,17 +1,46 @@
-<div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
- 
-    <div *ngFor="let question of questions" class="form-row">
-      <df-question [question]="question" [form]="form"></df-question>
-    </div>
- 
-    <div class="form-row">
-      <button type="submit" [disabled]="!form.valid">Save</button>
-    </div>
-  </form>
- 
-  <div *ngIf="payLoad" class="form-row">
-    <strong>Saved the following values</strong><br>{{payLoad}}
-  </div>
+<div class="container">
+  <!-- <div *ngIf="data1;">
+    <div class="alert alert-success">
+  <strong>Success!</strong> Record Inserted Successfully.
 </div>
+</div> -->
+    <h1>Notification Form</h1>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">NotifyType</label>
+        <input type="text" class="form-control" id="notifyType"
+               required
+               [(ngModel)]="model.notifyType" name="notifyType"
+               #notifyType="ngModel">
+        <div [hidden]="notifyType.valid || notifyType.pristine"
+             class="alert alert-danger">
+          NotifyType is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="alterEgo">Notify Date</label>
+        <input type="text" class="form-control" id="notifyDate"
+        required       
+        [(ngModel)]="model.notifyDate" name="notifyDate" #notifyDate="ngModel">
+        <div [hidden]="notifyDate.valid || notifyDate.pristine"
+             class="alert alert-danger">
+          Notify Date is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="alterEgo">Notify Date</label>
+        <input type="text" class="form-control" id="notifyDate"
+        required       
+        [(ngModel)]="model.notifyDate" name="notifyDate" #notifyDate="ngModel">
+        <div [hidden]="notifyDate.valid || notifyDate.pristine"
+             class="alert alert-danger">
+          Notify Date is required
+        </div>
+      </div>
+      
+      <button type="submit" class="btn btn-success" [disabled]="!notificationForm.form.valid" (click)="submitform(model)">Submit</button>
+      <button type="button" class="btn btn-default" (click)="onSubmit(); heroForm.reset()">New Hero</button>
+    </form>
+  </div>
   
