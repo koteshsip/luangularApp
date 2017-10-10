@@ -10,8 +10,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminDashboard2Component } from './admin-dashboard2/admin-dashboard2.component';
 import { UserComponent } from './user/user.component';
-import { LogsComponent } from './src/app/admin/logs/logs.component';
-import { NotificationComponent } from './src/app/admin/notification/notification.component';
+import { LogsComponent } from './logs/logs.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   imports: [

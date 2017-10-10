@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoginComponent} from './../login/login.component';
 import { UserComponent } from './../admin/user/user.component';
+import { LogsComponent } from './../admin/logs/logs.component';
+import { NotificationComponent } from './../admin/notification/notification.component';
 @NgModule({
   imports: [
     RouterModule.forRoot([
@@ -31,6 +33,12 @@ import { UserComponent } from './../admin/user/user.component';
           },{
             path: 'userprofile',
             component: UserComponent
+          },{
+            path: 'logslist',
+            component: LogsComponent
+          },{
+            path: 'addNotificatin',
+            component: NotificationComponent
           }
         ]
     },
