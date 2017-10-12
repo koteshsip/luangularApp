@@ -63,7 +63,6 @@ Angular2-AdminLTE is an open source project by that is licensed under [MIT](http
 -------------
 [AdminLTE.IO](https://adminlte.io/)
 
-
-fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+pagali gayathri
 
 
