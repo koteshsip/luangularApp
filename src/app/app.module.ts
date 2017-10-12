@@ -23,6 +23,10 @@ import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { MyServiceService } from './my-service.service';
 import { LocalStorageModule } from 'angular-2-local-storage';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
+import { TokenInterceptor } from './auth/token.interceptor';
+import {HttpModule} from '@angular/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,13 +40,18 @@ import { LocalStorageModule } from 'angular-2-local-storage';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     AppRoutingModule,
-    AdminModule,FormsModule,ReactiveFormsModule,HttpClientModule,LocalStorageModule.withConfig({
+    AdminModule,AuthModule,FormsModule,ReactiveFormsModule,HttpClientModule,LocalStorageModule.withConfig({
             prefix: 'my-app',
             storageType: 'localStorage'
         })
   ],
-  providers: [MyServiceService],
+  providers: [MyServiceService,{
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

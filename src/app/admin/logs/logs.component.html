@@ -1,3 +1,23 @@
-<p>
-  logs works!
-</p>
+<div class="content-wrapper">
+    <div><h2>List Of Logs</h2></div>
+<table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Action Element</th>
+                            <th>Action Type</th>
+                            <th>Created At</th>
+                            <th>Action Performed By</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                <tr *ngFor="let datas of data">
+                                    <td>{{datas.actionElement}}</td>
+                                    <td>{{datas.actionType}}</td>
+                                    <td>{{datas.actionPerformedById}}</td>
+                                    <td>{{datas.createdAt}}</td>
+<td><a class="btn btn-success" routerLink="/edit/{{datas.Id}}">Edit</a><a class="btn btn-danger" (click)="deleteEmployee(datas.Id)">Delete</a></td>
+                                    </tr>
+                    </tbody>
+                </table>
+</div>

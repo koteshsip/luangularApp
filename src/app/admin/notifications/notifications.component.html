@@ -1,0 +1,28 @@
+<div class="content-wrapper">
+    <div><h2>List Of Notification</h2><div class="row">
+    <div class="col-md-4"></div>
+      <button class="btn btn-primary" (click)="addNotification()">Add Notification</button>
+  </div></div>
+<table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Notify Type</th>
+                            <th>Notify Category</th>
+                            <th>Notify Code</th>
+                            <th>Notify Message</th>
+                            <th>Notify Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                <tr *ngFor="let datas of data">
+                                    <td>{{datas.notifyType}}</td>
+                                    <td>{{datas.notifyCategory}}</td>
+                                    <td>{{datas.notifyCode}}</td>
+                                    <td>{{datas.notifyMessage}}</td>
+                                    <td>{{datas.notifyDate}}</td>
+<td><a class="btn btn-success" routerLink="/edit/{{datas.Id}}">Edit</a><a class="btn btn-danger" (click)="deleteEmployee(datas.Id)">Delete</a></td>
+                                    </tr>
+                    </tbody>
+                </table>
+</div>

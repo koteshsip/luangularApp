@@ -1,0 +1,90 @@
+<div class="content-wrapper">
+<h1>Add Notification</h1>
+    <form (ngSubmit)="doAddNotification(model)" #notificationForm="ngForm">
+      <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Notify Type</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="notifyType"
+               required
+               [(ngModel)]="model.notifyType" name="notifyType"
+               #notifyType="ngModel">
+               </div>
+        <!-- <div [hidden]="notifyType.valid || notifyType.pristine"
+             class="alert alert-danger">
+          Notify Type is required
+        </div> -->
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="alterEgo">Notify Date</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="notifyDate"
+        required       
+        [(ngModel)]="model.notifyDate" name="notifyDate" #notifyDate="ngModel">
+               </div>
+        <!-- <div [hidden]="notifyType.valid || notifyType.pristine"
+             class="alert alert-danger">
+          Notify Date is required
+        </div> -->
+      </div>
+      </div>
+
+
+ <div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">Notify Category</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="notifyCategory"
+        required       
+        [(ngModel)]="model.notifyCategory" name="notifyCategory" #notifyCategory="ngModel">
+               </div>
+        <!-- <div [hidden]="notifyCategory.valid || notifyCategory.pristine"
+             class="alert alert-danger">
+          Notify Category is required
+        </div> -->
+      </div>
+      </div>
+
+
+      <div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">Notify Code</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="notifyCode"
+        required       
+        [(ngModel)]="model.notifyCode" name="notifyCode" #notifyCode="ngModel">       
+        </div>
+      <!-- <div [hidden]="notifyCode.valid || notifyCode.pristine"
+             class="alert alert-danger">
+          Notify Code is required
+        </div> -->
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">Notify Message</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="notifyMessage"
+        required       
+        [(ngModel)]="model.notifyMessage" name="notifyMessage" #notifyMessage="ngModel">
+      </div>
+      <!-- <div [hidden]="notifyMessage.valid || notifyMessage.pristine"
+             class="alert alert-danger">
+          Notify Message is required
+        </div> -->
+      </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!notificationForm.form.valid">Save</button>
+          <button type="button" class="btn btn-default" (click)="onSubmit(); notificationForm.reset()">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>

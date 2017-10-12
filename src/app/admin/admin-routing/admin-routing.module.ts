@@ -5,7 +5,10 @@ import { AdminComponent } from './../admin.component';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
+import { LogsComponent } from './../../admin/logs/logs.component';
+import { NotificationComponent } from './../../admin/notification/notification.component';
+import { NotificationsComponent } from './../../admin/notifications/notifications.component';
+import { NotificationfomComponent } from './../../admin/notificationfom/notificationfom.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
@@ -28,6 +31,18 @@ import { RouterModule } from '@angular/router';
           },{
             path: 'userprofile',
             component: UserComponent
+          },{
+            path: 'logslist',
+            component: LogsComponent
+          },{
+            path: 'editNotificatin',
+            component: NotificationComponent
+          },{
+            path: 'notificatinlist',
+            component: NotificationsComponent
+          },{
+            path: 'addNotificatin',
+            component: NotificationfomComponent
           }
         ]
       }

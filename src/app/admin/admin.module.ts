@@ -12,11 +12,17 @@ import { AdminDashboard2Component } from './admin-dashboard2/admin-dashboard2.co
 import { UserComponent } from './user/user.component';
 import { LogsComponent } from './logs/logs.component';
 import { NotificationComponent } from './notification/notification.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { MessageComponent } from './message/message.component';
+import { NotificationfomComponent } from './notificationfom/notificationfom.component';
+import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AdminComponent,
@@ -29,7 +35,10 @@ import { NotificationComponent } from './notification/notification.component';
     AdminDashboard2Component,
     UserComponent,
     LogsComponent,
-    NotificationComponent
+    NotificationComponent,
+    NotificationsComponent,
+    MessageComponent,
+    NotificationfomComponent
   ],
   exports: [AdminComponent]
 })
