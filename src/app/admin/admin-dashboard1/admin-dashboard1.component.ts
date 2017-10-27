@@ -26,16 +26,15 @@ export class AdminDashboard1Component implements OnInit {
 
   constructor(public router: Router,public mystorage:LocalStorageService) { }
   ngOnInit() {
-let mytoken=this.mystorage.get("token");
-let logindata=this.mystorage.get("logindata");
+// let mytoken=this.mystorage.get("token");
+// let logindata=this.mystorage.get("logindata");
 
-console.log("logindata====",logindata);
+// console.log("logindata====",logindata);
 
-console.log("ttt",mytoken);
-if(mytoken==null)
-  {
-this.router.navigate(['/login']);
-  }
+// console.log("ttt",mytoken);
+// if(mytoken==null){
+// this.router.navigate(['/login']);
+//   }
 
 
      // Update the AdminLTE layouts

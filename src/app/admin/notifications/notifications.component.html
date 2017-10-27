@@ -1,9 +1,24 @@
 <div class="content-wrapper">
-    <div><h2>List Of Notification</h2><div class="row">
-    <div class="col-md-4"></div>
-      <button class="btn btn-primary" (click)="addNotification()">Add Notification</button>
-  </div></div>
-<table class="table table-bordered">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      List Of Notification<button class="btn btn-primary pull-right" (click)="addNotification()">Add Notification</button>
+    </h1></div>
+  </section>
+<div class="content">
+    <div><div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">  
+    </div></div>
+<div class="row">
+    <div class="col-md-4" *ngIf="message;">
+    <div class="alert alert-success">
+  <strong>Success!</strong> {{message}}.
+</div>
+    </div>
+</div>
+<div class="box">
+<table class="table box box-info">
                     <thead>
                         <tr>
                             <th>Notify Type</th>
@@ -20,9 +35,12 @@
                                     <td>{{datas.notifyCategory}}</td>
                                     <td>{{datas.notifyCode}}</td>
                                     <td>{{datas.notifyMessage}}</td>
-                                    <td>{{datas.notifyDate}}</td>
-<td><a class="btn btn-success" routerLink="/edit/{{datas.Id}}">Edit</a><a class="btn btn-danger" (click)="deleteEmployee(datas.Id)">Delete</a></td>
+                                    <td>{{datas.notifyDate | date:"dd/MM/yyyy"}}</td>
+<td><a class="col-xs-3 btn btn-success" routerLink="/admin/addNotificatin/{{this.baseEncode(datas.id)}}">Edit</a><a class="btn btn-danger" (click)="deleteNotification(this.baseEncode(datas.id))">Delete</a></td>
                                     </tr>
                     </tbody>
                 </table>
+     </div>
+   </div>
+</div>
 </div>

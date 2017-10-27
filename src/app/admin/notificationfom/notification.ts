@@ -5,7 +5,8 @@ export class Notification {
     public notifyDate: Date,
     public notifyCategory: string,
     public notifyCode: string,
-    public notifyMessage: string
+    public notifyMessage: string,
+    public expiaryDate: Date
   ) {  }
 
 }

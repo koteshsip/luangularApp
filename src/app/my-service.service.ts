@@ -1,38 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {Http,Headers,Response,RequestOptions} from '@angular/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import {Http,Response,RequestOptions} from '@angular/http';
 import { LocalStorageService } from 'angular-2-local-storage';
 @Injectable()
 export class MyServiceService {
+private  baseurl="http://localhost:8080/";
+  constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
 
-  constructor(public localStorageService: LocalStorageService,public http:Http) { }
- 
-// myloginservice(email,password)
-// {
-  //const url='http://localhost/api/insert.php';
-//  const url='http://localhost:8080/SampleJsonApp/Login';
-  //  let headersObj = new Headers();
-  //  let headers = new Headers({ 'Accept': 'application/json' });
-  //  headers.append('Access-Control-Allow-Headers', 'Content-Type');
 
-//   let body={
-// 	"email":email,
-// 	"password":password	
-// }
-//   return this.http.post(url,body);
-// }
-
-myprofile(id)
-{
-  const url="http://localhost:8080/SampleJsonApp/getProfileById/"+id;
+myprofile(id){
+  const url=this.baseurl+"SampleJsonApp/getProfileById/"+id;
   return this.http.get(url);
 }
-getalllogs(){
-    const url="http://localhost:8080/SampleJsonApp/logs";
+getalllogs(event){
+    const url=this.baseurl+"SampleJsonApp/logs/"+event;
     return this.http.get(url);
 }
   getallnotifications(){
-    const url="http://localhost:8080/SampleJsonApp/listNotification";
+    const url=this.baseurl+"SampleJsonApp/listNotification";
     return this.http.get(url);
   }
 
@@ -40,22 +25,39 @@ getToken(){
   return this.localStorageService.get("token");
 }
   addNotification(formdata){
-   /*  let headers = new Headers({ 'Accept': 'application/json' });
-   headers.append('Access-Control-Allow-Headers', 'Content-Type');
-   headers.append("token",this.localStorageService.get("token"));
-   const options=new RequestOptions();
-console.log("service data="+formdata);*/
-const headers = new Headers({'Content-Type':'application/json'});
-const options = new RequestOptions({headers:headers});   
-
-const url="http://localhost:8080/SampleJsonApp/addNotification";
-    return this.http.post(url,formdata,options);
+    // const headers = new Headers({'Content-Type':'application/json'});
+    // const options = new RequestOptions({headers:headers});
+    //  headers.append('token', `${this.localStorageService.get("token")}`);   
+    const url=this.baseurl+"SampleJsonApp/addNotification";
+    return this.http.post(url,formdata);
+  }
+updateNotification(formdata){
+    // const headers = new Headers({'Content-Type':'application/json'});
+    // const options = new RequestOptions({headers:headers});
+    //  headers.append('token', `${this.localStorageService.get("token")}`);   
+    const url=this.baseurl+"SampleJsonApp/addNotification/"+formdata.id;
+    return this.http.put(url,formdata);
+  }
+getNotificationById(id){
+  // const headers = new Headers({'Content-Type':'application/json'});
+  //   const options = new RequestOptions({headers:headers});
+  //    headers.append('token', `${this.localStorageService.get("token")}`);   
+  const url=this.baseurl+"SampleJsonApp/getNotificationById/"+id;
+  return this.http.get(url);
 }
-mysession()
-{
+deleteNotification(id){
+    // const headers = new Headers({'Content-Type':'application/json'});
+    // const options = new RequestOptions({headers:headers});
+    // headers.append('token', `${this.localStorageService.get("token")}`);
+    const url=this.baseurl+"SampleJsonApp/deleteNotification/"+id;
+    return this.http.delete(url);
+}
+notifyCodeExist(NotifyCode){
+    const url=this.baseurl+"SampleJsonApp/NotifCodeIsExist/"+NotifyCode;
+    return this.http.get(url);
+}
+
+mysession(){
   return "hello"
 }
-
-
-
 }

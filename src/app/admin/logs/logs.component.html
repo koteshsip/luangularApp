@@ -1,23 +1,47 @@
 <div class="content-wrapper">
-    <div><h2>List Of Logs</h2></div>
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      List Of Logs
+    </h1>
+    </div>
+  </section>
+<div class="content">
+<div class="box box box-info pagination-data">
+    <div class="pagination-data">
 <table class="table table-bordered">
+     <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search" />
                     <thead>
                         <tr>
                             <th>Action Element</th>
                             <th>Action Type</th>
                             <th>Created At</th>
                             <th>Action Performed By</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                                <tr *ngFor="let datas of data">
-                                    <td>{{datas.actionElement}}</td>
-                                    <td>{{datas.actionType}}</td>
-                                    <td>{{datas.actionPerformedById}}</td>
-                                    <td>{{datas.createdAt}}</td>
-<td><a class="btn btn-success" routerLink="/edit/{{datas.Id}}">Edit</a><a class="btn btn-danger" (click)="deleteEmployee(datas.Id)">Delete</a></td>
-                                    </tr>
+                                <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 1, totalItems:48 };">
+                                    <td>{{datas.ActionElement}}</td>
+                                    <td>{{datas.ActionType}}</td>
+                                    <td>{{datas.CreatedAt | date:"dd/MM/yyyy"}}</td>
+                                    <td>{{datas.Email}}</td>
+                                </tr>
                     </tbody>
                 </table>
+                 <pagination-controls 
+			(pageChange) = "page = getLogData($event)" 
+			id="1"
+			maxSize = "5"
+			directionLinks = "true"
+            autohide = "true"
+            screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page"
+			>
+        </pagination-controls> 
+    </div>
 </div>
+<!-- <td>{{datas.actionElement}}</td>
+                                    <td>{{datas.actionType}}</td>
+                                    <td>{{datas.createdAt | date:"MM/dd/yyyy"}}</td>
+                                    <td>{{datas.actionPerformedById}}</td> -->

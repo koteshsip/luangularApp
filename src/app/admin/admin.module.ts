@@ -9,20 +9,31 @@ import { AdminComponent } from './admin.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminDashboard2Component } from './admin-dashboard2/admin-dashboard2.component';
-import { UserComponent } from './user/user.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LogsComponent } from './logs/logs.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { MessageComponent } from './message/message.component';
 import { NotificationfomComponent } from './notificationfom/notificationfom.component';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
-
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { NgDatepickerModule } from '../ng-datepicker';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
+import { AdduserComponent } from './adduser/adduser.component';
+import { AddprofileComponent } from './addprofile/addprofile.component';
+import { AddaddressComponent } from './addaddress/addaddress.component';
+import { ListOfUsersComponent } from './list-of-users/list-of-users.component';
+import {Ng2PaginationModule} from 'ng2-pagination';
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgDatepickerModule,
+    BootstrapModalModule,
+    Ng2TableModule,
+    Ng2PaginationModule
   ],
   declarations: [
     AdminComponent,
@@ -33,13 +44,19 @@ import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
     AdminControlSidebarComponent,
     AdminDashboard1Component,
     AdminDashboard2Component,
-    UserComponent,
+    UserProfileComponent,
     LogsComponent,
     NotificationComponent,
     NotificationsComponent,
     MessageComponent,
-    NotificationfomComponent
-  ],
+    NotificationfomComponent,
+    AdduserComponent,
+    AddprofileComponent,
+    AddaddressComponent,
+    ListOfUsersComponent
+  ],entryComponents: [
+        MessageComponent
+      ],
   exports: [AdminComponent]
 })
 export class AdminModule { }

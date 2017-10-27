@@ -2,8 +2,9 @@ import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
+import { AuthGuard } from './_guards/index';
+import { AuthenticationService, UserService } from './_services/index';
 import { StarterComponent } from './starter/starter.component';
 import { StarterHeaderComponent } from './starter/starter-header/starter-header.component';
 import { StarterLeftSideComponent } from './starter/starter-left-side/starter-left-side.component';
@@ -17,7 +18,6 @@ import { AdminContentComponent } from './admin/admin-content/admin-content.compo
 import { AdminFooterComponent } from './admin/admin-footer/admin-footer.component';
 import { AdminControlSidebarComponent } from './admin/admin-control-sidebar/admin-control-sidebar.component';
 import { AdminDashboard1Component } from './admin/admin-dashboard1/admin-dashboard1.component';
-import { UserComponent } from './admin/user/user.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -27,6 +27,14 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { TokenInterceptor } from './auth/token.interceptor';
 import {HttpModule} from '@angular/http';
+import { NgDatepickerModule } from './ng-datepicker';
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import {Ng2PaginationModule} from 'ng2-pagination';
+
+
+/* Shared Service */
+import { FormDataService }    from './service/formData.service';
+import { WorkflowService }    from './workflow/workflow.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,16 +50,23 @@ import {HttpModule} from '@angular/http';
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    AdminModule,AuthModule,FormsModule,ReactiveFormsModule,HttpClientModule,LocalStorageModule.withConfig({
+    AdminModule,
+    AuthModule,
+    NgDatepickerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BootstrapModalModule,
+    Ng2PaginationModule,
+    LocalStorageModule.withConfig({
             prefix: 'my-app',
             storageType: 'localStorage'
         })
   ],
-  providers: [MyServiceService,{
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }],
+  providers: [MyServiceService,AuthGuard,AuthenticationService,
+                { provide: HTTP_INTERCEPTORS,useClass: TokenInterceptor,multi: true},
+                { provide: FormDataService, useClass: FormDataService },
+                { provide: WorkflowService, useClass: WorkflowService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

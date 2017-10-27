@@ -13,8 +13,8 @@ export class AdminHeaderComponent implements OnInit {
   ngOnInit() {
   }
   logOut(){
-    this.mystorage.clearAll("token");
-    let mytoken=this.mystorage.get("token");
+    localStorage.removeItem("currentUser");
+    let mytoken=localStorage.getItem('currentUser');
     if(mytoken==null){
        this.router.navigate(['/login']);
       }

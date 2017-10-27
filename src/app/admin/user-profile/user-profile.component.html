@@ -1,64 +1,71 @@
 <div class="content-wrapper">
-<div class="row">
-    <div class="col-sm-4">
-      <h3>   </h3>
-      <p>                                                                     </p>
-      <p>                                                                     </p>
-    </div>
-    <div class="col-sm-4">
-      <h3>User Profile</h3>        
+<section class="content-header">
+    <div class="panel-body box box-info"><h1>User Profile</h1></div>
+  </section>
+  <div class="content">
+    <div class="col-sm-6 box box-info">
+      <h3></h3>        
       <p>          </p>
       <p>         </p>
       <div class="form-group row">
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
      Achievment <span class="astric">  *</span></label>
     <div class="col-md-9">
-       {{data.achievment}}
+       {{achievment}}
     </div>
 </div>
-<div class="form-group row">
+  <div class="form-group row">
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
       ProfileName<span class="astric">  *</span></label>
     <div class="col-md-9">
-      {{data.profileName}}
+      {{profileName}}
     </div>
 </div>
 
 <div class="form-group row">
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
       ProfileType<span class="astric">  *</span></label>
-    <div class="col-md-9">
-      {{data.profileType}}
+    <div class="col-md-9" >
+      {{profileType}}
     </div>
-</div>
+</div>  
 
 <div class="form-group row">
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
       Email Id<span class="astric">  *</span></label>
     <div class="col-md-9">
-      {{data['email']}}
+      {{mydata['email']}}
     </div>
 </div>
   <div class="form-group row">
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
       Name:<span class="astric">  *</span></label>
     <div class="col-md-9">
-      {{data['firstName']}} {{data['middleName']}} {{data['lastName']}} 
+      {{mydata['firstName']}} {{mydata['middleName']}} {{mydata['lastName']}} 
     </div>
 </div>
   <div class="form-group row">
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
       Contact No:<span class="astric">  *</span></label>
     <div class="col-md-9">
-      {{data['mobile']}}
+      {{mydata['mobile']}}
     </div>
 </div>
 
 <div class="form-group row">
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
+      Images:<span class="astric">  *</span></label>
+    <div class="col-md-9">
+      <img [src]="imagePath">
+    </div>
+</div>
+<div class="form-group row">
+    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
       User Description:<span class="astric">  *</span></label>
     <div class="col-md-9">
-      {{data['userDesc']}}
+      {{mydata['userDesc']}}
     </div>
+</div>
+</div>
 </div>
 </div>
