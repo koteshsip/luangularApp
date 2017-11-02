@@ -9,6 +9,7 @@ import { } from 'daterangepicker';
 import { } from 'jquery.slimscroll';
 import * as moment from 'moment';
 import { LocalStorageService } from 'angular-2-local-storage';
+import { MyServiceService } from './../../my-service.service';
 // Variable in assets/js/scripts.js file
 declare var AdminLTE: any;
 
@@ -23,8 +24,9 @@ export class AdminDashboard1Component implements OnInit {
   donutChart: morris.DonutChart;
   knob: JQuery;
   calendar: JQuery;
+  totalItem:any;
 
-  constructor(public router: Router,public mystorage:LocalStorageService) { }
+  constructor(public router: Router,public mystorage:LocalStorageService,public myservice:MyServiceService) { }
   ngOnInit() {
 // let mytoken=this.mystorage.get("token");
 // let logindata=this.mystorage.get("logindata");
@@ -160,7 +162,34 @@ export class AdminDashboard1Component implements OnInit {
         return ele;
       }
     });*/
-
+this.getcount();
+this.getLogcount();
   }
-
+logtotalItem:any;
+getcount(){
+        this.myservice.getnotificationcount().subscribe((data:any)=>{
+				if(data.error) { 
+					  alert('Server Error');
+				  } else {
+                    this.totalItem = data;
+				  }
+			  },
+          error =>{
+            alert('Server error');
+          }
+		  );
+    }
+    getLogcount(){
+        this.myservice.getlogcount().subscribe((data:any)=>{
+				if(data.error) { 
+					  alert('Server Error');
+				  } else {
+                    this.logtotalItem = data;
+				  }
+			  },
+          error =>{
+            alert('Server error');
+          }
+		  );
+    }
 }

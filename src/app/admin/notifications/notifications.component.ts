@@ -14,26 +14,53 @@ import { Base64 } from 'js-base64';
 })
 export class NotificationsComponent implements OnInit {
   private message;
-  private data;
+  private data  = [];
   private baseEncode:any;
+  public totalItem:any;
   constructor(private dialogService:DialogService,public router: Router,public mystorage:LocalStorageService,public myservice:MyServiceService) {
     this.baseEncode=Base64.encode;
   }
   ngOnInit() {
-    this.getallnotifications();  
+    this.getcount();
+    this.getNotificationData(1);  
     AdminLTE.init();
   }
 deleteNotification(id){
     let myid=Base64.decode(id);
     this.showConfirm(myid);
 }
-getallnotifications(){
-  this.message=this.mystorage.get("message");
-  this.mystorage.remove("message");
-  this.myservice.getallnotifications().subscribe((data:any)=>{
-        this.data=data;     
-    });
-}
+	public getNotificationData(event){
+    this.getcount();
+          this.message=this.mystorage.get("message");
+          this.mystorage.remove("message");
+		this.myservice.getallnotifications(event).subscribe((data:any)=>{
+				if(data.error) { 
+					alert('Server Error');
+				} else {
+          this.data=data;
+				}
+			},
+			error =>{
+				alert('Server error');
+			}
+		);
+		return event;
+    }
+    getcount(){
+        this.myservice.getnotificationcount().subscribe((data:any)=>{
+				if(data.error) { 
+					  alert('Server Error');
+				  } else {
+                    this.totalItem = data;
+				  }
+			  },
+          error =>{
+            alert('Server error');
+          }
+		  );
+    }
+
+
   addNotification(){
     this.router.navigate(['/admin/addNotificatin']);
   }
@@ -46,7 +73,7 @@ getallnotifications(){
                     //We get dialog result
                     if(isConfirmed) {
                         this.myservice.deleteNotification(id).subscribe((data:any)=>{
-                            this.getallnotifications();
+                            this.getNotificationData(1);
                             this.message="Record deleted Successfully";
                         });
                     }

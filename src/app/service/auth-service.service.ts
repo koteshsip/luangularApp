@@ -8,7 +8,7 @@ export class AuthServiceService {
  constructor(public localStorageService: LocalStorageService,public http:Http) { }
 private  baseurl="http://localhost:8080/";
 myloginservice(email,password){
-  const url=this.baseurl+'SampleJsonApp/Login';
+  const url=this.baseurl+'lujavaapp/Login';
   let body={
 	"email":email,
 	"password":password	

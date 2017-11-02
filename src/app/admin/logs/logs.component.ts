@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Pipe, PipeTransform} from '@angular/core';
+//import {OrderrByPipe} from './../../order-by-pipe/orderby.pipe';
 declare var AdminLTE: any;
 import { LocalStorageService } from 'angular-2-local-storage';
 import { MyServiceService } from './../../my-service.service';
-// import { Ng2TableModule } from 'ng2-table/ng2-table';
-import { Pipe } from '@angular/core';
+import { Base64 } from 'js-base64';
 @Component({
   selector: 'app-logs',
   templateUrl: './logs.component.html',
@@ -12,28 +12,32 @@ import { Pipe } from '@angular/core';
 })
 export class LogsComponent implements OnInit {
 data = [];
-//users = [];
 totalItem:Number = 0;
+page:any;
+loading: boolean;
   constructor(public mystorage:LocalStorageService,public myservice:MyServiceService) {}
   ngOnInit() {
-    this.getLogData(1);
+    this.page=1;
+    this.getLogData(this.page,'');
     AdminLTE.init();
   }
-  // public getLogData(event){
-  //   this.myservice.getalllogs(event).subscribe((data:any)=>{
-  //     this.data=data;//.json();
-  //     this.totalItem = 48; 
-  //     console.log(this.data);     
-  //     });
-  // }
+  key: string = 'ActionType'; //set default
+  reverse: boolean = false;
+  sort(key){
+    this.key = key;
+    this.reverse = !this.reverse;
+  };
 
-	public getLogData(event){
-		this.myservice.getalllogs(event).subscribe((data:any)=>{
+	public getLogData(event,filter){
+    this.loading=true;
+    this.myservice.getalllogs(event,filter).subscribe((data:any)=>{
+      this.loading=false;
 				if(data.error) { 
 					alert('Server Error');
 				} else {
           this.data=data;
-          this.totalItem = 48;
+          //console.log("data===="+);
+          this.totalItem = data[0]['RecordTotal'];
 				}
 			},
 			error =>{

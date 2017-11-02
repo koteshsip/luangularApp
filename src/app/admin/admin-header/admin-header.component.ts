@@ -7,11 +7,17 @@ import { LocalStorageService } from 'angular-2-local-storage';
   styleUrls: ['./admin-header.component.css']
 })
 export class AdminHeaderComponent implements OnInit {
-
+mdata:any;
+mydata:any;
   constructor(public mystorage:LocalStorageService,public router:Router) { }
 
   ngOnInit() {
+    this.getHeaderName();
   }
+getHeaderName(){
+this.mdata=localStorage.getItem('currentUser');
+this.mydata=JSON.parse(this.mdata).data;
+}
   logOut(){
     localStorage.removeItem("currentUser");
     let mytoken=localStorage.getItem('currentUser');

@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-left-side.component.css']
 })
 export class AdminLeftSideComponent implements OnInit {
-
+mdata:any;
+mydata:any;
   constructor() { }
 
   ngOnInit() {
+    this.getHeaderName();
   }
-
+getHeaderName(){
+this.mdata=localStorage.getItem('currentUser');
+this.mydata=JSON.parse(this.mdata).data;
+}
 }

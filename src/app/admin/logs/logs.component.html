@@ -7,38 +7,45 @@
     </div>
   </section>
 <div class="content">
-<div class="box box box-info pagination-data">
-    <div class="pagination-data">
+<div *ngIf="totalItem" class="box box box-info pagination-data">
+    <nav class="navbar">
+      <input class="form-control" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getLogData(page,$event)">      
+    </nav>
+    <div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
 <table class="table table-bordered">
-     <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search" />
                     <thead>
                         <tr>
-                            <th>Action Element</th>
-                            <th>Action Type</th>
-                            <th>Created At</th>
-                            <th>Action Performed By</th>
+                            <th class="pointer"  (click)="sort('ActionElement')">Action Element{{totalItem}} <span class="glyphicon sort-icon" *ngIf="key =='ActionElement'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                            <th class="pointer" (click)="sort('ActionType')">Action Type <span class="glyphicon sort-icon" *ngIf="key =='ActionType'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                            <th class="pointer" (click)="sort('CreatedAt')">Created At <span class="glyphicon sort-icon" *ngIf="key =='CreatedAt'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                            <th class="pointer" (click)="sort('Email')">Action Performed By <span class="glyphicon sort-icon" *ngIf="key =='Email'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
                         </tr>
                     </thead>
                     <tbody>
-                                <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 1, totalItems:48 };">
+                                <tr *ngFor="let datas of data | filter:filter | orderBy: key : reverse | paginate : { itemsPerPage:10, currentPage:page, id: 'server' , 
+                                    totalItems:totalItem}; ">
                                     <td>{{datas.ActionElement}}</td>
                                     <td>{{datas.ActionType}}</td>
                                     <td>{{datas.CreatedAt | date:"dd/MM/yyyy"}}</td>
                                     <td>{{datas.Email}}</td>
                                 </tr>
                     </tbody>
-                </table>
-                 <pagination-controls 
-			(pageChange) = "page = getLogData($event)" 
-			id="1"
-			maxSize = "5"
+                </table> 
+<div class="has-text-centered">
+    <pagination-controls 
+			(pageChange) = "page = getLogData($event,filter)" 
+			id="server"
+            maxSize = "5"
 			directionLinks = "true"
             autohide = "true"
             screenReaderPaginationLabel="Pagination"
             screenReaderPageLabel="page"
             screenReaderCurrentLabel="You're on page"
 			>
-        </pagination-controls> 
+        </pagination-controls>
+</div>
+
+
     </div>
 </div>
 <!-- <td>{{datas.actionElement}}</td>

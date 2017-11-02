@@ -17,7 +17,7 @@
 </div>
     </div>
 </div>
-<div class="box">
+<div *ngIf="totalItem" class="box">
 <table class="table box box-info">
                     <thead>
                         <tr>
@@ -30,7 +30,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                                <tr *ngFor="let datas of data">
+                                <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 1, 
+                                    totalItems: totalItem}">
                                     <td>{{datas.notifyType}}</td>
                                     <td>{{datas.notifyCategory}}</td>
                                     <td>{{datas.notifyCode}}</td>
@@ -40,6 +41,17 @@
                                     </tr>
                     </tbody>
                 </table>
+                <pagination-controls 
+			(pageChange) = "page = getNotificationData($event)" 
+			id="1"
+            maxSize = "5"
+			directionLinks = "true"
+            autohide = "true"
+            screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page"
+			>
+        </pagination-controls>
      </div>
    </div>
 </div>

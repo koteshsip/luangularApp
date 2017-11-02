@@ -23,7 +23,9 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { AddprofileComponent } from './addprofile/addprofile.component';
 import { AddaddressComponent } from './addaddress/addaddress.component';
 import { ListOfUsersComponent } from './list-of-users/list-of-users.component';
-import {Ng2PaginationModule} from 'ng2-pagination';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 @NgModule({
   imports: [
     CommonModule,
@@ -33,7 +35,9 @@ import {Ng2PaginationModule} from 'ng2-pagination';
     NgDatepickerModule,
     BootstrapModalModule,
     Ng2TableModule,
-    Ng2PaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule
   ],
   declarations: [
     AdminComponent,

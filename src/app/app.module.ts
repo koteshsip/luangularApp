@@ -29,9 +29,7 @@ import { TokenInterceptor } from './auth/token.interceptor';
 import {HttpModule} from '@angular/http';
 import { NgDatepickerModule } from './ng-datepicker';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
-import {Ng2PaginationModule} from 'ng2-pagination';
-
-
+import {NgxPaginationModule} from 'ngx-pagination';
 /* Shared Service */
 import { FormDataService }    from './service/formData.service';
 import { WorkflowService }    from './workflow/workflow.service';
@@ -57,7 +55,7 @@ import { WorkflowService }    from './workflow/workflow.service';
     ReactiveFormsModule,
     HttpClientModule,
     BootstrapModalModule,
-    Ng2PaginationModule,
+    NgxPaginationModule,
     LocalStorageModule.withConfig({
             prefix: 'my-app',
             storageType: 'localStorage'
