@@ -33,6 +33,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 /* Shared Service */
 import { FormDataService }    from './service/formData.service';
 import { WorkflowService }    from './workflow/workflow.service';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,9 @@ import { WorkflowService }    from './workflow/workflow.service';
     StarterContentComponent,
     StarterFooterComponent,
     StarterControlSidebarComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotPasswordComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
