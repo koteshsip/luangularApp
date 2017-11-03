@@ -17,28 +17,30 @@ export class NotificationsComponent implements OnInit {
   private data  = [];
   private baseEncode:any;
   public totalItem:any;
+  page:any;
   constructor(private dialogService:DialogService,public router: Router,public mystorage:LocalStorageService,public myservice:MyServiceService) {
     this.baseEncode=Base64.encode;
   }
   ngOnInit() {
-    this.getcount();
-    this.getNotificationData(1);  
+    // this.getcount();
+    this.page=1
+    this.getNotificationData(this.page,'');  
     AdminLTE.init();
   }
 deleteNotification(id){
     let myid=Base64.decode(id);
     this.showConfirm(myid);
 }
-	public getNotificationData(event){
-    this.getcount();
+	public getNotificationData(event,filter){
           this.message=this.mystorage.get("message");
           this.mystorage.remove("message");
-		this.myservice.getallnotifications(event).subscribe((data:any)=>{
+		this.myservice.getallnotifications(event,filter).subscribe((data:any)=>{
 				if(data.error) { 
 					alert('Server Error');
 				} else {
-          this.data=data;
-				}
+          this.data=data['notifications'];
+        this.totalItem = data['count'];
+        }
 			},
 			error =>{
 				alert('Server error');
@@ -46,21 +48,6 @@ deleteNotification(id){
 		);
 		return event;
     }
-    getcount(){
-        this.myservice.getnotificationcount().subscribe((data:any)=>{
-				if(data.error) { 
-					  alert('Server Error');
-				  } else {
-                    this.totalItem = data;
-				  }
-			  },
-          error =>{
-            alert('Server error');
-          }
-		  );
-    }
-
-
   addNotification(){
     this.router.navigate(['/admin/addNotificatin']);
   }
@@ -73,7 +60,7 @@ deleteNotification(id){
                     //We get dialog result
                     if(isConfirmed) {
                         this.myservice.deleteNotification(id).subscribe((data:any)=>{
-                            this.getNotificationData(1);
+                            this.getNotificationData(1,'');
                             this.message="Record deleted Successfully";
                         });
                     }

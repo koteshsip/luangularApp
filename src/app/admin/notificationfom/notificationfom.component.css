@@ -2,3 +2,6 @@
 {
     color:red;
 }
+.no-spin::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}

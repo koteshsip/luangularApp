@@ -20,8 +20,11 @@ getalllogs(event,filter){
     const url=this.baseurl+"lujavaapp/logs/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
 }
-  getallnotifications(event){
-    const url=this.baseurl+"lujavaapp/listNotification/"+event;
+  getallnotifications(event,filter){
+    if(!filter){
+      filter=null;
+    }
+    const url=this.baseurl+"lujavaapp/listNotification/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
   }
 getnotificationcount(){

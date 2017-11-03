@@ -1,18 +1,22 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <div class="panel-body box box-info"><h1>
+    <div class="panel-body box"><h1>
       List Of Logs
     </h1>
     </div>
   </section>
 <div class="content">
-<div *ngIf="totalItem" class="box box box-info pagination-data">
+<div *ngIf="totalItem" class="box pagination-data">
+    <div class="row">
+        <div class="col-md-3">
     <nav class="navbar">
-      <input class="form-control" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getLogData(page,$event)">      
+      <input class="form-control" type="text" placeholder="Enter Search Element" name="search" [(ngModel)]="filter" (ngModelChange)="getLogData(page,$event)">      
     </nav>
+        </div>
+    </div>
     <div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
-<table class="table table-bordered">
+<table class="table table-bordered box box-info">
                     <thead>
                         <tr>
                             <th class="pointer"  (click)="sort('ActionElement')">Action Element{{totalItem}} <span class="glyphicon sort-icon" *ngIf="key =='ActionElement'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
@@ -48,7 +52,3 @@
 
     </div>
 </div>
-<!-- <td>{{datas.actionElement}}</td>
-                                    <td>{{datas.actionType}}</td>
-                                    <td>{{datas.createdAt | date:"MM/dd/yyyy"}}</td>
-                                    <td>{{datas.actionPerformedById}}</td> -->

@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <div class="panel-body box box-info"><h1>
+    <div class="panel-body box"><h1>
       List Of Notification<button class="btn btn-primary pull-right" (click)="addNotification()">Add Notification</button>
     </h1></div>
   </section>
@@ -10,6 +10,7 @@
     <div class="col-md-8"></div>
     <div class="col-md-4">  
     </div></div>
+<div  class="box">
 <div class="row">
     <div class="col-md-4" *ngIf="message;">
     <div class="alert alert-success">
@@ -17,8 +18,15 @@
 </div>
     </div>
 </div>
-<div *ngIf="totalItem" class="box">
-<table class="table box box-info">
+<div class="row">
+        <div class="col-md-3">
+    <nav class="navbar">
+      <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getNotificationData(page,$event)">      
+    </nav>
+    </div>
+    </div>
+<div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
+<table *ngIf="totalItem" class="table table-bordered box box-info">
                     <thead>
                         <tr>
                             <th>Notify Type</th>
@@ -30,7 +38,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                                <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 1, 
+                                <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                     totalItems: totalItem}">
                                     <td>{{datas.notifyType}}</td>
                                     <td>{{datas.notifyCategory}}</td>
@@ -41,9 +49,16 @@
                                     </tr>
                     </tbody>
                 </table>
-                <pagination-controls 
-			(pageChange) = "page = getNotificationData($event)" 
-			id="1"
+                <div *ngIf="!totalItem" class="row">
+    <div class="col-md-6" >
+    <div class="alert alert-success">
+  <strong>Success!</strong> Record not found
+</div>
+    </div>
+</div>
+                <pagination-controls *ngIf="totalItem"
+			(pageChange) = "page = getNotificationData($event,filter)" 
+			id="server"
             maxSize = "5"
 			directionLinks = "true"
             autohide = "true"
