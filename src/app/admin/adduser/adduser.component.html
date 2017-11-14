@@ -1,37 +1,84 @@
 <div class="content-wrapper">
-<form #personalForm="ngForm" class="editForm" novalidate>
-    <div class="tab-pane fade in active">
-        <h4 class="head text-center">{{title}}</h4>
-        <br/>
-        <div class='row'>
-            <div class='col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8'>
-                <div class="row">
-                    <div class='col-xs-12 col-sm-6'>
-                        <div class="form-group">
-                            <label class="control-label" for="firstname">First Name</label>  
-                            <input class="form-control input-md" #firstname="ngModel" required id="firstname" name="firstname" type="text" placeholder="First Name" [(ngModel)]="personal.firstName">   
-                            <div class="alert alert-danger" [hidden]="firstname.valid">First Name is required</div>
-                        </div>
-                    </div>
-                    <div class='col-xs-12 col-sm-6'>
-                        <div class="form-group">
-                            <label class="control-label" for="lastname">Last Name</label>  
-                            <input class="form-control input-md" #lastname="ngModel" required id="lastname" name="lastname" type="text" placeholder="Last Name" [(ngModel)]="personal.lastName">
-                            <div class="alert alert-danger" [hidden]="lastname.valid">Last Name is required</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="email">Email</label>
-                    <input class="form-control input-md" #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" name="email" type="text" placeholder="Email" [(ngModel)]="personal.email">
-                    <div class="alert alert-danger" [hidden]="email.valid">Email is required and must be valid</div>
-                </div>                    
-                <div class="form-group text-center">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>User Details</h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                            </p>
+     </div>
+    <form #personalForm="ngForm" class="editForm" novalidate>
+      <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">First Name</label>
+        <div class="col-sm-8">
+        <input class="form-control input-md" #firstname="ngModel" required id="firstname" name="firstname" type="text" placeholder="First Name" [(ngModel)]="user.firstName">   
+              </div>
+         <div class="alert alert-danger" [hidden]="firstname.valid || firstname.pristine">First Name is required</div>  
+      </div>
+      </div>
+ <div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">Middle Name</label>
+        <div class="col-sm-8">
+        <input class="form-control input-md" #middleName="ngModel" required id="middleName" name="middleName" type="text" placeholder="Middle Name" [(ngModel)]="user.middleName">
+      </div>
+        <div class="alert alert-danger" [hidden]="middleName.valid || middleName.pristine">Middle Name is required</div> 
+      </div>
+      </div>
+      <div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">Last Name</label>
+        <div class="col-sm-8">
+        <input class="form-control input-md" #lastName="ngModel" required id="lastName" name="lastName" type="text" placeholder="lastName" [(ngModel)]="user.lastName">
+      </div>
+    <div class="alert alert-danger" [hidden]="lastName.valid || lastName.pristine ">Last Name is required and must be valid</div> 
+      </div>
+      </div>
+<div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">Mobile No</label>
+        <div class="col-sm-8">
+          <input class="form-control input-md" #mobile="ngModel" required id="mobile" name="mobile" type="number" placeholder="mobile" [(ngModel)]="user.mobile">
+      </div>
+       <div [hidden]="mobile.valid || mobile.pristine"
+             class="alert alert-danger">
+          Mobile is required
+        </div> 
+      </div>
+      </div>
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="alterEgo">Email Id</label>
+        <div class="col-sm-8">
+          <input class="form-control input-md" #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" name="email" type="text" placeholder="email" [(ngModel)]="user.email">
+        </div>
+        <div class="alert alert-danger" [hidden]="email.valid || email.pristine">Email is required</div> 
+      </div>
+      </div>   
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="alterEgo">User Image</label>
+        <div class="col-sm-8">
+          <input type="file" class="form-control input-md" #userImage="ngModel"   id="userImage"  name="userImage" placeholder="user Image" [(ngModel)]="user.userImage">
+        </div>
+        <div class="alert alert-danger" [hidden]="userImage.valid || userImage.pristine">User Image is required</div> 
+      </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <div class="form-group text-center">
                     <button [routerLink]="['/admin/addProfile']" class="btn btn-success 
                     btn-outline-rounded btn-info" [disabled]="!personalForm.valid" (click)="save(personalForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
                 </div>
-            </div>
         </div>
-    </div>
-</form>
+        </div>
+    </form>
+  </div>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Profile }            from './../../service/formData.model';
 import { FormDataService }     from './../../service/formData.service';
 @Component({
   selector: 'app-addprofile',
@@ -7,14 +8,14 @@ import { FormDataService }     from './../../service/formData.service';
 })
 export class AddprofileComponent implements OnInit {
 title = 'What do you do?';
-    workType: string;
+    profile: Profile;
     form: any;
     
     constructor(private formDataService: FormDataService) {
     }
 
     ngOnInit() {
-        this.workType = this.formDataService.getWork();
+        this.profile = this.formDataService.getProfile();
         console.log('Work feature loaded!');
     }
 
@@ -22,6 +23,6 @@ title = 'What do you do?';
         if (!form.valid) 
             return;
         
-        this.formDataService.setWork(this.workType);
+        this.formDataService.setProfile(this.profile);
     }
 }

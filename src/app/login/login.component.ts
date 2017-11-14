@@ -90,7 +90,11 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         // reset login status
-        //this.authenticationService.logout();
+        this.authenticationService.logout();
+        if(localStorage.getItem('message')){
+            this.message=localStorage.getItem('message')
+            localStorage.removeItem('message');
+        }
         let loginstatus=localStorage.getItem('currentUser');
         if(loginstatus!=null){
             this.router.navigate(['admin/dashboard1']);

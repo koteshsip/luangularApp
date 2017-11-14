@@ -27,18 +27,7 @@ constructor(public mystorage:LocalStorageService,
    public _FB: FormBuilder) { 
 this.mymindate=moment(new Date()).format('YYYY-MM-DD');
 this.mymaxdate=moment(new Date()).add(2, 'M').format('YYYY-MM-DD');
-//this.buildForm();
 }
-
-// buildForm(): void {
-//      this.form = this._FB.group({
-//       'notifyType': ['', [Validators.required]],
-//       'notifyDate': ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
-//       'notifyCategory': ['', [Validators.required]],
-//       'notifyCode': ['', [Validators.required],this.isEmailUnique.bind(this)],
-//       'notifyMessage':['', [Validators.required]]
-//     });
-//    }
 
 id=this.route.snapshot.params;
   ngOnInit() {
@@ -47,17 +36,6 @@ id=this.route.snapshot.params;
       this.getNotificationById(myid);
     }
   }
-  // isEmailUnique(control: FormControl) {
-  //    const q = new Promise((resolve, reject) => {
-  //      setTimeout(() => {
-  //        this.myservice.notifyCodeExist(control.value).subscribe(() => {
-  //          resolve(null);
-  //        }, () => { resolve({ 'isEmailUnique': true }); });
-  //      }, 1000);
-  //    });
-  //     alert(q);
-  //    return q;
-  //  }
 doAddNotification(userinfo){
   if(userinfo.id){
     this.myservice.updateNotification(userinfo).subscribe((data:any)=>{

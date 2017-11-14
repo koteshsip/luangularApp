@@ -15,6 +15,14 @@ import { AddaddressComponent } from './../../admin/addaddress/addaddress.compone
 import { ListOfUsersComponent } from './../../admin/list-of-users/list-of-users.component';
 import { UIRouter, isFunction, StateObject } from "@uirouter/core";
 import { AuthGuard } from './../../_guards/index';
+
+import { AddCityComponent } from './../../admin/add-city/add-city.component';
+import { AddCountryComponent } from './../../admin/add-country/add-country.component';
+import { AddStateComponent } from './../../admin/add-state/add-state.component';
+import { StateListComponent } from './../../admin/state-list/state-list.component';
+import { CityListComponent } from './../../admin/city-list/city-list.component';
+import { CountryListComponent } from './../../admin/country-list/country-list.component';
+
 @NgModule({
   imports: [
     RouterModule.forChild([
@@ -81,7 +89,50 @@ import { AuthGuard } from './../../_guards/index';
             path: 'list-of-users',
             component: ListOfUsersComponent,
             canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-city',
+            component: AddCityComponent,
+            canActivate: [AuthGuard]
+          },{
+            path: 'update-city/:id',
+            component: AddCityComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-country',
+            component: AddCountryComponent,
+            canActivate: [AuthGuard]
+          },{
+            path: 'update-country/:id',
+            component: AddCountryComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-state',
+            component: AddStateComponent,
+            canActivate: [AuthGuard]
+          },{
+            path: 'update-state/:id',
+            component: AddStateComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'country-list',
+            component: CountryListComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'state-list',
+            component: StateListComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'city-list',
+            component: CityListComponent,
+            canActivate: [AuthGuard]
           }
+          
         ]
       }
     ])

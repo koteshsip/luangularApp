@@ -17,7 +17,10 @@ myloginservice(email,password){
 }
 getToken(){
   let mdata=localStorage.getItem('currentUser');
-  let mydata=JSON.parse(mdata).data;
-  return mydata['token'];
+  if(JSON.parse(mdata)){
+    let mydata=JSON.parse(mdata).data;
+    return mydata['token'];  
+  }
+  
 }
 }

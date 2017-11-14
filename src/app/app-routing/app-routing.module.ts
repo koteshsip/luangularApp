@@ -17,8 +17,8 @@ import { ChangePasswordComponent } from './../change-password/change-password.co
       { path: 'starter', component: StarterComponent },
       { path: 'login', component:LoginComponent},
       { path: 'forgot-password', component:ForgotPasswordComponent},
-      { path: 'change-password', component:ChangePasswordComponent},
-    //   { path: 'admin', 
+      { path: 'change-password/:id/:token', component:ChangePasswordComponent},
+      //   { path: 'admin', 
     //   component:AdminComponent,
     //        children: [
     //       {

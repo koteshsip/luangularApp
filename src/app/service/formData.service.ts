@@ -1,6 +1,6 @@
 import { Injectable }                        from '@angular/core';
 
-import { FormData, Personal, Address }       from './formData.model';
+import { FormData, User,Profile, Address }       from './formData.model';
 import { WorkflowService }                   from '../workflow/workflow.service';
 import { STEPS }                             from '../workflow/workflow.model';
 
@@ -8,44 +8,60 @@ import { STEPS }                             from '../workflow/workflow.model';
 export class FormDataService {
 
     private formData: FormData = new FormData();
-    private isPersonalFormValid: boolean = false;
-    private isWorkFormValid: boolean = false;
+    // private isPersonalFormValid: boolean = false;
+    private isUserFormValid: boolean = false;
+    // private isWorkFormValid: boolean = false;
+    private isProfileFormValid: boolean = false;
     private isAddressFormValid: boolean = false;
 
     constructor(private workflowService: WorkflowService) { 
     }
-
-    getPersonal(): Personal {
+getUser(): User {
         // Return the Personal data
-        var personal: Personal = {
+           var user: User = {
             firstName: this.formData.firstName,
+            middleName: this.formData.middleName,
             lastName: this.formData.lastName,
-            email: this.formData.email
+            mobile:this.formData.mobile,
+            email: this.formData.email,
+            userImage: this.formData.userImage
         };
-        return personal;
+        return user;
     }
-
-    setPersonal(data: Personal) {
+    setUser(data: User) {
         // Update the Personal data only when the Personal Form had been validated successfully
-        this.isPersonalFormValid = true;
+        this.isUserFormValid = true;
         this.formData.firstName = data.firstName;
+        this.formData.middleName = data.middleName;
         this.formData.lastName = data.lastName;
         this.formData.email = data.email;
+        this.formData.mobile = data.mobile;
+        this.formData.userImage=data.userImage;
         // Validate Personal Step in Workflow
-        this.workflowService.validateStep(STEPS.personal);
+        this.workflowService.validateStep(STEPS.user);
     }
 
-    getWork() : string {
-        // Return the work type
-        return this.formData.work;
+    getProfile(): Profile {
+        // Return the Personal data
+           var profile: Profile = {
+            profileName: this.formData.profileName,
+            profileImage: this.formData.profileImage,
+            profileType: this.formData.profileType,
+            achievment:this.formData.achievment,
+            extraActivities: this.formData.extraActivities
+        };
+        return profile;
     }
-    
-    setWork(data: string) {
-        // Update the work type only when the Work Form had been validated successfully
-        this.isWorkFormValid = true;
-        this.formData.work = data;
-        // Validate Work Step in Workflow
-        this.workflowService.validateStep(STEPS.work);
+    setProfile(data: Profile) {
+        // Update the Personal data only when the Personal Form had been validated successfully
+        this.isProfileFormValid = true;
+        this.formData.profileName = data.profileName;
+        this.formData.profileImage = data.profileImage;
+        this.formData.profileType = data.profileType;
+        this.formData.achievment = data.achievment;
+        this.formData.extraActivities = data.extraActivities;
+        // Validate Personal Step in Workflow
+        this.workflowService.validateStep(STEPS.user);
     }
 
     getAddress() : Address {
@@ -54,7 +70,9 @@ export class FormDataService {
             street: this.formData.street,
             city: this.formData.city,
             state: this.formData.state,
-            zip: this.formData.zip
+            zip: this.formData.zip,
+            permanentAddress: this.formData.permanentAddress,
+            communicationAddress:this.formData.communicationAddress
         };
         return address;
     }
@@ -66,6 +84,8 @@ export class FormDataService {
         this.formData.city = data.city;
         this.formData.state = data.state;
         this.formData.zip = data.zip;
+        this.formData.permanentAddress = data.permanentAddress;
+        this.formData.communicationAddress=data.communicationAddress;
         // Validate Address Step in Workflow
         this.workflowService.validateStep(STEPS.address);
     }
@@ -80,14 +100,14 @@ export class FormDataService {
         this.workflowService.resetSteps();
         // Return the form data after all this.* members had been reset
         this.formData.clear();
-        this.isPersonalFormValid = this.isWorkFormValid = this.isAddressFormValid = false;
+        this.isUserFormValid = this.isProfileFormValid = this.isAddressFormValid = false;
         return this.formData;
     }
 
     isFormValid() {
         // Return true if all forms had been validated successfully; otherwise, return false
-        return this.isPersonalFormValid &&
-                this.isWorkFormValid && 
+        return this.isUserFormValid &&
+                this.isProfileFormValid && 
                 this.isAddressFormValid;
     }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Personal }            from './../../service/formData.model';
+import { User }            from './../../service/formData.model';
 import { FormDataService }     from './../../service/formData.service';
 @Component({
   selector: 'app-adduser',
@@ -8,14 +8,14 @@ import { FormDataService }     from './../../service/formData.service';
 })
 export class AdduserComponent implements OnInit {
   title = 'Please tell us about yourself.';
-    personal: Personal;
+    user: User;
     form: any;
     
     constructor(private formDataService: FormDataService) {
     }
 
     ngOnInit() {
-        this.personal = this.formDataService.getPersonal();
+        this.user = this.formDataService.getUser();
         console.log('Personal feature loaded!');
     }
 
@@ -23,6 +23,6 @@ export class AdduserComponent implements OnInit {
         if (!form.valid) 
             return;
         
-        this.formDataService.setPersonal(this.personal);
+        this.formDataService.setUser(this.user);
     }
 }

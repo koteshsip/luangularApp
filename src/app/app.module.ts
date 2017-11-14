@@ -34,6 +34,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { FormDataService }    from './service/formData.service';
 import { WorkflowService }    from './workflow/workflow.service';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { EqualValidator } from './change-password/equal-validator.directive';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     StarterControlSidebarComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    EqualValidator
   ],
   imports: [
     BrowserModule,

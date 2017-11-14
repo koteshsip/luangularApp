@@ -26,6 +26,12 @@ import { ListOfUsersComponent } from './list-of-users/list-of-users.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
+import { AddCityComponent } from './add-city/add-city.component';
+import { AddCountryComponent } from './add-country/add-country.component';
+import { AddStateComponent } from './add-state/add-state.component';
+import { StateListComponent } from './state-list/state-list.component';
+import { CityListComponent } from './city-list/city-list.component';
+import { CountryListComponent } from './country-list/country-list.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -57,7 +63,13 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
     AdduserComponent,
     AddprofileComponent,
     AddaddressComponent,
-    ListOfUsersComponent
+    ListOfUsersComponent,
+    AddCityComponent,
+    AddCountryComponent,
+    AddStateComponent,
+    StateListComponent,
+    CityListComponent,
+    CountryListComponent
   ],entryComponents: [
         MessageComponent
       ],

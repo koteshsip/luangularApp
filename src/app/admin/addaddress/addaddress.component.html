@@ -1,45 +1,84 @@
 <div class="content-wrapper">
-<form #addressForm="ngForm" class="editForm" novalidate>
-    <div class="tab-pane fade in active">
-        <h4 class="head text-center">{{title}}</h4>
-        <br/>
-        <div class='row'>
-            <div class='col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10'>
-                <div class="form-group">
-                    <label class="control-label" for="street">Street Address</label>  
-                    <input class="form-control input-md" #street="ngModel" required id="street" name="street" type="text" placeholder="Street Address" [(ngModel)]="address.street">
-                    <div class="alert alert-danger" [hidden]="street.valid">Street Address is required</div>
-                </div>   
-                <div class="row">
-                    <div class='col-xs-12 col-sm-4'>
-                        <div class="form-group">
-                            <label class="control-label" for="city">City</label>  
-                            <input class="form-control input-md" #city="ngModel" required id="city" name="city" type="text" placeholder="City" [(ngModel)]="address.city">
-                            <div class="alert alert-danger" [hidden]="city.valid">City is required</div>
-                        </div>
-                    </div>
-                    <div class='col-xs-4 col-sm-offset-1 col-sm-3'>
-                        <div class="form-group">
-                            <label class="control-label" for="state">State</label>  
-                            <input class="form-control input-md" #state="ngModel" required id="state" name="state" type="text" placeholder="State" [(ngModel)]="address.state">
-                            <div class="alert alert-danger" [hidden]="state.valid">State is required</div>
-                        </div>
-                    </div>
-                    <div class='col-xs-offset-1 col-xs-7 col-sm-offset-1 col-sm-3'>
-                        <div class="form-group">
-                            <label class="control-label" for="zip">Zip</label>  
-                            <input class="form-control input-md" #zip="ngModel" required id="zip" name="zip" type="text" placeholder="Zip" [(ngModel)]="address.zip">
-                            <div class="alert alert-danger" [hidden]="zip.valid">Zip is required</div>
-                        </div>  
-                    </div> 
-                </div>
-            </div>
-
-            <div class="form-group text-center">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>User Details</h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                            </p>
+     </div>
+  <form #addressForm="ngForm" class="editForm" novalidate>
+      <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Street Address</label>
+        <div class="col-sm-8">
+        <input class="form-control input-md" #street="ngModel" required id="street" name="street" type="text" placeholder="Street Address" [(ngModel)]="address.street">
+              </div>
+         <div class="alert alert-danger" [hidden]="street.valid || street.pristine">Street Address is required</div>  
+      </div>
+      </div>
+ <div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">City</label>
+        <div class="col-sm-8">
+        <input class="form-control input-md" #city="ngModel" required id="city" name="city" type="text" placeholder="City" [(ngModel)]="address.city">
+      </div>
+        <div class="alert alert-danger" [hidden]="city.valid || city.pristine">City is required</div> 
+      </div>
+      </div>
+      <div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">State</label>
+        <div class="col-sm-8">
+        <input class="form-control input-md" #state="ngModel" required id="state" name="state" type="text" placeholder="State" [(ngModel)]="address.state">
+      </div>
+    <div class="alert alert-danger" [hidden]="state.valid || state.pristine ">State is required</div> 
+      </div>
+      </div>
+<div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">Zip Code</label>
+        <div class="col-sm-8">
+          <input class="form-control input-md" #zip="ngModel" required id="zip" name="zip" type="text" placeholder="Zip" [(ngModel)]="address.zip">
+      </div>
+       <div [hidden]="zip.valid || zip.pristine"
+             class="alert alert-danger">
+          Zip Code is required
+        </div> 
+      </div>
+      </div>
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="alterEgo">Permanent Address</label>
+        <div class="col-sm-8">
+          <input class="form-control input-md" #permanentAddress="ngModel" required id="permanentAddress" name="permanentAddress" type="text" placeholder="permanent Address" [(ngModel)]="address.permanentAddress">
+        </div>
+        <div class="alert alert-danger" [hidden]="permanentAddress.valid || permanentAddress.pristine">Permanent Address is required</div> 
+      </div>
+      </div>   
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="alterEgo">Communication Address</label>
+        <div class="col-sm-8">
+          <input class="form-control input-md" #communicationAddress="ngModel" required id="communicationAddress" name="communicationAddress" type="text" placeholder="communication Address" [(ngModel)]="address.communicationAddress">
+        </div>
+        <div class="alert alert-danger" [hidden]="communicationAddress.valid || communicationAddress.pristine">Communication Address is required</div> 
+      </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <div class="form-group text-center">
                 <button [routerLink]="['/admin/addProfile']" class="btn btn-outline-rounded btn-default" (click)="save(addressForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
                 <button (click)="saveUser();" class="btn btn-outline-rounded btn-info" [disabled]="!addressForm.valid" (click)="save(addressForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
             </div>
         </div>
-    </div>
-</form>
+        </div>
+    </form>
+  </div>
+  </div>
 </div>

@@ -74,4 +74,19 @@ notifyCodeExist(NotifyCode){
 mysession(){
   return "hello"
 }
+chagePassword(id: any,token: string){
+  const url=this.baseurl+"lujavaapp/changePassword/"+id+"/"+token;
+  return this.http.get(url)
+};
+resetPassword(formdata){
+const url=this.baseurl+"lujavaapp/resetPassword";
+    return this.http.post(url,formdata);
+}
+savePassword(password,userid){
+  let formdata={"password":password,"id":userid};
+    const url=this.baseurl+"lujavaapp/updatePassword";
+    return this.http.put(url,formdata);
+}
+
+
 }

@@ -21,7 +21,7 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">Notify Type</label>
         <div class="col-sm-8">
-        <input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-]*" id="notifyType"
+        <input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-,]*" id="notifyType"
                required 
                [(ngModel)]="model.notifyType" name="notifyType"
                #notifyType="ngModel">
@@ -58,7 +58,7 @@
         <div class="col-sm-8">
         <input type="text" maxlength="50" class="form-control" id="notifyCode"
         required       
-        [(ngModel)]="model.notifyCode" (ngModelChange)="notificationCode($event)" pattern="[a-zA-Z0-9-\&quot;-'-$-.- ]*" name="notifyCode" #notifyCode="ngModel">        
+        [(ngModel)]="model.notifyCode" (ngModelChange)="notificationCode($event)" pattern="[a-zA-Z0-9-\&quot;-'-$-.-,]*" name="notifyCode" #notifyCode="ngModel">        
       </div>
     <div *ngIf="IsExist"
              class="alert alert-danger">
@@ -77,7 +77,7 @@
           <input type="hidden" name="test" [value]="model.id"/>
           <textarea type="text" maxlength="500" class="form-control" id="notifyMessage"
         required       
-        [(ngModel)]="model.notifyMessage" pattern="[a-zA-Z0-9-\&quot;-'-$-.- ]*" name="notifyMessage" #notifyMessage="ngModel" rows="5" cols="120"></textarea>
+        [(ngModel)]="model.notifyMessage" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" name="notifyMessage" #notifyMessage="ngModel" rows="5" cols="120"></textarea>
       </div>
        <div [hidden]="notifyMessage.valid || notifyMessage.pristine"
              class="alert alert-danger">
