@@ -17,7 +17,6 @@ import { MessageComponent } from './message/message.component';
 import { NotificationfomComponent } from './notificationfom/notificationfom.component';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
-import { NgDatepickerModule } from '../ng-datepicker';
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddprofileComponent } from './addprofile/addprofile.component';
@@ -38,7 +37,6 @@ import { CountryListComponent } from './country-list/country-list.component';
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgDatepickerModule,
     BootstrapModalModule,
     Ng2TableModule,
     NgxPaginationModule,

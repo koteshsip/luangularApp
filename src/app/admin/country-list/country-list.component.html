@@ -1,3 +1,65 @@
-<p>
-  country-list works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box"><h1>
+      List Of Country<button class="btn btn-primary pull-right" (click)="addCountry()">Add Country</button>
+    </h1></div>
+  </section>
+<div class="content">
+    <div><div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">  
+    </div></div>
+<div  class="box">
+<div class="row">
+    <div class="col-md-4" *ngIf="message;">
+    <div class="alert alert-success">
+  <strong>Success!</strong> {{message}}.
+</div>
+    </div>
+</div>
+<div class="row">
+        <div class="col-md-3">
+    <nav class="navbar">
+      <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllCountry(page,$event)">      
+    </nav>
+    </div>
+    </div>
+<div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
+<table  class="table table-bordered box box-info">
+                    <thead>
+                        <tr>
+                            <th>Country Name</th> 
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
+                                    totalItems: totalItem}">
+                                    <td>{{datas.countryName}}</td>
+<td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-country/{{this.baseEncode(datas.countryId)}}">Edit</a><a class="btn btn-danger" (click)="deleteCountry(this.baseEncode(datas.countryId))">Delete</a></td>
+                                    </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="!totalItem" class="row">
+    <div class="col-md-6" >
+    <div class="alert alert-success">
+  <strong>Success!</strong> Record not found
+</div>
+    </div>
+</div>
+                <pagination-controls *ngIf="totalItem"
+			(pageChange) = "page = getAllCountry($event,filter)" 
+			id="server"
+            maxSize = "5"
+			directionLinks = "true"
+            autohide = "true"
+            screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page"
+			>
+        </pagination-controls>
+     </div>
+   </div>
+</div>
+</div>

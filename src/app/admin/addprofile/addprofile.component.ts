@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef } from '@angular/core';
 import { Profile }            from './../../service/formData.model';
 import { FormDataService }     from './../../service/formData.service';
 @Component({
@@ -11,7 +11,7 @@ title = 'What do you do?';
     profile: Profile;
     form: any;
     
-    constructor(private formDataService: FormDataService) {
+    constructor(private formDataService: FormDataService,private elem: ElementRef) {
     }
 
     ngOnInit() {
@@ -21,8 +21,12 @@ title = 'What do you do?';
 
     save(form: any) {
         if (!form.valid) 
-            return;
-        
+            return;    
+        let files = this.elem.nativeElement.querySelector('#profileImage').files;
+        let formData = new FormData();
+        let file = files[0];
+        //formData.append('profileImage', file, file.name);
+        this.profile.profileImage=file;
         this.formDataService.setProfile(this.profile);
     }
 }

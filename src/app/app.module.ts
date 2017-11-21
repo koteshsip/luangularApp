@@ -27,11 +27,15 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { TokenInterceptor } from './auth/token.interceptor';
 import {HttpModule} from '@angular/http';
-import { NgDatepickerModule } from './ng-datepicker';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import {NgxPaginationModule} from 'ngx-pagination';
 /* Shared Service */
 import { FormDataService }    from './service/formData.service';
+
+import { CityService }    from './service/city-service';
+import { StateService }    from './service/state-service';
+import { CountryService }    from './service/country-service';
+import { UserServices }    from './service/user-service';
 import { WorkflowService }    from './workflow/workflow.service';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { EqualValidator } from './change-password/equal-validator.directive';
@@ -56,7 +60,6 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     AppRoutingModule,
     AdminModule,
     AuthModule,
-    NgDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -67,7 +70,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
             storageType: 'localStorage'
         })
   ],
-  providers: [MyServiceService,AuthGuard,AuthenticationService,
+  providers: [MyServiceService,UserServices,CityService,StateService,CountryService,AuthGuard,AuthenticationService,
                 { provide: HTTP_INTERCEPTORS,useClass: TokenInterceptor,multi: true},
                 { provide: FormDataService, useClass: FormDataService },
                 { provide: WorkflowService, useClass: WorkflowService }],

@@ -28,7 +28,7 @@ export class FormData {
         this.lastName = '';
         this.mobile = '';
         this.email = '';
-        this.userImage = '';  
+        //this.userImage = File;  
         this.profileName = '';
         this.profileImage = '';
         this.profileType = '';
@@ -45,12 +45,12 @@ export class Address {
     communicationAddress: string='';
 }
 export class User{
-firstName: string = '';
-middleName: string = '';
-lastName: string = '';
-mobile:string = '';
-email: string = '';
-userImage: any;   
+    firstName: string = '';
+    middleName: string = '';
+    lastName: string = '';
+    mobile:string = '';
+    email: string = '';
+    userImage: any;   
 }
 export class Profile {
     profileName: string = '';

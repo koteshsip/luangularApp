@@ -1,3 +1,65 @@
-<p>
-  add-city works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.id; else falsyTemplate">
+        Edit City
+      </div>
+      <ng-template #falsyTemplate>
+        Add City
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                            </p>
+     </div>
+    <form (ngSubmit)="addCity(model)" #cityForm="ngForm">
+      <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">City Name</label>
+        <div class="col-sm-8">
+        <input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="cityName"
+               required
+               (ngModelChange)="cityAlreadyExist($event,stateId.value)" 
+               [(ngModel)]="model.cityName" name="cityName"
+               #cityName="ngModel">
+               <input type="hidden" name="cityId" [value]="model.cityId"/>
+              </div>
+         <div [hidden]="cityName.valid || cityName.pristine"
+             class="alert alert-danger">
+          City is required
+        </div>
+        <div *ngIf="IsExist"
+             class="alert alert-danger">
+          City Already Exist
+        </div>  
+      </div>
+      </div>
+
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">State Name</label>
+        <div class="col-sm-8">
+<select minlength="1" class="form-control" (ngModelChange)="cityAlreadyExist(cityName.value,$event)"  name="stateId" id="stateId" [(ngModel)]="model.stateId"  #stateId="ngModel">
+                <option *ngFor='let state of states' [selected]="state.stateId===model.stateId" [ngValue]='state.stateId' >{{state.stateName}}</option>
+        </select>
+              </div>  
+      </div>
+      </div>
+
+
+      <div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!cityForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>
