@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params,Router } from '@angular/router';
 import { Address }            from './../../service/formData.model';
 import { FormDataService }     from './../../service/formData.service';
 import { UserServices } from './../../service/user-service';
@@ -11,56 +12,106 @@ export class AddaddressComponent implements OnInit {
 title = 'Where do you live?';
     address: Address;
     form: any;
-    
-    constructor(private formDataService: FormDataService,private user: UserServices) {
+    statedata:any;
+    citydata:any;
+    countrydata:any;
+    constructor(private formDataService: FormDataService,private user: UserServices,private route:ActivatedRoute) {
     }
-
+id=this.route.snapshot.params;
     ngOnInit() {
         this.address = this.formDataService.getAddress();
+        if(this.id['id']){
+        this.address['userId']=this.id['id']
+        }
         console.log('Address feature loaded!');
+        this.getAllCountry();
+        this.getAllCitySelect();
+        this.getAllState();
     }
 
     save(form: any) {
         // if (!form.valid) 
         //     return;
         this.formDataService.setAddress(this.address);
-        let address= this.formDataService.getAddress();
+        //let address= this.formDataService.getAddress();
         let profile=this.formDataService.getProfile();
         let user=this.formDataService.getUser();
-
         let formData = new FormData();
-        profile.profileImage.name
-        formData.append("selectFile",profile.profileImage,profile.profileImage.name);
+        if(profile.profileImage){
+            formData.append("selectFile",profile.profileImage,profile.profileImage.name);
+        }
         formData.append('PROFILEDATA', new Blob([JSON.stringify({
-                "profileName": profile.profileName,
-                "profileType":profile.profileType,
-                "achievment":profile.achievment,
-                "extraActivities":profile.extraActivities               
+                userId: user.userId,
+                id: user.profileId,
+                addressId: user.addressId,
+                profileName: profile.profileName,
+                profileType:profile.profileType,
+                achievment:profile.achievment,
+                extraactivities:profile.extraActivities,
+                email:user.email,
+                userDesc: user.userDesc,
+                password: user.Password,
+                firstName:user.firstName,
+                middleName:user.middleName,
+                lastName:user.lastName,
+                mobile: user.mobile,
+                attendance: user.attendance,
+                books: user.books,
+                class: user.class,
+                drawing: user.drawing,
+                news: user.news,
+                notes: user.notes,
+                notify: user.notify,
+                subject: user.subject,
+                timetable: user.timetable,
+                test: user.test,
+                video: user.video,
+                communicationAddress:this.address.communicationAddress,
+                permanentAddress:this.address.permanentAddress,
+                zipCode:this.address.zip, 
+                city:{"cityId":this.address.city}              
             })], {
                 type: "application/json"
             }));
-		  formData.append('USERDATA', new Blob([JSON.stringify({
-                "email":user.email,
-                "firstName":user.firstName,
-                "middleName":user.middleName,
-                "lastName":user.lastName,
-                "mobile": user.mobile                
-            })], {
-                type: "application/json"
-            }));
-            formData.append('AddressDATA', new Blob([JSON.stringify({
-                "city":address.city,
-                "communicationAddress":address.communicationAddress,
-                "permanentAddress":address.permanentAddress,
-                "state":address.state,
-                "zip": address.zip                
-            })], {
-                type: "application/json"
-            }));
-        this.user.uploadImage(formData).subscribe((data:any)=>{
-          console.log("data=pp"+data);
+            if(this.id['id']){
+                this.user.updateUser(formData,this.id['id']).subscribe((data:any)=>{
+                console.log("data=pp"+data);
+                });
+            }else{
+                this.user.addUser(formData).subscribe((data:any)=>{
+                console.log("data=pp"+data);
+                });
+            }
+            // this.user.addUser(formData).subscribe((data:any)=>{
+            //     console.log("data=pp"+data);
+            //     });
+    }
+
+    public  getAllState(){
+        this.user.getAllState(0).subscribe((data:any)=>{
+        this.statedata=data;
         });
-        console.log("this formDataService getFormData =="+user.userImage);
-        //console.log("this formDataService getFormData =="+this.formDataService.getFormData);
+    }
+  
+    public  getAllCountry(){
+            this.user.getAllCountry().subscribe((data:any)=>{
+            this.countrydata=data;
+        });
+    }
+  
+    public  getAllCitySelect(){
+            this.user.getAllCitySelect(0).subscribe((data:any)=>{
+            this.citydata=data;
+            });
+    }
+    public getStateByCountryId(event){
+        this.user.getAllState(event).subscribe((data:any)=>{
+            this.statedata=data;
+            });
+    }
+    public  getAllCityByStateId(event){
+            this.user.getAllCitySelect(event).subscribe((data:any)=>{
+            this.citydata=data;
+            });
     }
 }

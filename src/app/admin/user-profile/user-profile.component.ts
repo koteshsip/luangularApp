@@ -22,13 +22,15 @@ achievment: any;
   getprofiledata(){
     this.imagePath="assets/img/user2-160x160.jpg";
     this.mdata=localStorage.getItem('currentUser');
+    //console.log("mdata==="+this.mdata);
     this.mydata=JSON.parse(this.mdata).data;
-   let loginId=this.mydata['id'];  
-    this.myservice.myprofile(loginId).subscribe((newdata:any)=>{
-      this.data=newdata;
-      this.achievment=newdata.achievment;
-      this.profileType=newdata.profileType;
-      this.profileName=newdata.profileName;
- });
+    //console.log("mdata profileName==="+profileName);
+   //let loginId=this.mydata['userId'];  
+//     this.myservice.myprofile(loginId).subscribe((newdata:any)=>{
+//       this.data=newdata;
+//       this.achievment=newdata.achievment;
+//       this.profileType=newdata.profileType;
+//       this.profileName=newdata.profileName;
+//  });
   }
 }

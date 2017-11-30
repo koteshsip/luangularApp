@@ -14,7 +14,7 @@ import { Base64 } from 'js-base64';
 })
 export class CountryListComponent implements OnInit {
 
- private message;
+  private message;
   private data  = [];
   private baseEncode:any;
   public totalItem:any;

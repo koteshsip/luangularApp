@@ -19,12 +19,28 @@ export class FormDataService {
 getUser(): User {
         // Return the Personal data
            var user: User = {
+            addressId: this.formData.addressId,
+            profileId: this.formData.profileId,
+            userId: this.formData.userId,
             firstName: this.formData.firstName,
+            Password: this.formData.Password,
+            userDesc: this.formData.userDesc,
             middleName: this.formData.middleName,
             lastName: this.formData.lastName,
             mobile:this.formData.mobile,
             email: this.formData.email,
-            userImage: this.formData.userImage
+           // userImage: this.formData.userImage,
+            attendance: this.formData.attendance,
+            books: this.formData.books,
+            class: this.formData.class,
+            drawing: this.formData.drawing,
+            news: this.formData.news,
+            notes: this.formData.notes,
+            notify: this.formData.notify,
+            subject: this.formData.subject,
+            timetable: this.formData.timetable,
+            test: this.formData.test,
+            video: this.formData.video
         };
         return user;
     }
@@ -32,12 +48,29 @@ getUser(): User {
         // Update the Personal data only when the Personal Form had been validated successfully
         this.isUserFormValid = true;
         this.formData.firstName = data.firstName;
+        this.formData.Password=data.Password;
+        this.formData.userDesc=data.userDesc;
         this.formData.middleName = data.middleName;
         this.formData.lastName = data.lastName;
         this.formData.email = data.email;
         this.formData.mobile = data.mobile;
-        this.formData.userImage=data.userImage;
+        //this.formData.userImage=data.userImage;
+
+        this.formData.attendance= data.attendance;
+        this.formData.books= data.books;
+        this.formData.class= data.class;
+        this.formData.drawing= data.drawing;
+        this.formData.news= data.news;
+        this.formData.notes= data.notes;
+        this.formData.notify= data.notify;
+        this.formData.subject= data.subject;
+        this.formData.timetable= data.timetable;
+        this.formData.test= data. test;
+        this.formData.video= data.video;
         // Validate Personal Step in Workflow
+        this.formData.addressId= data.addressId,
+        this.formData.profileId= data.profileId,
+        this.formData.userId= data.userId
         this.workflowService.validateStep(STEPS.user);
     }
 
@@ -68,6 +101,7 @@ getUser(): User {
         // Return the Address data
         var address: Address = {
             street: this.formData.street,
+            countryId:this.formData.countryId,
             city: this.formData.city,
             state: this.formData.state,
             zip: this.formData.zip,
@@ -81,6 +115,7 @@ getUser(): User {
         // Update the Address data only when the Address Form had been validated successfully
         this.isAddressFormValid = true;
         this.formData.street = data.street;
+        this.formData.countryId=data.countryId;
         this.formData.city = data.city;
         this.formData.state = data.state;
         this.formData.zip = data.zip;

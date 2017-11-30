@@ -45,7 +45,6 @@ model = new City('',this.states);
 }
   addCity(countryinfo){
     if(countryinfo.cityId){
-      alert(countryinfo.cityId);
     this.cityService.updateCity(countryinfo).subscribe((data:any)=>{
           this.mystorage.set("message","Record Updated Successfully");
           this.router.navigate(['/admin/city-list']);

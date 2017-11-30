@@ -17,7 +17,19 @@
        <p>                            </p>
      </div>
     <form (ngSubmit)="addCity(model)" #cityForm="ngForm">
-      <div class="row">
+      
+
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">State Name</label>
+        <div class="col-sm-8">
+<select minlength="1" class="form-control" (ngModelChange)="cityAlreadyExist(cityName.value,$event)"  name="stateId" id="stateId" [(ngModel)]="model.stateId"  #stateId="ngModel">
+                <option *ngFor='let state of states' [selected]="state.stateId===model.stateId" [ngValue]='state.stateId' >{{state.stateName}}</option>
+        </select>
+              </div>  
+      </div>
+      </div>
+<div class="row">
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">City Name</label>
         <div class="col-sm-8">
@@ -38,18 +50,6 @@
         </div>  
       </div>
       </div>
-
-<div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">State Name</label>
-        <div class="col-sm-8">
-<select minlength="1" class="form-control" (ngModelChange)="cityAlreadyExist(cityName.value,$event)"  name="stateId" id="stateId" [(ngModel)]="model.stateId"  #stateId="ngModel">
-                <option *ngFor='let state of states' [selected]="state.stateId===model.stateId" [ngValue]='state.stateId' >{{state.stateName}}</option>
-        </select>
-              </div>  
-      </div>
-      </div>
-
 
       <div class="row">
         <div class="form-group col-sm-4">

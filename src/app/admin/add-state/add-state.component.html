@@ -17,6 +17,23 @@
        <p>                            </p>
      </div>
     <form (ngSubmit)="addState(model)" #stateForm="ngForm">
+      
+      <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Country Name</label>
+        <div class="col-sm-8">
+        <select required minlength="1" class="form-control" name="countryId" id="countryId" [(ngModel)]="model.countryId" #countryId="ngModel" 
+        (ngModelChange)="stateAlreadyExist(stateName.value,$event)"
+        >
+                <option *ngFor='let country of countrys' [selected]="country.countryId===model.countryId" [ngValue]='country.countryId' >{{country.countryName}}</option>
+        </select>
+              </div>
+          <div [hidden]="countryId.valid || countryId.pristine"
+             class="alert alert-danger">
+          Country is required
+        </div>   
+      </div>
+      </div>
       <div class="row">
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">State Name</label>
@@ -38,25 +55,6 @@
         </div>  
       </div>
       </div>
-<div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">Country Name</label>
-        <div class="col-sm-8">
-          {{model | json}}
-        <select minlength="1" class="form-control" name="countryId" id="countryId" [(ngModel)]="model.countryId" #countryId="ngModel" 
-        (ngModelChange)="stateAlreadyExist(stateName.value,$event)"
-        >
-                <option *ngFor='let country of countrys' [selected]="country.countryId===model.countryId" [ngValue]='country.countryId' >{{country.countryName}}</option>
-        </select>
-              </div>
-         <!-- <div [hidden]="countryId.valid || countryId.pristine"
-             class="alert alert-danger">
-          Country is required
-        </div>   -->
-      </div>
-      </div>
-
-
       <div class="row">
         <div class="form-group col-sm-4">
         </div>

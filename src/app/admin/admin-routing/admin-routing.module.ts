@@ -76,6 +76,20 @@ import { CountryListComponent } from './../../admin/country-list/country-list.co
             path: 'addUser',
             component: AdduserComponent,
             canActivate: [AuthGuard]
+          },{
+            path: 'addUser/:id',
+            component: AdduserComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'addProfile/:id',
+            component: AddprofileComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'addAddress/:id',
+            component: AddaddressComponent,
+            canActivate: [AuthGuard]
           },
           {
             path: 'addProfile',

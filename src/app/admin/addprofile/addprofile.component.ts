@@ -1,4 +1,5 @@
 import { Component, OnInit,ElementRef } from '@angular/core';
+import { ActivatedRoute, Params,Router } from '@angular/router';
 import { Profile }            from './../../service/formData.model';
 import { FormDataService }     from './../../service/formData.service';
 @Component({
@@ -7,16 +8,18 @@ import { FormDataService }     from './../../service/formData.service';
   styleUrls: ['./addprofile.component.css']
 })
 export class AddprofileComponent implements OnInit {
-title = 'What do you do?';
     profile: Profile;
     form: any;
     
-    constructor(private formDataService: FormDataService,private elem: ElementRef) {
+    constructor(private formDataService: FormDataService,private elem: ElementRef,private route: ActivatedRoute) {
     }
-
+id=this.route.snapshot.params;
     ngOnInit() {
         this.profile = this.formDataService.getProfile();
-        console.log('Work feature loaded!');
+        this.profile['profileId'];
+        if(this.id['id']){
+            this.profile['userId']=this.id['id'];
+        }
     }
 
     save(form: any) {

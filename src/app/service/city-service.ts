@@ -41,7 +41,8 @@ cityAlreadyExist(cityName,stateId){
     return this.http.get(url);
 }
   getAllState(){
-    const url=this.baseurl+"getAllStateSelect";
+    let countryId=0;
+    const url=this.baseurl+"getAllStateSelect/"+countryId;
     return this.http.get(url);
   }
 }

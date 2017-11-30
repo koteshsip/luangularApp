@@ -1,38 +1,63 @@
 import { Component, OnInit,ElementRef } from '@angular/core';
+import { ActivatedRoute, Params,Router } from '@angular/router';
 import { User }            from './../../service/formData.model';
 import { FormDataService }     from './../../service/formData.service';
+import { UserServices }     from './../../service/user-service';
+import { Base64 } from 'js-base64';
 @Component({
   selector: 'app-adduser',
   templateUrl: './adduser.component.html',
   styleUrls: ['./adduser.component.css']
 })
 export class AdduserComponent implements OnInit {
-  title = 'Please tell us about yourself.';
     user: User;
     form: any;
+    baseEncode:any;
     // private elem: ElementRef;
-    constructor(private formDataService: FormDataService,private elem: ElementRef) {
+    constructor(private formDataService: FormDataService,private elem: 
+        ElementRef,private myuser : UserServices,private router:Router,private route: ActivatedRoute) {
+    this.baseEncode=Base64.encode;
     }
-
+id=this.route.snapshot.params;
     ngOnInit() {
         this.user = this.formDataService.getUser();
-        console.log('Personal feature loaded!');
+        if(this.id['id']){
+            let myid=Base64.decode(this.id['id']);
+        this.getUserById(myid);
+        }
     }
-// public uploadImage(): void {	  
-//     this.elem.nativeElement.querySelector('#spinner').style.visibility='visible';
-//     let files = this.elem.nativeElement.querySelector('#selectFile').files;
-//     let formData = new FormData();
-//     let file = files[0];
-//     formData.append('selectFile', file, file.name);
-// }
+getUserById(id){
+this.myuser.getUserById(id).subscribe((data:any)=>{
+this.user=data;
+let profileData=data['tblProfile'];
+this.user['profileId']=data.tblProfile.id;
+this.user['addressId']=data.address.addressId;
+profileData['extraActivities']=data.tblProfile.extraactivities;
+this.formDataService.setProfile(profileData);
+this.formDataService.getProfile();
+let addressdata;
+addressdata=data['address'];
+addressdata['state']=data.address.city.stateMaster.stateId;
+addressdata['countryId']=data.address.city.stateMaster.country.countryId;
+addressdata['city']=data.address.city.cityId;
+addressdata['zip']=data.address.zipCode;
+
+this.formDataService.setAddress(addressdata);
+//console.log("Address data"+this.formDataService.getAddress());
+});
+}
     save(form: any) {
         if (!form.valid) 
             return;
-        let files = this.elem.nativeElement.querySelector('#userImage').files;
-        //let formData = new FormData();
-        let file = files[0];
-        //formData.append('userImage', file, file.name);        
-        this.user.userImage=file;
         this.formDataService.setUser(this.user);
     }
+emailAlreadyExist(event){
+    let email=Base64.encode(event);
+    this.myuser.userAlreadyExist(email).subscribe((data:any)=>{
+        alert(data);
+    });
+}
+
+
+
 }

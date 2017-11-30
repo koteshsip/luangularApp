@@ -168,11 +168,15 @@ this.getLogcount();
 logtotalItem:any;
 getcount(){
         this.myservice.getnotificationcount().subscribe((data:any)=>{
-				if(data.error) { 
+          if(data!=null){
+          if(data.error) { 
 					  alert('Server Error');
 				  } else {
                     this.totalItem = data;
-				  }
+          }
+        }else{
+          this.totalItem = 0;
+        }
 			  },
           error =>{
             alert('Server error');
@@ -181,11 +185,15 @@ getcount(){
     }
     getLogcount(){
         this.myservice.getlogcount().subscribe((data:any)=>{
-				if(data.error) { 
+        if(data!=null){
+          if(data.error) { 
 					  alert('Server Error');
 				  } else {
                     this.logtotalItem = data;
-				  }
+          }
+        }else{
+          this.logtotalItem = 0;
+        }
 			  },
           error =>{
             alert('Server error');

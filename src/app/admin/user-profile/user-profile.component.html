@@ -3,22 +3,66 @@
     <div class="panel-body box"><h1>User Profile</h1></div>
   </section>
   <div class="content">
-    <div class="col-sm-6 box">
-      <h3></h3>        
+    <div class="row">
+    	<div class="col-md-12">
+            <div class="panel with-nav-tabs panel-info">
+                <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1user" data-toggle="tab">User Details</a></li>
+                            <li><a href="#tab2profile" data-toggle="tab">Profile Details</a></li>
+                            <li><a href="#tab3address" data-toggle="tab">Address Details</a></li>
+                        </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1user"><div class="col-sm-6 box">        
+      <p>          </p>
+      <p>         </p>
+      <div class="form-group row">
+    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
+     Name <span class="astric">  *</span></label>
+    <div class="col-md-9">
+       {{this.mydata.firstName+" "+this.mydata.middleName+" "+this.mydata.lastName}}
+    </div>
+</div>
+  <div class="form-group row">
+    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
+      EmailId<span class="astric">  *</span></label>
+    <div class="col-md-9">
+      {{this.mydata.email}}
+    </div>
+</div>  
+<div class="form-group row">
+    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
+      Description:<span class="astric">  *</span></label>
+    <div class="col-md-9">
+      {{mydata['userDesc']}}
+    </div>
+</div>
+  <div class="form-group row">
+    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
+      Mobile:<span class="astric">  *</span></label>
+    <div class="col-md-9">
+      {{mydata['mobile']}}
+    </div>
+</div>
+</div></div>
+                        
+                        <div class="tab-pane fade" id="tab2profile"><div class="col-sm-6 box">        
       <p>          </p>
       <p>         </p>
       <div class="form-group row">
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
      Achievment <span class="astric">  *</span></label>
     <div class="col-md-9">
-       {{achievment}}
+       {{this.mydata['tblProfile'].achievment}}
     </div>
 </div>
   <div class="form-group row">
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
       ProfileName<span class="astric">  *</span></label>
     <div class="col-md-9">
-      {{profileName}}
+      {{this.mydata['tblProfile'].profileName}}
     </div>
 </div>
 
@@ -26,32 +70,9 @@
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
       ProfileType<span class="astric">  *</span></label>
     <div class="col-md-9" >
-      {{profileType}}
-    </div>
-</div>  
-
-<div class="form-group row">
-    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
-      Email Id<span class="astric">  *</span></label>
-    <div class="col-md-9">
-      {{mydata['email']}}
+      {{this.mydata['tblProfile'].profileType}}
     </div>
 </div>
-  <div class="form-group row">
-    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
-      Name:<span class="astric">  *</span></label>
-    <div class="col-md-9">
-      {{mydata['firstName']}} {{mydata['middleName']}} {{mydata['lastName']}} 
-    </div>
-</div>
-  <div class="form-group row">
-    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
-      Contact No:<span class="astric">  *</span></label>
-    <div class="col-md-9">
-      {{mydata['mobile']}}
-    </div>
-</div>
-
 <div class="form-group row">
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
       Images:<span class="astric">  *</span></label>
@@ -59,13 +80,68 @@
       <img [src]="imagePath">
     </div>
 </div>
-<div class="form-group row">
+</div></div>
+                        <div class="tab-pane fade" id="tab3address"><div class="col-sm-6 box">        
+      <p>          </p>
+      <p>         </p>
+
+      
+<!-- <div class="form-group row">
     <label for="normal-field" class="col-md-3 form-control-label text-md-right">
-      User Description:<span class="astric">  *</span></label>
+     Street Address <span class="astric">  *</span></label>
     <div class="col-md-9">
-      {{mydata['userDesc']}}
+       {{this.mydata['address'].Street}}
+    </div>
+</div> -->
+  <div class="form-group row">
+    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
+     permanent Address <span class="astric">  *</span></label>
+    <div class="col-md-9">
+       {{this.mydata['address'].permanentAddress}}
     </div>
 </div>
+  <div class="form-group row">
+    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
+     Communication Address <span class="astric">  *</span></label>
+    <div class="col-md-9">
+       {{this.mydata['address'].communicationAddress}}
+    </div>
+</div>
+  <div class="form-group row">
+    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
+     Zip Code <span class="astric">  *</span></label>
+    <div class="col-md-9">
+       {{this.mydata['address'].zipCode}}
+    </div>
+</div>
+<div class="form-group row">
+    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
+     City Name <span class="astric">  *</span></label>
+    <div class="col-md-9">
+       {{this.mydata['address'].city.cityName}}
+    </div>
+</div>
+  <div class="form-group row">
+    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
+      State Name<span class="astric">  *</span></label>
+    <div class="col-md-9">
+      {{this.mydata.address.city['stateMaster'].stateName}}
+    </div>
+</div>  
+<div class="form-group row">
+    <label for="normal-field" class="col-md-3 form-control-label text-md-right">
+      Country Name<span class="astric">  *</span></label>
+    <div class="col-md-9" >
+      {{this.mydata.address.city.stateMaster['country'].countryName}}
+    </div>
+</div>
+</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+    
 </div>
 </div>
-</div>
+

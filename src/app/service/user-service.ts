@@ -14,52 +14,60 @@ export class UserServices {
 private  baseurl="http://localhost:8080/lujavaapp/";
   constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
 
- public  uploadImage(formdata: any) {
+    public  addUser(formdata: any) {
         let _url: string = this.baseurl+'saveUserDetails';
         return this.http.post(_url, formdata)
+        .catch(this._errorHandler);
+    }
+    public  updateUser(formdata: any,id) {
+        let _url: string = this.baseurl+'saveUserDetails/'+id;
+         return this.http.put(_url, formdata)
         .catch(this._errorHandler) ;
     }
+
+
+
 private _errorHandler(error: Response) {
         console.error('Error Occured: ' + error);
         return Observable.throw(error || 'Some Error on Server Occured');
-
     }
-
-  getAllState(event,filter){
+ public  getAllState(event){
+    if(!event){
+        event=0;
+    }
+    const url=this.baseurl+"getAllStateSelect/"+event;
+    return this.http.get(url);
+  }
+  
+  public  getAllCountry(){
+    const url=this.baseurl+"getAllCountrySelect";
+    return this.http.get(url);
+  }
+  
+  public  getAllCitySelect(event){
+    if(!event){
+        event=0;
+    }
+  const url=this.baseurl+"getAllCitySelect/"+event;
+    return this.http.get(url);
+  }
+  getAllUsers(event,filter){
     if(!filter){
       filter=null;
     }
-    const url=this.baseurl+"getAllState/"+event+"/"+Base64.encode(filter);
+    const url=this.baseurl+"listOfAllUser/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
   }
-getStateCount(){
-  const url=this.baseurl+"getTotalLogs";
+  getUserById(id){   
+    const url=this.baseurl+"getUserById/"+id;
     return this.http.get(url);
-}
-addState(formdata){  
-    let body={tempCountryId:formdata.countryId,stateName:formdata.stateName} 
-    const url=this.baseurl+"addState";
-    return this.http.post(url,body);
   }
-updateState(formdata){ 
-  let body={tempCountryId:formdata.countryId,stateName:formdata.stateName} 
-    const url=this.baseurl+"addState/"+formdata.stateId;
-    return this.http.put(url,body);
+  userAlreadyExist(email){
+    const url=this.baseurl+"userEmailExist/"+email;
+    return this.http.get(url);
   }
-getStateById(id){   
-  const url=this.baseurl+"getStateById/"+id;
-  return this.http.get(url);
-}
-deleteState(id){
-    const url=this.baseurl+"deleteState/"+id;
+  deleteUser(id){
+    const url=this.baseurl+"deleteUser/"+id;
     return this.http.put(url,"");
-}
-stateAlreadyExist(stateName,countryId){
-    const url=this.baseurl+"stateIsExist/"+stateName+"/"+countryId;
-    return this.http.get(url);
-}
-  getAllCountry(){
-    const url=this.baseurl+"getAllCountrySelect";
-    return this.http.get(url);
   }
 }

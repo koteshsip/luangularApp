@@ -2,6 +2,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="panel-body box box-info"><h1>Profile Details</h1>
+    {{profile | json}}
     </div>
   </section>
 <div class="content ">
@@ -14,8 +15,8 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">profile Name</label>
         <div class="col-sm-8">
-        <input class="form-control input-md" #profileName="ngModel" required id="profileName" name="profileName" type="text" placeholder="profileName" [(ngModel)]="profile.profileName">
-              </div>
+        <input class="form-control input-md" #profileName="ngModel" required id="profileName" name="profileName" type="text" placeholder="profileName" [(ngModel)]="profile.profileName">        
+      </div>
          <div class="alert alert-danger" [hidden]="profileName.valid || profileName.pristine">profile Name is required</div>  
       </div>
       </div>
@@ -62,10 +63,18 @@
         <div class="form-group col-sm-4">
         </div>
         <div class="form-group col-sm-4">
+          <div *ngIf="profile.userId; else falsyTemplate">
+               <div class="form-group text-center space-20">
+                <button [routerLink]="['/admin/addUser/'+profile.userId]" class="btn btn-outline-rounded btn-default"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
+                <button [routerLink]="['/admin/addAddress/'+profile.userId]" class="btn btn-outline-rounded btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+            </div> 
+          </div>
+          <ng-template #falsyTemplate>
           <div class="form-group text-center space-20">
                 <button [routerLink]="['/admin/addUser']" class="btn btn-outline-rounded btn-default" (click)="save(workForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
                 <button [routerLink]="['/admin/addAddress']" class="btn btn-outline-rounded btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
-            </div>
+            </div>  
+          </ng-template>
         </div>
         </div>
     </form>
