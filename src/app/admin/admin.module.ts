@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
 import { AdminDashboard2Component } from './admin-dashboard2/admin-dashboard2.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LogsComponent } from './logs/logs.component';
-import { NotificationComponent } from './notification/notification.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { MessageComponent } from './message/message.component';
 import { NotificationfomComponent } from './notificationfom/notificationfom.component';
@@ -31,6 +30,44 @@ import { AddStateComponent } from './add-state/add-state.component';
 import { StateListComponent } from './state-list/state-list.component';
 import { CityListComponent } from './city-list/city-list.component';
 import { CountryListComponent } from './country-list/country-list.component';
+import { HostelListComponent } from './hostel-list/hostel-list.component';
+import { ClassListComponent } from './class-list/class-list.component';
+import { BookListComponent } from './book-list/book-list.component';
+import { AssignmentListComponent } from './assignment-list/assignment-list.component';
+import { TimeTableListComponent } from './time-table-list/time-table-list.component';
+import { InventoryListComponent } from './inventory-list/inventory-list.component';
+import { BookingRequestListComponent } from './booking-request-list/booking-request-list.component';
+import { LibraryListComponent } from './library-list/library-list.component';
+import { PurchaseComponent } from './purchase/purchase.component';
+import { SupplierListComponent } from './supplier-list/supplier-list.component';
+import { TransportListComponent } from './transport-list/transport-list.component';
+import { EmailListComponent } from './email-list/email-list.component';
+import { ResourceBankListComponent } from './resource-bank-list/resource-bank-list.component';
+import { ExamListComponent } from './exam-list/exam-list.component';
+import { ExamDetailListComponent } from './exam-detail-list/exam-detail-list.component';
+import { AttendenceListComponent } from './attendence-list/attendence-list.component';
+import { SchoolListComponent } from './school-list/school-list.component';
+import { NewsListComponent } from './news-list/news-list.component';
+import { DrawingListComponent } from './drawing-list/drawing-list.component';
+import { AddHostelComponent } from './add-hostel/add-hostel.component';
+import { AddClassComponent } from './add-class/add-class.component';
+import { AddBookComponent } from './add-book/add-book.component';
+import { AddAssignmentComponent } from './add-assignment/add-assignment.component';
+import { AddTimetableComponent } from './add-timetable/add-timetable.component';
+import { AddInventoryComponent } from './add-inventory/add-inventory.component';
+import { AddBookingRequestComponent } from './add-booking-request/add-booking-request.component';
+import { AddLibraryComponent } from './add-library/add-library.component';
+import { AddPurchaseComponent } from './add-purchase/add-purchase.component';
+import { AddSupplierComponent } from './add-supplier/add-supplier.component';
+import { AddTransportComponent } from './add-transport/add-transport.component';
+import { EmailTransportComponent } from './email-transport/email-transport.component';
+import { AddResourceBankComponent } from './add-resource-bank/add-resource-bank.component';
+import { AddExamComponent } from './add-exam/add-exam.component';
+import { AddExamDetailComponent } from './add-exam-detail/add-exam-detail.component';
+import { AddAttendenceComponent } from './add-attendence/add-attendence.component';
+import { AddSchoolComponent } from './add-school/add-school.component';
+import { AddNewsComponent } from './add-news/add-news.component';
+import { AddDrawingComponent } from './add-drawing/add-drawing.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -54,7 +91,6 @@ import { CountryListComponent } from './country-list/country-list.component';
     AdminDashboard2Component,
     UserProfileComponent,
     LogsComponent,
-    NotificationComponent,
     NotificationsComponent,
     MessageComponent,
     NotificationfomComponent,
@@ -67,7 +103,45 @@ import { CountryListComponent } from './country-list/country-list.component';
     AddStateComponent,
     StateListComponent,
     CityListComponent,
-    CountryListComponent
+    CountryListComponent,
+    HostelListComponent,
+    ClassListComponent,
+    BookListComponent,
+    AssignmentListComponent,
+    TimeTableListComponent,
+    InventoryListComponent,
+    BookingRequestListComponent,
+    LibraryListComponent,
+    PurchaseComponent,
+    SupplierListComponent,
+    TransportListComponent,
+    EmailListComponent,
+    ResourceBankListComponent,
+    ExamListComponent,
+    ExamDetailListComponent,
+    AttendenceListComponent,
+    SchoolListComponent,
+    NewsListComponent,
+    DrawingListComponent,
+    AddHostelComponent,
+    AddClassComponent,
+    AddBookComponent,
+    AddAssignmentComponent,
+    AddTimetableComponent,
+    AddInventoryComponent,
+    AddBookingRequestComponent,
+    AddLibraryComponent,
+    AddPurchaseComponent,
+    AddSupplierComponent,
+    AddTransportComponent,
+    EmailTransportComponent,
+    AddResourceBankComponent,
+    AddExamComponent,
+    AddExamDetailComponent,
+    AddAttendenceComponent,
+    AddSchoolComponent,
+    AddNewsComponent,
+    AddDrawingComponent
   ],entryComponents: [
         MessageComponent
       ],

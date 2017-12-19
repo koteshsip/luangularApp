@@ -21,7 +21,7 @@
       </div> -->
  <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">Country</label>
+           <label class="col-sm-4 control-label" for="alterEgo">Country*</label>
         <div class="col-sm-8">
         <select required class="form-control" name="countryId" id="countryId" [(ngModel)]="address.countryId" #countryId="ngModel" 
         (ngModelChange)="getStateByCountryId($event)"
@@ -34,7 +34,7 @@
       </div>
       <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">State</label>
+           <label class="col-sm-4 control-label" for="alterEgo">State*</label>
         <div class="col-sm-8">
         <select required class="form-control" name="state" id="state" [(ngModel)]="address.state" #state="ngModel" 
         (ngModelChange)="getAllCityByStateId($event)"
@@ -47,7 +47,7 @@
       </div>
     <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">City</label>
+           <label class="col-sm-4 control-label" for="alterEgo">City*</label>
         <div class="col-sm-8">
           <select required class="form-control" name="city" id="city" [(ngModel)]="address.city" #city="ngModel" >
                 <option *ngFor='let city of citydata'  [ngValue]='city.cityId' >{{city.cityName}}</option>
@@ -58,9 +58,9 @@
       </div>
 <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">Zip Code</label>
+           <label class="col-sm-4 control-label"  for="alterEgo">Zip Code*</label>
         <div class="col-sm-8">
-          <input class="form-control input-md" #zip="ngModel" required id="zip" name="zip" type="text" placeholder="Zip" [(ngModel)]="address.zip">
+          <input class="form-control input-md" #zip="ngModel" required id="zip" name="zip" type="text" placeholder="Zip" maxlength="6" [(ngModel)]="address.zip">
       </div>
        <div [hidden]="zip.valid || zip.pristine"
              class="alert alert-danger">
@@ -70,18 +70,18 @@
       </div>
     <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="alterEgo">Permanent Address</label>
+        <label class="col-sm-4 control-label" for="alterEgo">Permanent Address*</label>
         <div class="col-sm-8">
-          <input class="form-control input-md" #permanentAddress="ngModel" required id="permanentAddress" name="permanentAddress" type="text" placeholder="permanent Address" [(ngModel)]="address.permanentAddress">
+          <input class="form-control input-md" #permanentAddress="ngModel" required id="permanentAddress" name="permanentAddress" type="text" minlength="10"   maxlength="35"  placeholder="permanent Address" [(ngModel)]="address.permanentAddress">
         </div>
         <div class="alert alert-danger" [hidden]="permanentAddress.valid || permanentAddress.pristine">Permanent Address is required</div> 
       </div>
       </div>   
     <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="alterEgo">Communication Address</label>
+        <label class="col-sm-4 control-label" for="alterEgo">Communication Address*</label>
         <div class="col-sm-8">
-          <input class="form-control input-md" #communicationAddress="ngModel" required id="communicationAddress" name="communicationAddress" type="text" placeholder="communication Address" [(ngModel)]="address.communicationAddress">
+          <input class="form-control input-md" #communicationAddress="ngModel" required id="communicationAddress" name="communicationAddress" type="text" minlength="10"   maxlength="35"   placeholder="communication Address" [(ngModel)]="address.communicationAddress">
         </div>
         <div class="alert alert-danger" [hidden]="communicationAddress.valid || communicationAddress.pristine">Communication Address is required</div> 
       </div>

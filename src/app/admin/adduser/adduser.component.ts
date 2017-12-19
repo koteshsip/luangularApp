@@ -12,6 +12,7 @@ import { Base64 } from 'js-base64';
 export class AdduserComponent implements OnInit {
     user: User;
     form: any;
+    private IsExist:any;
     baseEncode:any;
     // private elem: ElementRef;
     constructor(private formDataService: FormDataService,private elem: 
@@ -24,6 +25,8 @@ id=this.route.snapshot.params;
         if(this.id['id']){
             let myid=Base64.decode(this.id['id']);
         this.getUserById(myid);
+        }else{
+            this.formDataService.resetFormData();
         }
     }
 getUserById(id){
@@ -54,7 +57,11 @@ this.formDataService.setAddress(addressdata);
 emailAlreadyExist(event){
     let email=Base64.encode(event);
     this.myuser.userAlreadyExist(email).subscribe((data:any)=>{
-        alert(data);
+        if(data){
+          this.IsExist=data;
+          }else{
+            this.IsExist=false;
+          }
     });
 }
 

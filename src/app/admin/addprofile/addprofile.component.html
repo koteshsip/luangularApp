@@ -2,7 +2,6 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="panel-body box box-info"><h1>Profile Details</h1>
-    {{profile | json}}
     </div>
   </section>
 <div class="content ">
@@ -13,7 +12,7 @@
     <form #workForm="ngForm" class="editForm" novalidate>
       <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">profile Name</label>
+        <label class="col-sm-4 control-label" for="name">profile Name*</label>
         <div class="col-sm-8">
         <input class="form-control input-md" #profileName="ngModel" required id="profileName" name="profileName" type="text" placeholder="profileName" [(ngModel)]="profile.profileName">        
       </div>
@@ -22,7 +21,7 @@
       </div>
  <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">profile Image</label>
+           <label class="col-sm-4 control-label" for="alterEgo">profile Image*</label>
         <div class="col-sm-8">
         <input type="file" class="form-control input-md" #profileImage="ngModel"  id="profileImage" name="profileImage"  placeholder="profileImage" [(ngModel)]="profile.profileImage">                                     
       </div>
@@ -31,16 +30,24 @@
       </div>
       <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">profile Type</label>
+           <label class="col-sm-4 control-label" for="alterEgo">profile Type*</label>
         <div class="col-sm-8">
-        <input class="form-control input-md" #profileType="ngModel" required id="profileType" name="profileType" type="text" placeholder="profileType" [(ngModel)]="profile.profileType">        
+        <select class="form-control" id="profileType" 
+                required
+                [(ngModel)]="profile.profileType" name="profileType"
+                #profileType="ngModel">
+          <option *ngFor="let profiletype of ProfileCatogerys" [value]="profiletype">{{profiletype}}</option>
+        </select>
+        
+        
+          <!-- <input class="form-control input-md" #profileType="ngModel" required id="profileType" name="profileType" type="text" placeholder="profileType" [(ngModel)]="profile.profileType">         -->
       </div>
     <div class="alert alert-danger" [hidden]="profileType.valid || profileType.pristine ">profile Type is required</div> 
       </div>
       </div>
 <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">Achievment</label>
+           <label class="col-sm-4 control-label" for="alterEgo">Achievment*</label>
         <div class="col-sm-8">
           <input class="form-control input-md" #achievment="ngModel" required id="achievment" name="achievment" type="text" placeholder="achievment" [(ngModel)]="profile.achievment">
       </div>
@@ -52,7 +59,7 @@
       </div>
     <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="alterEgo">Extra Activities</label>
+        <label class="col-sm-4 control-label" for="alterEgo">Extra Activities*</label>
         <div class="col-sm-8">
           <input class="form-control input-md" #extraActivities="ngModel" required id="extraActivities" name="extraActivities" type="text" placeholder="extraActivities" [(ngModel)]="profile.extraActivities">                            
         </div>

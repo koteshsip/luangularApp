@@ -31,7 +31,7 @@ export class FormData {
    // userImage: any;  
     profileName: string = '';
     profileImage : any;
-    profileType: string = '';
+    profileType: any = '';
     achievment: string = '';
     extraActivities: string = '';
     
@@ -108,7 +108,7 @@ export class User{
 export class Profile {
     profileName: string = '';
     profileImage : any;
-    profileType: string = '';
+    profileType: any = '';
     achievment: string = '';
     extraActivities: string = '';
 }

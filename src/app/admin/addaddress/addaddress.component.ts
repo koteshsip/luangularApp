@@ -3,19 +3,20 @@ import { ActivatedRoute, Params,Router } from '@angular/router';
 import { Address }            from './../../service/formData.model';
 import { FormDataService }     from './../../service/formData.service';
 import { UserServices } from './../../service/user-service';
+import { LocalStorageService } from 'angular-2-local-storage';
 @Component({
   selector: 'app-addaddress',
   templateUrl: './addaddress.component.html',
   styleUrls: ['./addaddress.component.css']
 })
 export class AddaddressComponent implements OnInit {
-title = 'Where do you live?';
     address: Address;
+    formData:FormData
     form: any;
     statedata:any;
     citydata:any;
     countrydata:any;
-    constructor(private formDataService: FormDataService,private user: UserServices,private route:ActivatedRoute) {
+    constructor(public router: Router,public mystorage:LocalStorageService,private formDataService: FormDataService,private user: UserServices,private route:ActivatedRoute) {
     }
 id=this.route.snapshot.params;
     ngOnInit() {
@@ -75,30 +76,28 @@ id=this.route.snapshot.params;
             }));
             if(this.id['id']){
                 this.user.updateUser(formData,this.id['id']).subscribe((data:any)=>{
-                console.log("data=pp"+data);
+                   this.formDataService.resetFormData();
+                    this.mystorage.set("message","Record Updated Successfully");
+                    this.router.navigate(['/admin/list-of-users']);
                 });
             }else{
                 this.user.addUser(formData).subscribe((data:any)=>{
-                console.log("data=pp"+data);
+                    this.formDataService.resetFormData();
+                    this.mystorage.set("message","Record add Successfully");
+                    this.router.navigate(['/admin/list-of-users']);
                 });
             }
-            // this.user.addUser(formData).subscribe((data:any)=>{
-            //     console.log("data=pp"+data);
-            //     });
     }
-
     public  getAllState(){
         this.user.getAllState(0).subscribe((data:any)=>{
         this.statedata=data;
         });
     }
-  
     public  getAllCountry(){
             this.user.getAllCountry().subscribe((data:any)=>{
             this.countrydata=data;
         });
     }
-  
     public  getAllCitySelect(){
             this.user.getAllCitySelect(0).subscribe((data:any)=>{
             this.citydata=data;

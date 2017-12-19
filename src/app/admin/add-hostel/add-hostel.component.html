@@ -1,0 +1,68 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.id; else falsyTemplate">
+        Edit Hostel
+      </div>
+      <ng-template #falsyTemplate>
+        Add Hostel
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                            </p>
+     </div>
+    <form (ngSubmit)="addHostel(model)" #hostelForm="ngForm">
+      
+
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Hostel Name*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="cityName"
+               required
+               (ngModelChange)="hostelAlreadyExist($event,hostelId.value)" 
+               [(ngModel)]="model.hostelName" name="hostelName"
+               #hostelName="ngModel">
+              </div> 
+              <div [hidden]="hostelName.valid || hostelName.pristine"
+                  class="alert alert-danger">
+                  Hostel is required
+              </div> 
+                <input type="hidden" name="hostelId" [value]="model.hostelId"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  Hostel Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Room Type*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="hostelRoomType"
+               required
+               [(ngModel)]="model.hostelRoomType" name="hostelRoomType"
+               #hostelRoomType="ngModel">
+              </div> 
+              <div [hidden]="hostelRoomType.valid || hostelRoomType.pristine"
+                  class="alert alert-danger">
+                  Room Type is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!cityForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>
