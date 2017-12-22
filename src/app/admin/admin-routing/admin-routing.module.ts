@@ -52,7 +52,7 @@ import { AddLibraryComponent } from './../../admin/add-library/add-library.compo
 import { AddPurchaseComponent } from './../../admin/add-purchase/add-purchase.component';
 import { AddSupplierComponent } from './../../admin/add-supplier/add-supplier.component';
 import { AddTransportComponent } from './../../admin/add-transport/add-transport.component';
-import { EmailTransportComponent } from './../../admin/email-transport/email-transport.component';
+import { AddEmailComponent } from './../../admin/add-email/add-email.component';
 import { AddResourceBankComponent } from './../../admin/add-resource-bank/add-resource-bank.component';
 import { AddExamComponent } from './../../admin/add-exam/add-exam.component';
 import { AddExamDetailComponent } from './../../admin/add-exam-detail/add-exam-detail.component';
@@ -389,7 +389,7 @@ import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.compo
           },
           {
             path: 'send-email',
-            component: EmailTransportComponent,
+            component: AddEmailComponent,
             canActivate: [AuthGuard]
           },
           {

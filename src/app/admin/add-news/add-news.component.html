@@ -1,3 +1,148 @@
-<p>
-  add-news works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.id; else falsyTemplate">
+        Edit Hostel
+      </div>
+      <ng-template #falsyTemplate>
+        Add Hostel
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                      
+	   </p>
+     </div>
+    <form (ngSubmit)="addnews(model)" #newsForm="ngForm">
+      
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">NewsId *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="newsId"
+               required
+               (ngModelChange)="newsAlreadyExist($event,newsId.value)" 
+               [(ngModel)]="model.newsId" name="newsId"
+               #newsId="ngModel">
+              </div> 
+              <div [hidden]="hostelId.valid || hostelId.pristine"
+                  class="alert alert-danger">
+                  NewsId is required
+              </div> 
+                <input type="hidden" name="newsId" [value]="model.newsId"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                 NewsId Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">News Type *</label>
+        <div class="col-sm-8">
+<select maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="newsType"
+               required
+               [(ngModel)]="model.newsType" name="newsType"
+               #newsType="ngModel">
+			   <option value="sports" >sports</option>
+			   <option value="Crime" >Crime</option>
+			   <option value="Economy" >Economy</option>
+			   <option value="Business" >Business</option>
+			   </select>
+              </div> 
+              <div [hidden]="newsType.valid || newsType.pristine"
+                  class="alert alert-danger">
+                News Type is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">News Details *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="newsDetails"
+               required
+               [(ngModel)]="model.newsDetails" name="newsDetails"
+               #newsDetails="ngModel">
+              </div> 
+              <div [hidden]="newsDetails.valid || newsDetails.pristine"
+                  class="alert alert-danger">
+                News Details is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">News Title *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="newsTitle"
+               required
+               [(ngModel)]="model.newsTitle" name="newsTitle"
+               #newsTitle="ngModel">
+              </div> 
+              <div [hidden]="newsTitle.valid || newsTitle.pristine"
+                  class="alert alert-danger">
+                News Title is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">News Attachment *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="newsAttachment"
+               required
+               [(ngModel)]="model.newsAttachment" name="newsAttachment"
+               #newsAttachment="ngModel">
+              </div> 
+              <div [hidden]="newsAttachment.valid || newsAttachment.pristine"
+                  class="alert alert-danger">
+               News Attachment is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">CreatedAt *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="createdAt"
+               required
+               [(ngModel)]="model.createdAt" name="createdAt"
+               #createdAt="ngModel">
+              </div> 
+              <div [hidden]="createdAt.valid || createdAt.pristine"
+                  class="alert alert-danger">
+               CreatedAt is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">UpdatedAt *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="updatedAt"
+               required
+               [(ngModel)]="model.updatedAt" name="updatedAt"
+               #updatedAt="ngModel">
+              </div> 
+              <div [hidden]="updatedAt.valid || updatedAt.pristine"
+                  class="alert alert-danger">
+              updatedAt is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!cityForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>

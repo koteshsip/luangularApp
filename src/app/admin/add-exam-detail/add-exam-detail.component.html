@@ -1,3 +1,123 @@
-<p>
-  add-exam-detail works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.id; else falsyTemplate">
+        Edit Transport 
+      </div>
+      <ng-template #falsyTemplate>
+        Add Transport 
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                            </p>
+     </div>
+    <form (ngSubmit)="addTransport(model)" #transportForm="ngForm">
+      
+
+ <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Transport Id *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="transportId"
+               required
+               [(ngModel)]="model.transportId" name="transportId"
+               #transportId="ngModel">
+              </div> 
+              <div [hidden]="transportId.valid || transportId.pristine"
+                  class="alert alert-danger">
+                  Transport Id is required
+              </div> 
+      </div>
+</div>
+ <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Transport Name *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="transportName"
+               required
+               [(ngModel)]="model.transportName" name="transportName"
+               #transportName="ngModel">
+              </div> 
+              <div [hidden]="transportName.valid || transportName.pristine"
+                  class="alert alert-danger">
+                  Transport Name is required
+              </div> 
+      </div>
+</div>
+ <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">transport Type *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="transportType"
+               required
+               [(ngModel)]="model.transportType" name="transportType"
+               #transportType="ngModel">
+              </div> 
+              <div [hidden]="transportType.valid || transportType.pristine"
+                  class="alert alert-danger">
+                  Transport Type is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+     <div class="form-group col-sm-8">
+       <label class="col-sm-4 control-label" for="name">Transport PickupTime *</label>
+       <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="transportPickupTime"
+              required
+              [(ngModel)]="model.transportPickupTime" name="transportPickupTime"
+              #transportPickupTime="ngModel">
+             </div> 
+             <div [hidden]="transportPickupTime.valid || transportPickupTime.pristine"
+                 class="alert alert-danger">
+                 Transport PickupTime is required
+             </div> 
+     </div>
+</div>
+<div class="row">
+     <div class="form-group col-sm-8">
+       <label class="col-sm-4 control-label" for="name">Transport PickupLocation *</label>
+       <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="transportPickupLocation"
+              required
+              [(ngModel)]="model.transportPickupLocation" name="transportPickupLocation"
+              #transportPickupLocation="ngModel">
+             </div> 
+             <div [hidden]="transportPickupLocation.valid || transportPickupLocation.pristine"
+                 class="alert alert-danger">
+                 Transport PickupLocation is required
+             </div> 
+     </div>
+</div>
+<div class="row">
+     <div class="form-group col-sm-8">
+       <label class="col-sm-4 control-label" for="name">user *</label>
+       <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="user"
+              required
+              [(ngModel)]="model.user" name="user"
+              #user="ngModel">
+             </div> 
+             <div [hidden]="user.valid || user.pristine"
+                 class="alert alert-danger">
+                 user is required
+             </div> 
+     </div>
+</div>
+<div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!transportForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>

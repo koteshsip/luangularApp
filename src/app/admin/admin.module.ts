@@ -68,6 +68,7 @@ import { AddAttendenceComponent } from './add-attendence/add-attendence.componen
 import { AddSchoolComponent } from './add-school/add-school.component';
 import { AddNewsComponent } from './add-news/add-news.component';
 import { AddDrawingComponent } from './add-drawing/add-drawing.component';
+import { AddEmailComponent } from './add-email/add-email.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -141,7 +142,8 @@ import { AddDrawingComponent } from './add-drawing/add-drawing.component';
     AddAttendenceComponent,
     AddSchoolComponent,
     AddNewsComponent,
-    AddDrawingComponent
+    AddDrawingComponent,
+    AddEmailComponent
   ],entryComponents: [
         MessageComponent
       ],

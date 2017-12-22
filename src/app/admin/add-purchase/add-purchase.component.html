@@ -1,3 +1,222 @@
-<p>
-  add-purchase works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.id; else falsyTemplate">
+        Edit Hostel
+      </div>
+      <ng-template #falsyTemplate>
+        Add Hostel
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                      
+	   </p>
+     </div>
+    <form (ngSubmit)="addpurchase(model)" #purchaseForm="ngForm">
+      
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Purchase Id*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="purchaseId"
+               required
+               (ngModelChange)="newsAlreadyExist($event,purchaseId.value)" 
+               [(ngModel)]="model.purchaseId" name="purchaseId"
+               #purchaseId="ngModel">
+              </div> 
+              <div [hidden]="purchaseId.valid || purchaseId.pristine"
+                  class="alert alert-danger">
+                 PurchaseId is required
+              </div> 
+                <input type="hidden" name="purchaseId" [value]="model.purchaseId"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                PurchaseId Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Purchase Type *</label>
+        <div class="col-sm-8">
+<select maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="purchaseType"
+               required
+               [(ngModel)]="model.purchaseType" name="purchaseType"
+               #purchaseType="ngModel">
+			   <option value="Full" >Full</option>
+			   <option value="Module" >Module</option>
+			   <option value="Unit" >Unit</option>
+			   </select>
+              </div> 
+              <div [hidden]="purchaseType.valid || purchaseType.pristine"
+                  class="alert alert-danger">
+                News Type is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">ProductDescription *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="productDescription"
+               required
+               [(ngModel)]="model.productDescription" name="productDescription"
+               #productDescription="ngModel">
+              </div> 
+              <div [hidden]="productDescription.valid || productDescription.pristine"
+                  class="alert alert-danger">
+               ProductDescription is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">ISBNNumber *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="iSBNNumber"
+               required
+               [(ngModel)]="model.iSBNNumber" name="iSBNNumber"
+               #iSBNNumber="ngModel">
+              </div> 
+              <div [hidden]="productDescription.valid || productDescription.pristine"
+                  class="alert alert-danger">
+               ISBNNumber is required
+              </div> 
+      </div>
+</div>
+ <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">PublisherName *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="publisherName"
+               required
+               [(ngModel)]="model.publisherName" name="publisherName"
+               #publisherName="ngModel">
+              </div> 
+              <div [hidden]="publisherName.valid || publisherName.pristine"
+                  class="alert alert-danger">
+                 PublisherName is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">ProductPrice *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="productPrice"
+               required
+               [(ngModel)]="model.productPrice" name="productPrice"
+               #productPrice="ngModel">
+              </div> 
+              <div [hidden]="productPrice.valid || productPrice.pristine"
+                  class="alert alert-danger">
+                 ProductPrice  is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">QuantityPurchased *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="quantityPurchased"
+               required
+               [(ngModel)]="model.quantityPurchased" name="quantityPurchased"
+               #quantityPurchased="ngModel">
+              </div> 
+              <div [hidden]="quantityPurchased.valid || quantityPurchased.pristine"
+                  class="alert alert-danger">
+                 QuantityPurchased  is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">SupplierId *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="supplierId"
+               required
+               [(ngModel)]="model.supplierId" name="supplierId"
+               #supplierId="ngModel">
+              </div> 
+              <div [hidden]="supplierId.valid || supplierId.pristine"
+                  class="alert alert-danger">
+                 SupplierId is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">CreatedAt *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="createdAt"
+               required
+               [(ngModel)]="model.createdAt" name="createdAt"
+               #createdAt="ngModel">
+              </div> 
+              <div [hidden]="createdAt.valid || createdAt.pristine"
+                  class="alert alert-danger">
+                 CreatedAt is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">UpdatedAt *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="updatedAt"
+               required
+               [(ngModel)]="model.createdAt" name="updatedAt"
+               #updatedAt="ngModel">
+              </div> 
+              <div [hidden]="updatedAt.valid || updatedAt.pristine"
+                  class="alert alert-danger">
+                 UpdatedAt is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">PurchasedOn *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="purchasedOn"
+               required
+               [(ngModel)]="model.purchasedOn" name="purchasedOn"
+               #purchasedOn="ngModel">
+              </div> 
+              <div [hidden]="purchasedOn.valid || purchasedOn.pristine"
+                  class="alert alert-danger">
+                PurchasedOn is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">message *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="message"
+               required
+               [(ngModel)]="model.message" name="message"
+               #message="ngModel">
+              </div> 
+              <div [hidden]="message.valid || message.pristine"
+                  class="alert alert-danger">
+                message is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!cityForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>

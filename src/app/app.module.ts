@@ -40,6 +40,15 @@ import { WorkflowService }    from './workflow/workflow.service';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { EqualValidator } from './change-password/equal-validator.directive';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AssignmentService }    from './service/assignment-service';
+import { LibraryService }    from './service/library-service';
+import { NewsService }    from './service/news-service';
+import { PurchaseService }    from './service/purchase-service';
+import { ResourceBankService }    from './service/resourceBank-service';
+import { TimeTableService }    from './service/timeTable-service';
+import { EmailService }    from './service/email-service';
+import { SupplierService }    from './service/supplier-service';
+import { TransportService }    from './service/transport-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +79,11 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
             storageType: 'localStorage'
         })
   ],
-  providers: [MyServiceService,UserServices,CityService,StateService,CountryService,AuthGuard,AuthenticationService,
+  providers: [MyServiceService,UserServices,CityService,
+    StateService,CountryService,AuthGuard,AuthenticationService,
+    AssignmentService,LibraryService,NewsService,PurchaseService,
+    ResourceBankService,TimeTableService,EmailService,
+    SupplierService,TransportService,
                 { provide: HTTP_INTERCEPTORS,useClass: TokenInterceptor,multi: true},
                 { provide: FormDataService, useClass: FormDataService },
                 { provide: WorkflowService, useClass: WorkflowService }],

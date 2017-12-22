@@ -1,3 +1,209 @@
-<p>
-  add-library works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.id; else falsyTemplate">
+        Edit Hostel
+      </div>
+      <ng-template #falsyTemplate>
+        Add Hostel
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                         
+	   </p>
+     </div>
+    <form (ngSubmit)="addlibrary(model)" #libraryorm="ngForm">
+      
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Library Id*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="libraryId"
+               required
+               (ngModelChange)="libraryAlreadyExist($event,libraryId.value)" 
+               [(ngModel)]="model.libraryId" name="libraryId"
+               #libraryId="ngModel">
+              </div> 
+              <div [hidden]="libraryId.valid || libraryId.pristine"
+                  class="alert alert-danger">
+                  LibraryIdis required
+              </div> 
+                <input type="hidden" name="libraryId" [value]="model.libraryId"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                 LibraryId Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Library Name*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="libraryName"
+               required
+               [(ngModel)]="model.libraryName" name="libraryName"
+               #libraryName="ngModel">
+              </div> 
+              <div [hidden]="libraryName.valid ||libraryName.pristine"
+                  class="alert alert-danger">
+                 Library Name is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">BookDueDate *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="bookDueDate"
+               required
+               [(ngModel)]="model.bookDueDate" name="bookDueDate"
+               #bookDueDate="ngModel">
+              </div> 
+              <div [hidden]="bookDueDate.valid || bookDueDate.pristine"
+                  class="alert alert-danger">
+                  BookDueDate is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">BookAllotedTo *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="bookAllotedTo"
+               required
+               [(ngModel)]="model.bookAllotedTo" name="bookAllotedTo"
+               #bookAllotedTo="ngModel">
+              </div> 
+              <div [hidden]="bookAllotedTo.valid || bookAllotedTo.pristine"
+                  class="alert alert-danger">
+                  BookAllotedTo is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">BookType*</label>
+        <div class="col-sm-8">
+<select  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="bookType"
+               required
+               [(ngModel)]="model.bookType" name="bookType"
+               #bookType="ngModel">
+			   <option value="Story" >Story</option>
+			   <option value="Autobiography" >Autobiography</option>
+			   <option value="Novel" >Novel</option>
+			   <option value="Fiction" >Fiction</option>
+			   </select>
+              </div> 
+              <div [hidden]="bookType.valid || bookType.pristine"
+                  class="alert alert-danger">
+                BookType is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">BookCategoery*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="bookCategoery"
+               required
+               [(ngModel)]="model.bookCategoery" name="bookCategoery"
+               #bookCategoery="ngModel">
+              </div> 
+              <div [hidden]="bookCategoery.valid || bookCategoery.pristine"
+                  class="alert alert-danger">
+               BookCategoery is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">AmountToPay*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="amountToPay"
+               required
+               [(ngModel)]="model.amountToPay" name="amountToPay"
+               #amountToPay="ngModel">
+              </div> 
+              <div [hidden]="amountToPay.valid || amountToPay.pristine"
+                  class="alert alert-danger">
+               AmountToPay is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">user*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="user"
+               required
+               [(ngModel)]="model.user" name="user"
+               #user="ngModel">
+              </div> 
+              <div [hidden]="user.valid || user.pristine"
+                  class="alert alert-danger">
+               user is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">CreatedAt*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="createdAt"
+               required
+               [(ngModel)]="model.createdAt" name="createdAt"
+               #user="ngModel">
+              </div> 
+              <div [hidden]="createdAt.valid || createdAt.pristine"
+                  class="alert alert-danger">
+               CreatedAt is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">UpdatedAt*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="updatedAt"
+               required
+               [(ngModel)]="model.updatedAt" name="updatedAt"
+               #user="ngModel">
+              </div> 
+              <div [hidden]="updatedAt.valid || updatedAt.pristine"
+                  class="alert alert-danger">
+              updatedAt is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">message*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="message"
+               required
+               [(ngModel)]="model.message" name="message"
+               #message="ngModel">
+              </div> 
+              <div [hidden]="message.valid || message.pristine"
+                  class="alert alert-danger">
+              message is required
+              </div> 
+      </div>
+</div>
+
+<div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!cityForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>

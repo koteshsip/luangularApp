@@ -1,3 +1,105 @@
-<p>
-  add-supplier works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.id; else falsyTemplate">
+        Edit Hostel
+      </div>
+      <ng-template #falsyTemplate>
+        Add Hostel
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                            </p>
+     </div>
+    <form (ngSubmit)="addHostel(model)" #supplierForm="ngForm">
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">SupplierId*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="supplierId"
+               required
+               (ngModelChange)="supplierAlreadyExist($event,supplierEmail.value)" 
+               [(ngModel)]="model.supplierEmail" name="supplierEmail"
+               #supplierEmail="ngModel">
+              </div> 
+              <div [hidden]="supplierEmail.valid || supplierEmail.pristine"
+                  class="alert alert-danger">
+                  SupplierId is required
+              </div> 
+                <input type="hidden" name="supplierId" [value]="model.supplierId"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  SupplierId Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">SupplierName *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="supplierName"
+               required
+               [(ngModel)]="model.supplierName" name="supplierName"
+               #supplierName="ngModel">
+              </div> 
+              <div [hidden]="supplierName.valid || supplierName.pristine"
+                  class="alert alert-danger">
+                  SupplierName  is required
+              </div> 
+                <input type="hidden" name="supplierName" [value]="model.supplierName"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  SupplierName  Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">address *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="address"
+               required
+               [(ngModel)]="model.address" name="address"
+               #address="ngModel">
+              </div> 
+              <div [hidden]="address.valid || address.pristine"
+                  class="alert alert-danger">
+                  address  is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">SupplierCategory *</label>
+        <div class="col-sm-8">
+		
+<select maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="supplierCategory"
+               required
+               [(ngModel)]="model.supplierCategory" name="supplierCategory"
+               #supplierCategory="ngModel">
+			   <option value="product" >product</option>
+			   <option value="service" >service</option>
+			   <option value="Non-service">Non-service</option>
+			   </select>
+              </div> 
+              <div [hidden]="supplierCategory.valid || supplierCategory.pristine"
+                  class="alert alert-danger">
+                  SupplierCategory  is required
+              </div> 
+      </div>
+</div>
+ <div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!cityForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>

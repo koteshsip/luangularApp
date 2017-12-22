@@ -1,3 +1,188 @@
-<p>
-  add-assignment works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.assignmentId; else falsyTemplate">
+        Edit Assignment
+      </div>
+      <ng-template #falsyTemplate>
+        Add Assignment
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                         
+	   </p>
+     </div>
+    <form (ngSubmit)="addAssignment(model)" #assignmentform="ngForm">
+<!-- <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">tblClass*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="tblClass"
+               required
+               [(ngModel)]="model.tblClass" name="tblClass"
+               #tblClass="ngModel">
+              </div> 
+              <div [hidden]="tblClass.valid ||tblClass.pristine"
+                  class="alert alert-danger">
+                 tblClass is required
+              </div> 
+      </div>
+</div> -->
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Assignment Number *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignmentNumber"
+               required
+               [(ngModel)]="model.assignmentNumber" name="assignmentNumber"
+               #assignmentNumber="ngModel">
+              </div> 
+              <div [hidden]="assignmentNumber.valid || assignmentNumber.pristine"
+                  class="alert alert-danger">
+                  Assignment Number is required
+              </div> 
+      </div>
+</div>
+
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Assignment Type*</label>
+        <div class="col-sm-8">
+<select  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignmentType"
+               required
+               [(ngModel)]="model.assignmentType" name="assignmentType"
+               #assignmentType="ngModel">
+			   <option value="Incomplete" >Story</option>
+			   <option value="Punishment" >Autobiography</option>
+			   <option value="Normal" >Novel</option>
+			   <option value="Partioned">Fiction</option>
+			   </select>
+              </div> 
+              <div [hidden]="assignmentType.valid || assignmentType.pristine"
+                  class="alert alert-danger">
+                Assignment Type is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">BookCategoery*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="bookCategoery"
+               required
+               [(ngModel)]="model.bookCategoery" name="bookCategoery"
+               #bookCategoery="ngModel">
+              </div> 
+              <div [hidden]="bookCategoery.valid || bookCategoery.pristine"
+                  class="alert alert-danger">
+               BookCategoery is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Assignment DueDate*</label>
+        <div class="col-sm-8">
+<input type="date"  maxlength="50"  class="form-control"  id="assignmentDueDate"
+               required
+               [(ngModel)]="model.assignmentDueDate" name="assignmentDueDate"
+               #assignmentDueDate="ngModel">
+              </div> 
+              <div [hidden]="assignmentDueDate.valid || assignmentDueDate.pristine"
+                  class="alert alert-danger">
+               Assignment DueDate is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Assignment IssuedDate*</label>
+        <div class="col-sm-8">
+<input type="date"  maxlength="50"  class="form-control"  id="assignmentIssuedDate"
+               required
+               [(ngModel)]="model.assignmentIssuedDate" name="assignmentIssuedDate"
+               #assignmentIssuedDate="ngModel">
+              </div> 
+              <div [hidden]="assignmentIssuedDate.valid || assignmentIssuedDate.pristine"
+                  class="alert alert-danger">
+               Assignment IssuedDate is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">assignmentSubject*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignmentSubject"
+               required
+               [(ngModel)]="model.assignmentSubject" name="assignmentSubject"
+               #assignmentSubject="ngModel">
+              </div> 
+              <div [hidden]="assignmentSubject.valid || assignmentSubject.pristine"
+                  class="alert alert-danger">
+               AssignmentSubject is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Review Comments*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="reviewComments"
+               required
+               [(ngModel)]="model.reviewComments" name="reviewComments"
+               #reviewComments="ngModel">
+              </div> 
+              <div [hidden]="reviewComments.valid || reviewComments.pristine"
+                  class="alert alert-danger">
+               Review Comments is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Assignment Marks*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignmentMarks"
+               required
+               [(ngModel)]="model.assignmentMarks" name="assignmentMarks"
+               #assignmentMarks="ngModel">
+              </div> 
+              <div [hidden]="assignmentMarks.valid || assignmentMarks.pristine"
+                  class="alert alert-danger">
+               Assignment Marks is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Assignment Attachment*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignmentAttachment"
+               required
+               [(ngModel)]="model.assignmentAttachment" name="assignmentAttachment"
+               #assignmentAttachment="ngModel">
+              </div> 
+              <div [hidden]="assignmentAttachment.valid || assignmentAttachment.pristine"
+                  class="alert alert-danger">
+              Assignment Attachment is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!assignmentform.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>
