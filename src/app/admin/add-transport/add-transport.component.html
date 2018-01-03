@@ -17,23 +17,6 @@
        <p>                            </p>
      </div>
     <form (ngSubmit)="addTransport(model)" #transportForm="ngForm">
-      
-
- <div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">Transport Id *</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="transportId"
-               required
-               [(ngModel)]="model.transportId" name="transportId"
-               #transportId="ngModel">
-              </div> 
-              <div [hidden]="transportId.valid || transportId.pristine"
-                  class="alert alert-danger">
-                  Transport Id is required
-              </div> 
-      </div>
-</div>
  <div class="row">
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">Transport Name *</label>
@@ -68,7 +51,7 @@
      <div class="form-group col-sm-8">
        <label class="col-sm-4 control-label" for="name">Transport PickupTime *</label>
        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="transportPickupTime"
+<input type="time"  maxlength="50"  class="form-control" id="transportPickupTime"
               required
               [(ngModel)]="model.transportPickupTime" name="transportPickupTime"
               #transportPickupTime="ngModel">
@@ -91,21 +74,6 @@
              <div [hidden]="transportPickupLocation.valid || transportPickupLocation.pristine"
                  class="alert alert-danger">
                  Transport PickupLocation is required
-             </div> 
-     </div>
-</div>
-<div class="row">
-     <div class="form-group col-sm-8">
-       <label class="col-sm-4 control-label" for="name">user *</label>
-       <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="user"
-              required
-              [(ngModel)]="model.user" name="user"
-              #user="ngModel">
-             </div> 
-             <div [hidden]="user.valid || user.pristine"
-                 class="alert alert-danger">
-                 user is required
              </div> 
      </div>
 </div>

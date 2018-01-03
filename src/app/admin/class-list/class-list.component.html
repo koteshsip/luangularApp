@@ -1,3 +1,72 @@
-<p>
-  class-list works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+   <section class="content-header">
+     <div class="panel-body box box-info"><h1>
+       List Of Classs<button class="btn btn-primary pull-right" (click)="addTblClass()">Add TblClass</button>
+     </h1></div> 
+   </section>
+ <div class="content">
+     <div><div class="row">
+     <div class="col-md-8"></div>
+     <div class="col-md-4">  
+     </div></div>
+ <div  class="box">
+ <div class="row">
+     <div class="col-md-4" *ngIf="message;">
+         <div class="alert alert-success">
+             <strong>Success!</strong> {{message}}.
+         </div>
+     </div>
+ </div>
+ <div class="row">
+         <div class="col-md-3">
+     <nav class="navbar">
+       <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllTblClasss(page,$event)">
+     </nav>
+     </div>
+     </div>
+ <div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
+ <table *ngIf="totalItem" class="table table-bordered box box-info">
+                     <thead>
+                         <tr>
+                             <th>classId</th>
+                             <th>className</th>
+                             <th>classRoomName</th>
+                             <th>classDescription</th>
+                             <th>count</th>
+                         </tr>
+                     </thead>
+                      <tbody>
+                                 <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
+                                     totalItems: totalItem}">
+                                     <td>{{datas.tblClass['classId']}}</td>  
+                                     <td>{{datas.tblClass['className']}}</td>
+                                     <td>{{datas.tblClass['classRoomName']}}</td>
+                                     <td>{{datas.tblClass['classDescription']}}</td>
+                                       <td>{{datas.tblClass['count']}}</td>
+                                      
+ <td><a class="col-xs-3 btn btn-success" routerLink="/admin/addTblClass/{{this.baseEncode(datas.tblClassId)}}">Edit</a><a class="btn btn-danger" (click)="deleteTblClass(this.baseEncode(datas.tblClassId))">Delete</a></td>
+                                     </tr>
+                     </tbody> 
+                 </table>
+                 <div *ngIf="!totalItem" class="row">
+     <div class="col-md-6" >
+     <div class="alert alert-success">
+   <strong>Success!</strong> Record not found
+ </div>
+     </div>
+ </div>
+                 <pagination-controls *ngIf="totalItem"
+       (pageChange) = "page = getAllTblClasss($event,filter)" 
+       id="server"
+             maxSize = "5"
+       directionLinks = "true"
+             autohide = "true"
+             screenReaderPaginationLabel="Pagination"
+             screenReaderPageLabel="page"
+             screenReaderCurrentLabel="You're on page">
+         </pagination-controls>
+      </div>
+    </div>
+ </div>
+ </div>

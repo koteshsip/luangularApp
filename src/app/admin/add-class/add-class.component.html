@@ -1,3 +1,94 @@
-<p>
-  add-class works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.classId; else falsyTemplate">
+        Edit Class
+      </div>
+      <ng-template #falsyTemplate>
+        Add Class
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                         
+	   </p>
+     </div>
+    <form (ngSubmit)="addClass(model)" #classForm="ngForm">
+
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Class Name*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="className"
+               required
+               [(ngModel)]="model.className" name="className"
+               #className="ngModel">
+              </div> 
+              <div [hidden]="className.valid ||className.pristine"
+                  class="alert alert-danger">
+                 class is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">section *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="section"
+               required
+               [(ngModel)]="model.section" name="section"
+               #section="ngModel">
+              </div> 
+              <div [hidden]="section.valid || section.pristine"
+                  class="alert alert-danger">
+                  Section is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Class Room Name *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="classRoomName"
+               required
+               [(ngModel)]="model.inventory" name="classRoomName"
+               #classRoomName="ngModel">
+              </div> 
+              <div [hidden]="classRoomName.valid || classRoomName.pristine"
+                  class="alert alert-danger">
+                  Class Room Name is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Class Description *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="classDescription"
+               required
+               [(ngModel)]="model.classDescription" name="classDescription"
+               #classDescription="ngModel">
+              </div> 
+              <div [hidden]="classDescription.valid || classDescription.pristine"
+                  class="alert alert-danger">
+                  Class Description is required
+              </div> 
+      </div>
+</div>
+
+<div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!classForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>

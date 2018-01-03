@@ -49,6 +49,16 @@ import { TimeTableService }    from './service/timeTable-service';
 import { EmailService }    from './service/email-service';
 import { SupplierService }    from './service/supplier-service';
 import { TransportService }    from './service/transport-service';
+import { AttendenceService }    from './service/attendence-service';
+import { BookService }    from './service/book-service';
+import { LibraryTransactionService }    from './service/libraryBookingRequest';
+import { TblClassService }    from './service/tblClass-service';
+import { DrawingService }    from './service/Drawing-service';
+import { ExamService }    from './service/exam-service';
+import { ExamDetailService }    from './service/ExamDetail-service';
+import { HostelService }    from './service/Hostel-service';
+import { InventoryService }    from './service/Inventory-service';
+import { SchoolService }    from './service/school-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,11 +89,11 @@ import { TransportService }    from './service/transport-service';
             storageType: 'localStorage'
         })
   ],
-  providers: [MyServiceService,UserServices,CityService,
-    StateService,CountryService,AuthGuard,AuthenticationService,
-    AssignmentService,LibraryService,NewsService,PurchaseService,
-    ResourceBankService,TimeTableService,EmailService,
-    SupplierService,TransportService,
+  providers: [MyServiceService,UserServices,CityService,SchoolService,
+    StateService,CountryService,AuthGuard,AuthenticationService,InventoryService,
+    AssignmentService,LibraryService,NewsService,PurchaseService,ExamService,
+    ResourceBankService,TimeTableService,EmailService,LibraryTransactionService,
+    SupplierService,TransportService,AttendenceService,BookService,HostelService,TblClassService,ExamDetailService,DrawingService,
                 { provide: HTTP_INTERCEPTORS,useClass: TokenInterceptor,multi: true},
                 { provide: FormDataService, useClass: FormDataService },
                 { provide: WorkflowService, useClass: WorkflowService }],

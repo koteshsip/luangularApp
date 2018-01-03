@@ -1,3 +1,228 @@
-<p>
-  add-school works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.id; else falsyTemplate">
+        Edit School
+      </div>
+      <ng-template #falsyTemplate>
+        Add School
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                      
+	   </p>
+     </div>
+<form (ngSubmit)="addSchool(model)" #schoolForm="ngForm">
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">SchoolName *</label>
+        <div class="col-sm-8">
+<input maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="schoolName"
+               required
+               [(ngModel)]="model.schoolName" name="schoolName"
+               #schoolName="ngModel">
+              </div> 
+              <div [hidden]="schoolName.valid || schoolName.pristine"
+                  class="alert alert-danger">
+                SchoolName  is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">address *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="address"
+               required
+               [(ngModel)]="model.address" name="address"
+               #address="ngModel">
+              </div> 
+              <div [hidden]="address.valid || address.pristine"
+                  class="alert alert-danger">
+              address is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">NoOfTeachers  *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="noOfTeachers"
+               required
+               [(ngModel)]="model.noOfTeachers" name="noOfTeachers"
+               #noOfTeachers="ngModel">
+              </div> 
+              <div [hidden]="noOfTeachers.valid || noOfTeachers.pristine"
+                  class="alert alert-danger">
+               NoOfTeachers  is required
+              </div> 
+      </div>
+</div>
+ <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">NoOfStudents  *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="noOfStudents"
+               required
+               [(ngModel)]="model.noOfStudents" name="noOfStudents"
+               #noOfStudents="ngModel">
+              </div> 
+              <div [hidden]="noOfStudents.valid || noOfStudents.pristine"
+                  class="alert alert-danger">
+                 NoOfStudents  is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">NoOfStaffs  *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="noOfStaffs"
+               required
+               [(ngModel)]="model.noOfStaffs" name="noOfStaffs"
+               #noOfStaffs="ngModel">
+              </div> 
+              <div [hidden]="noOfStaffs.valid || noOfStaffs.pristine"
+                  class="alert alert-danger">
+                 NoOfStaffs   is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">NoOfSuppliers  *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="noOfSuppliers"
+               required
+               [(ngModel)]="model.noOfSuppliers" name="noOfSuppliers"
+               #noOfSuppliers="ngModel">
+              </div> 
+              <div [hidden]="noOfSuppliers.valid || noOfSuppliers.pristine"
+                  class="alert alert-danger">
+                 NoOfSuppliers   is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">ResourceDocPath *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="resourceDocPath"
+               required
+               [(ngModel)]="model.resourceDocPath" name="resourceDocPath"
+               #resourceDocPath="ngModel">
+              </div> 
+              <div [hidden]="resourceDocPath.valid || resourceDocPath.pristine"
+                  class="alert alert-danger">
+                 ResourceDocPathis required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">NoOfTransport  *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="noOfTransport"
+               required
+               [(ngModel)]="model.noOfTransport" name="noOfTransport"
+               #noOfTransport="ngModel">
+              </div> 
+              <div [hidden]="noOfTransport.valid || noOfTransport.pristine"
+                  class="alert alert-danger">
+                 NoOfTransport  is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">NoOfClasses  *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="noOfClasses"
+               required
+               [(ngModel)]="model.noOfClasses" name="noOfClasses"
+               #noOfClasses="ngModel">
+              </div> 
+              <div [hidden]="noOfClasses.valid || noOfClasses.pristine"
+                  class="alert alert-danger">
+                 NoOfClasses  is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">tblClass  *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="tblClass"
+               required
+               [(ngModel)]="model.tblClass" name="tblClass"
+               #tblClass="ngModel">
+              </div> 
+              <div [hidden]="tblClass.valid || tblClass.pristine"
+                  class="alert alert-danger">
+                 tblClass  is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">supplier  *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="supplier"
+               required
+               [(ngModel)]="model.supplier" name="supplier"
+               #supplier="ngModel">
+              </div> 
+              <div [hidden]="supplier.valid || supplier.pristine"
+                  class="alert alert-danger">
+                 supplier  is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">transport  *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="transport"
+               required
+               [(ngModel)]="model.transport" name="transport"
+               #transport="ngModel">
+              </div> 
+              <div [hidden]="transport.valid || transport.pristine"
+                  class="alert alert-danger">
+                 transport  is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">departmentCode  *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="departmentCode"
+               required
+               [(ngModel)]="model.departmentCode" name="departmentCode"
+               #departmentCode="ngModel">
+              </div> 
+              <div [hidden]="departmentCode.valid || departmentCode.pristine"
+                  class="alert alert-danger">
+                 departmentCode  is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!schoolForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  
+  </div>
+</div>

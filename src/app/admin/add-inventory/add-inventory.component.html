@@ -1,3 +1,183 @@
-<p>
-  add-inventory works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.inventoryId; else falsyTemplate">
+        Edit Inventory
+      </div>
+      <ng-template #falsyTemplate>
+        Add Inventory
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                            </p>
+     </div>
+    <form (ngSubmit)="addInventory(model)" #inventoryForm="ngForm">
+      
+
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">inventoryName*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="inventoryName"
+               required
+               (ngModelChange)="hostelAlreadyExist($event,hostelId.value)" 
+               [(ngModel)]="model.inventoryName" name="inventoryName"
+               #inventoryName="ngModel">
+              </div> 
+              <div [hidden]="inventoryName.valid || inventoryName.pristine"
+                  class="alert alert-danger">
+                  Inventory is required
+              </div> 
+                <input type="hidden" name="inventoryName" [value]="model.inventoryName"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  Inventory Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Inventory Description*</label>
+        <div class="col-sm-8">
+		<select><option value=""></option></select>
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="inventoryDescription"
+               required
+               [(ngModel)]="model.inventoryDescription" name="inventoryDescription"
+               #inventoryDescription="ngModel">
+              </div> 
+              <div [hidden]="inventoryDescription.valid || inventoryDescription.pristine"
+                  class="alert alert-danger">
+                  Inventory Description is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Book Name*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="bookName"
+               required
+               [(ngModel)]="model.bookName" name="bookName"
+               #bookName="ngModel">
+              </div> 
+              <div [hidden]="bookName.valid || bookName.pristine"
+                  class="alert alert-danger">
+                  Book Name is required
+              </div> 
+                <input type="hidden" name="hostelId" [value]="model.hostelId"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  Book Name Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Stock On Hand*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="stockOnHand"
+               required
+               [(ngModel)]="model.stockOnHand" name="stockOnHand"
+               #stockOnHand="ngModel">
+              </div> 
+              <div [hidden]="stockOnHand.valid || stockOnHand.pristine"
+                  class="alert alert-danger">
+                  Book Name is required
+              </div> 
+                <input type="hidden" name="stockOnHand" [value]="model.stockOnHand"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  Book Name Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Reorder Level*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="reorderLevel"
+               required
+               [(ngModel)]="model.reorderLevel" name="reorderLevel"
+               #reorderLevel="ngModel">
+              </div> 
+              <div [hidden]="reorderLevel.valid || reorderLevel.pristine"
+                  class="alert alert-danger">
+                  Reorder Level is required
+              </div> 
+                <input type="hidden" name="reorderLevel" [value]="model.reorderLevel"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  Reorder Level Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Issued Quantity*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="issuedQuantity"
+               required
+               [(ngModel)]="model.issuedQuantity" name="issuedQuantity"
+               #issuedQuantity="ngModel">
+              </div> 
+              <div [hidden]="issuedQuantity.valid || issuedQuantity.pristine"
+                  class="alert alert-danger">
+                  Issued Quantity is required
+              </div> 
+                <input type="hidden" name="issuedQuantity" [value]="model.issuedQuantity"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  Issued Quantity Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Stock Type*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="stockType"
+               required
+               [(ngModel)]="model.stockType" name="stockType"
+               #stockType="ngModel">
+              </div> 
+              <div [hidden]="stockType.valid || stockType.pristine"
+                  class="alert alert-danger">
+                  Stock Type is required
+              </div> 
+                <input type="hidden" name="stockType" [value]="model.stockType"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  Stock Type Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Stock Date*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="stockDate"
+               required
+               [(ngModel)]="model.stockDate" name="stockDate"
+               #stockDate="ngModel">
+              </div> 
+              <div [hidden]="stockDate.valid || stockDate.pristine"
+                  class="alert alert-danger">
+                  Stock Date is required
+              </div> 
+                <input type="hidden" name="stockDate" [value]="model.stockDate"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  Stock Date Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!inventoryForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>

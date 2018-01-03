@@ -3,10 +3,10 @@
   <section class="content-header">
     <div class="panel-body box box-info"><h1>
       <div *ngIf="model.id; else falsyTemplate">
-        Edit Hostel
+        Edit News
       </div>
       <ng-template #falsyTemplate>
-        Add Hostel
+        Add News
       </ng-template>
     </h1>
     </div>
@@ -18,27 +18,6 @@
 	   </p>
      </div>
     <form (ngSubmit)="addnews(model)" #newsForm="ngForm">
-      
-<div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">NewsId *</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="newsId"
-               required
-               (ngModelChange)="newsAlreadyExist($event,newsId.value)" 
-               [(ngModel)]="model.newsId" name="newsId"
-               #newsId="ngModel">
-              </div> 
-              <div [hidden]="hostelId.valid || hostelId.pristine"
-                  class="alert alert-danger">
-                  NewsId is required
-              </div> 
-                <input type="hidden" name="newsId" [value]="model.newsId"/>
-                <div *ngIf="IsExist" class="alert alert-danger">
-                 NewsId Already Exist
-                </div>
-      </div>
-</div>
 <div class="row">
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">News Type *</label>
@@ -105,40 +84,10 @@
       </div>
 </div>
 <div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">CreatedAt *</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="createdAt"
-               required
-               [(ngModel)]="model.createdAt" name="createdAt"
-               #createdAt="ngModel">
-              </div> 
-              <div [hidden]="createdAt.valid || createdAt.pristine"
-                  class="alert alert-danger">
-               CreatedAt is required
-              </div> 
-      </div>
-</div>
-<div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">UpdatedAt *</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="updatedAt"
-               required
-               [(ngModel)]="model.updatedAt" name="updatedAt"
-               #updatedAt="ngModel">
-              </div> 
-              <div [hidden]="updatedAt.valid || updatedAt.pristine"
-                  class="alert alert-danger">
-              updatedAt is required
-              </div> 
-      </div>
-</div>
-<div class="row">
         <div class="form-group col-sm-4">
         </div>
         <div class="form-group col-sm-4">
-          <button type="submit" class="btn btn-success" [disabled]="!cityForm.form.valid || IsExist">Save</button>
+          <button type="submit" class="btn btn-success" [disabled]="!newsForm.form.valid || IsExist">Save</button>
           <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
         </div>
         </div>

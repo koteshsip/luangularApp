@@ -17,7 +17,7 @@ export class AddCityComponent implements OnInit {
 
  private data;
 form: FormGroup;
-private states:any
+private states:any;
 private IsExist:any;
   constructor(public mystorage:LocalStorageService,
   public cityService:CityService

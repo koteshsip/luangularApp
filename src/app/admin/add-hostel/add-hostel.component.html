@@ -2,7 +2,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="panel-body box box-info"><h1>
-      <div *ngIf="model.id; else falsyTemplate">
+      <div *ngIf="model.hostelId; else falsyTemplate">
         Edit Hostel
       </div>
       <ng-template #falsyTemplate>
@@ -43,6 +43,7 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">Room Type*</label>
         <div class="col-sm-8">
+		<select><option value=""></option></select>
 <input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="hostelRoomType"
                required
                [(ngModel)]="model.hostelRoomType" name="hostelRoomType"
@@ -55,10 +56,67 @@
       </div>
 </div>
 <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">totalRooms Available*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="totalRoomsAvailable"
+               required
+               [(ngModel)]="model.totalRoomsAvailable" name="totalRoomsAvailable"
+               #totalRoomsAvailable="ngModel">
+              </div> 
+              <div [hidden]="totalRoomsAvailable.valid ||totalRoomsAvailable.pristine"
+                  class="alert alert-danger">
+                  totalRoomsAvailable is required
+              </div> 
+                <input type="hidden" name="hostelId" [value]="model.hostelId"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  totalRoomsAvailable Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">totalRooms Occupied*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="totalRoomsOccupied"
+               required
+               [(ngModel)]="model.totalRoomsOccupied" name="totalRoomsOccupied"
+               #totalRoomsOccupied="ngModel">
+              </div> 
+              <div [hidden]="totalRoomsOccupied.valid ||totalRoomsOccupied.pristine"
+                  class="alert alert-danger">
+                  totalRoomsOccupied is required
+              </div> 
+                <input type="hidden" name="hostelId" [value]="model.hostelId"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  totalRoomsOccupied Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">selectedRoomAvailable*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="selectedRoomAvailable"
+               required
+               [(ngModel)]="model.selectedRoomAvailable" name="selectedRoomAvailable"
+               #selectedRoomAvailable="ngModel">
+              </div> 
+              <div [hidden]="selectedRoomAvailable.valid ||selectedRoomAvailable.pristine"
+                  class="alert alert-danger">
+                  selectedRoomAvailable is required
+              </div> 
+                <input type="hidden" name="hostelId" [value]="model.hostelId"/>
+                <div *ngIf="IsExist" class="alert alert-danger">
+                  selectedRoomAvailable Already Exist
+                </div>
+      </div>
+</div>
+<div class="row">
         <div class="form-group col-sm-4">
         </div>
         <div class="form-group col-sm-4">
-          <button type="submit" class="btn btn-success" [disabled]="!cityForm.form.valid || IsExist">Save</button>
+          <button type="submit" class="btn btn-success" [disabled]="!hostelForm.form.valid || IsExist">Save</button>
           <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
         </div>
         </div>

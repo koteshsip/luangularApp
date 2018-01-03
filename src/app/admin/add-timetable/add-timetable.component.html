@@ -38,7 +38,7 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">Start Date *</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="startDate"
+<input type="date"    class="form-control"  id="startDate"
                required
                [(ngModel)]="model.startDate" name="startDate"
                #startDate="ngModel">
@@ -53,7 +53,7 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">End Date *</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="endDate"
+<input type="date"  class="form-control"  id="endDate"
                required
                [(ngModel)]="model.endDate" name="endDate"
                #endDate="ngModel">
@@ -63,21 +63,6 @@
                   EndDate is required
               </div> 
       </div>
-</div>
-<div class="row">
-     <div class="form-group col-sm-8">
-       <label class="col-sm-4 control-label" for="name">User *</label>
-       <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="user"
-              required
-              [(ngModel)]="model.user" name="user"
-              #user="ngModel">
-             </div> 
-             <div [hidden]="user.valid || user.pristine"
-                 class="alert alert-danger">
-                 user is required
-             </div> 
-     </div>
 </div>
 <div class="row">
      <div class="form-group col-sm-8">

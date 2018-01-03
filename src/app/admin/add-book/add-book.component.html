@@ -1,3 +1,129 @@
-<p>
-  add-book works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.id; else falsyTemplate">
+        Edit book
+      </div>
+      <ng-template #falsyTemplate>
+        Add book
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                         
+	   </p>
+     </div>
+    <form (ngSubmit)="addBook(model)" #bookForm="ngForm">
+      
+
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">bookType*</label>
+        <div class="col-sm-8">
+<select  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="bookType"
+               required
+               [(ngModel)]="model.bookType" name="bookType"
+               #bookType="ngModel">
+			   <option value="Story" >Story</option>
+			   <option value="Autobiography" >Autobiography</option>
+			   <option value="Novel" >Novel</option>
+			   <option value="Historical">Historical</option>
+			   </select>
+              </div> 
+              <div [hidden]="bookType.valid || bookType.pristine"
+                  class="alert alert-danger">
+                Book Type Type is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">BookCategoery*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="bookCategoery"
+               required
+               [(ngModel)]="model.bookCategoery" name="bookCategoery"
+               #bookCategoery="ngModel">
+              </div> 
+              <div [hidden]="bookCategoery.valid || bookCategoery.pristine"
+                  class="alert alert-danger">
+               BookCategoery is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Book Name*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="bookName"
+               required
+               [(ngModel)]="model.bookName" name="bookName"
+               #bookName="ngModel">
+              </div> 
+              <div [hidden]="bookName.valid || bookName.pristine"
+                  class="alert alert-danger">
+               bookName is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Image Link*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="imageLink"
+               required
+               [(ngModel)]="model.imageLink" name="imageLink"
+               #imageLink="ngModel">
+              </div> 
+              <div [hidden]="imageLink.valid || imageLink.pristine"
+                  class="alert alert-danger">
+               Image Link is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">New Item*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="newItem"
+               required
+               [(ngModel)]="model.newItem" name="newItem"
+               #newItem="ngModel">
+              </div> 
+              <div [hidden]="newItem.valid || newItem.pristine"
+                  class="alert alert-danger">
+               New Item is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">tblClass*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="tblClass"
+               required
+               [(ngModel)]="model.tblClass" name="tblClass"
+               #tblClass="ngModel">
+              </div> 
+              <div [hidden]="tblClass.valid || tblClass.pristine"
+                  class="alert alert-danger">
+              tblClass is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>

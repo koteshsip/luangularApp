@@ -1,3 +1,125 @@
-<p>
-  add-drawing works!
-</p>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="panel-body box box-info"><h1>
+      <div *ngIf="model.drawingId; else falsyTemplate">
+        Edit Drawing
+      </div>
+      <ng-template #falsyTemplate>
+        Add Drawing
+      </ng-template>
+    </h1>
+    </div>
+  </section>
+<div class="content ">
+  <div class="box box-info">
+     <div class="row">
+       <p>                         
+	   </p>
+     </div>
+    <form (ngSubmit)="addDrawing(model)" #drawingForm="ngForm">
+      
+
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Drawing Code*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="drawingCode"
+               required
+               [(ngModel)]="model.drawingCode" name="drawingCode"
+               #drawingCode="ngModel">
+              </div> 
+              <div [hidden]="drawingCode.valid ||drawingCode.pristine"
+                  class="alert alert-danger">
+                 Drawing Code is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Drawing Name *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="drawingName"
+               required
+               [(ngModel)]="model.drawingName" name="drawingName"
+               #drawingName="ngModel">
+              </div> 
+              <div [hidden]="drawingName.valid || drawingName.pristine"
+                  class="alert alert-danger">
+                  DrawingName is required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">DrawingType *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="drawingType"
+               required
+               [(ngModel)]="model.drawingType" name="drawingType"
+               #drawingType="ngModel">
+              </div> 
+              <div [hidden]="drawingType.valid || drawingType.pristine"
+                  class="alert alert-danger">
+                  DrawingType is required
+              </div> 
+      </div>
+</div>
+<!-- <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Class Description *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="classDescription"
+               required
+               [(ngModel)]="model.classDescription" name="classDescription"
+               #classDescription="ngModel">
+              </div> 
+              <div [hidden]="classDescription.valid || classDescription.pristine"
+                  class="alert alert-danger">
+                  Class Description is required
+              </div> 
+      </div>
+</div> -->
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Drawing Category *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="drawingCategory"
+               required
+               [(ngModel)]="model.drawingCategory" name="drawingCategory"
+               #drawingCategory="ngModel">
+              </div> 
+              <div [hidden]="drawingCategory.valid || drawingCategory.pristine"
+                  class="alert alert-danger">
+                  Drawing Categoryis required
+              </div> 
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">imageUrl *</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="imageUrl"
+               required
+               [(ngModel)]="model.imageUrl" name="imageUrl"
+               #imageUrl="ngModel">
+              </div> 
+              <div [hidden]="imageUrl.valid || imageUrl.pristine"
+                  class="alert alert-danger">
+                  Image Urlis required
+              </div> 
+      </div>
+</div>
+
+<div class="row">
+        <div class="form-group col-sm-4">
+        </div>
+        <div class="form-group col-sm-4">
+          <button type="submit" class="btn btn-success" [disabled]="!drawingForm.form.valid || IsExist">Save</button>
+          <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+</div>

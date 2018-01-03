@@ -3,10 +3,10 @@
   <section class="content-header">
     <div class="panel-body box box-info"><h1>
       <div *ngIf="model.id; else falsyTemplate">
-        Edit Hostel
+        Edit Library
       </div>
       <ng-template #falsyTemplate>
-        Add Hostel
+        Add Library
       </ng-template>
     </h1>
     </div>
@@ -135,71 +135,10 @@
       </div>
 </div>
 <div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">user*</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="user"
-               required
-               [(ngModel)]="model.user" name="user"
-               #user="ngModel">
-              </div> 
-              <div [hidden]="user.valid || user.pristine"
-                  class="alert alert-danger">
-               user is required
-              </div> 
-      </div>
-</div>
-<div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">CreatedAt*</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="createdAt"
-               required
-               [(ngModel)]="model.createdAt" name="createdAt"
-               #user="ngModel">
-              </div> 
-              <div [hidden]="createdAt.valid || createdAt.pristine"
-                  class="alert alert-danger">
-               CreatedAt is required
-              </div> 
-      </div>
-</div>
-<div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">UpdatedAt*</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="updatedAt"
-               required
-               [(ngModel)]="model.updatedAt" name="updatedAt"
-               #user="ngModel">
-              </div> 
-              <div [hidden]="updatedAt.valid || updatedAt.pristine"
-                  class="alert alert-danger">
-              updatedAt is required
-              </div> 
-      </div>
-</div>
-<div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">message*</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="message"
-               required
-               [(ngModel)]="model.message" name="message"
-               #message="ngModel">
-              </div> 
-              <div [hidden]="message.valid || message.pristine"
-                  class="alert alert-danger">
-              message is required
-              </div> 
-      </div>
-</div>
-
-<div class="row">
         <div class="form-group col-sm-4">
         </div>
         <div class="form-group col-sm-4">
-          <button type="submit" class="btn btn-success" [disabled]="!cityForm.form.valid || IsExist">Save</button>
+          <button type="submit" class="btn btn-success" [disabled]="!libraryorm.form.valid || IsExist">Save</button>
           <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
         </div>
         </div>
