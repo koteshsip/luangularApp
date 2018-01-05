@@ -48,7 +48,7 @@ this.message=this.mystorage.get("message");
 		);
 		return event;
 }
-deleteExam(id){
+deleteLibrary(id){
 let myid=Base64.decode(id);
     this.showConfirm(myid);
 }

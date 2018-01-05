@@ -26,27 +26,29 @@
      </div>
      </div>
  <div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
- <table *ngIf="totalItem" class="table table-bordered box box-info">
+  <table *ngIf="totalItem" class="table table-bordered box box-info">
                      <thead>
                          <tr>
-                             <th>examId</th>
-                             <th>examType</th>
-                             <th>subjectOfTheExam</th>
-                             <th>examDate</th>
+                             <th>Library Name</th>
+                             <th>Amount To Pay</th>
+                             <th>Book Alloted To</th>
+                             <th>bookCategoery</th>
+                             <th>bookDueDate</th>
+                             <th>Action</th>
                          </tr>
                      </thead>
                       <tbody>
                                  <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                      totalItems: totalItem}">
-                                     <td>{{datas.exam['examId']}}</td>  
-                                     <td>{{datas.exam['examType']}}</td>
-                                     <td>{{datas.exam['subjectOfTheExam']}}</td>
-                                     <td>{{datas.exam['examDate']}}</td>
-                                      
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/addExam/{{this.baseEncode(datas.examId)}}">Edit</a><a class="btn btn-danger" (click)="deleteExam(this.baseEncode(datas.examId))">Delete</a></td>
+                                     <td>{{datas.libraryName}}</td>  
+                                     <td>{{datas.amountToPay}}</td>
+                                     <td>{{datas.bookAllotedTo}}</td>
+                                     <td>{{datas.bookCategoery}}</td>
+                                      <td>{{datas.bookDueDate}}</td>
+ <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-library/{{this.baseEncode(datas.libraryId)}}">Edit</a><a class="btn btn-danger" (click)="deleteLibrary(this.baseEncode(datas.libraryId))">Delete</a></td>
                                      </tr>
                      </tbody> 
-                 </table>
+                 </table> 
                  <div *ngIf="!totalItem" class="row">
      <div class="col-md-6" >
      <div class="alert alert-success">

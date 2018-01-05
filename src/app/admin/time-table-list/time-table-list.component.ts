@@ -37,7 +37,7 @@ this.message=this.mystorage.get("message");
 				if(data.error) { 
 					alert('Server Error');
 				} else {
-                    this.data=data;//['news'];
+                    this.data=data['timeTable'];//['news'];
                     this.totalItem = data['count'];
                 }
 			},
@@ -58,7 +58,7 @@ let myid=Base64.decode(id);
                 .subscribe((isConfirmed)=>{
                     //We get dialog result
                     if(isConfirmed) {
-                        this.timeTableService.deleteTimeTable(id).subscribe((data:any)=>{
+                            this.timeTableService.deleteTimeTable(id).subscribe((data:any)=>{
                             this.getAllExams(1,'');
                             this.message="Record deleted Successfully";
                         });

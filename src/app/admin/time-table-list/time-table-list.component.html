@@ -2,7 +2,7 @@
   <!-- Content Header (Page header) -->
    <section class="content-header">
      <div class="panel-body box box-info"><h1>
-       List Of Timetable {{ data | json}}<button class="btn btn-primary pull-right" (click)="addTimetable()">add Timetable</button>
+       List Of Timetable <button class="btn btn-primary pull-right" (click)="addTimetable()">add Timetable</button>
      </h1></div> 
    </section>
  <div class="content">
@@ -29,21 +29,19 @@
  <table *ngIf="totalItem" class="table table-bordered box box-info">
                      <thead>
                          <tr>
-                             <th>examId</th>
-                             <th>examType</th>
-                             <th>subjectOfTheExam</th>
-                             <th>examDate</th>
+                             <th>Start Date</th>
+                             <th>End Date</th>
+                             <th>createdAt</th>
+                             <th>Action</th>
                          </tr>
                      </thead>
                       <tbody>
                                  <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                      totalItems: totalItem}">
-                                     <td>{{datas.exam['examId']}}</td>  
-                                     <td>{{datas.exam['examType']}}</td>
-                                     <td>{{datas.exam['subjectOfTheExam']}}</td>
-                                     <td>{{datas.exam['examDate']}}</td>
-                                      
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/addExam/{{this.baseEncode(datas.examId)}}">Edit</a><a class="btn btn-danger" (click)="deleteExam(this.baseEncode(datas.examId))">Delete</a></td>
+                                     <td>{{datas.startDate | date: 'dd/MM/yyyy'}}</td>  
+                                     <td>{{datas.endDate | date: 'dd/MM/yyyy'}}</td>
+                                     <td>{{datas.createdAt | date: 'dd/MM/yyyy'}}</td>                                      
+ <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-timetable/{{this.baseEncode(datas.timeTableId)}}">Edit</a><a class="btn btn-danger" (click)="deleteExam(this.baseEncode(datas.timeTableId))">Delete</a></td>
                                      </tr>
                      </tbody> 
                  </table>

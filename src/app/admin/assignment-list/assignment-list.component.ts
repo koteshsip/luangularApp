@@ -61,8 +61,8 @@ export class AssignmentListComponent implements OnInit {
 				if(data.error) { 
 					alert('Server Error');
 				} else {
-                    this.data=data;
-                    //this.data=data['assignment'];
+//                    this.data=data;
+                    this.data=data['assignment'];
                     this.totalItem = data['count'];
         }
 			},
