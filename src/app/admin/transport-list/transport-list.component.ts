@@ -37,7 +37,7 @@ this.message=this.mystorage.get("message");
 				if(data.error) { 
 					alert('Server Error');
 				} else {
-                    this.data=data;//['news'];
+                    this.data=data['transport'];
                     this.totalItem = data['count'];
                 }
 			},

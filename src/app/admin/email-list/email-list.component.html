@@ -29,25 +29,19 @@
  <table *ngIf="totalItem" class="table table-bordered box box-info">
                      <thead>
                          <tr>
-                             <th>emailId</th>
-                             <th>emailDescription</th>
-                             <th>emailType</th>
-                             <th>emailSubject</th>
-                             <th>emailContent</th>
-                             <th>attachmentLink</th>
+                             <th>EmailDescription</th>
+                             <th>EmailType</th>
+                             <th>EmailSubject</th>
+                             <th>Action</th>
                          </tr>
                      </thead>
                       <tbody>
                                  <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                      totalItems: totalItem}">
-                                     <td>{{datas.email['emailId']}}</td>  
-                                     <td>{{datas.email['emailDescription']}}</td>
-                                     <td>{{datas.email['emailType']}}</td>
-                                     <td>{{datas.email['emailSubject']}}</td>
-                                     <td>{{datas.email['emailContent']}}</td>
-                                       <td>{{datas.email['attachmentLink']}}</td>
-                                      
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/addEmail/{{this.baseEncode(datas.emailId)}}">Edit</a><a class="btn btn-danger" (click)="deleteEmail(this.baseEncode(datas.emailId))">Delete</a></td>
+                                     <td>{{datas.emailDescription}}</td>
+                                     <td>{{datas.emailType}}</td>
+                                     <td>{{datas.emailSubject}}</td>                                      
+ <td><a class="btn btn-danger" (click)="deleteEmail(this.baseEncode(datas.emailId))">Delete</a></td>
                                      </tr>
                      </tbody> 
                  </table>

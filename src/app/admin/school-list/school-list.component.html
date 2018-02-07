@@ -29,21 +29,25 @@
  <table *ngIf="totalItem" class="table table-bordered box box-info">
                      <thead>
                          <tr>
-                             <th>examId</th>
-                             <th>examType</th>
-                             <th>subjectOfTheExam</th>
-                             <th>examDate</th>
+                             <th>No Of Teachers</th>
+                             <th>No Of Student</th>
+                             <th>No Of Staffs</th>
+                             <th>No Of Suppliers</th>
+                             <th>No Of Transport</th>
+                             <th>School Name</th>
+                             <th>Action</th>
                          </tr>
                      </thead>
                       <tbody>
                                  <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                      totalItems: totalItem}">
-                                     <td>{{datas.exam['examId']}}</td>  
-                                     <td>{{datas.exam['examType']}}</td>
-                                     <td>{{datas.exam['subjectOfTheExam']}}</td>
-                                     <td>{{datas.exam['examDate']}}</td>
-                                      
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/addExam/{{this.baseEncode(datas.examId)}}">Edit</a><a class="btn btn-danger" (click)="deleteExam(this.baseEncode(datas.examId))">Delete</a></td>
+                                     <td>{{datas.noOfTeachers}}</td>  
+                                     <td>{{datas.noOfStudents}}</td>
+                                     <td>{{datas.noOfStaffs}}</td>
+                                     <td>{{datas.noOfSuppliers}}</td>
+                                      <td>{{datas.noOfTransport}}</td>
+                                      <td>{{datas.schoolName}}</td>
+ <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-school/{{this.baseEncode(datas.schoolId)}}">Edit</a><a class="btn btn-danger" (click)="deleteExam(this.baseEncode(datas.schoolId))">Delete</a></td>
                                      </tr>
                      </tbody> 
                  </table>

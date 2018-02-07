@@ -29,7 +29,6 @@ export class StateListComponent implements OnInit {
   }
 
 deleteState(id){
-    alert(id);
 let myid=Base64.decode(id);
     this.showConfirm(myid);
 }

@@ -37,7 +37,7 @@ this.message=this.mystorage.get("message");
 				if(data.error) { 
 					alert('Server Error');
 				} else {
-                    this.data=data;//['news'];
+                    this.data=data['resourceBank'];
                     this.totalItem = data['count'];
                 }
 			},
@@ -47,7 +47,7 @@ this.message=this.mystorage.get("message");
 		);
 		return event;
 }
-deleteExam(id){
+deleteResourceBank(id){
 let myid=Base64.decode(id);
     this.showConfirm(myid);
 }

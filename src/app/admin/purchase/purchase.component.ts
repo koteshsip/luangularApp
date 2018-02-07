@@ -28,8 +28,8 @@ export class PurchaseComponent implements OnInit {
     this.page=1;
    this.getAllTblClasss(this.page,""); 
   }
-addBookingRequesting(){
-  this.router.navigate(['/admin/add-booking-request']);
+addPurchase(){
+  this.router.navigate(['/admin/add-purchase']);
 }
 
 getAllTblClasss(event,filter){
@@ -39,7 +39,7 @@ this.message=this.mystorage.get("message");
 				if(data.error) { 
 					alert('Server Error');
 				} else {
-                    this.data=data;
+                    this.data=data['purchase'];
                     this.totalItem = data['count'];
                 }
 			},

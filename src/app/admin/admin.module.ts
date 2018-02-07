@@ -60,7 +60,6 @@ import { AddLibraryComponent } from './add-library/add-library.component';
 import { AddPurchaseComponent } from './add-purchase/add-purchase.component';
 import { AddSupplierComponent } from './add-supplier/add-supplier.component';
 import { AddTransportComponent } from './add-transport/add-transport.component';
-import { EmailTransportComponent } from './email-transport/email-transport.component';
 import { AddResourceBankComponent } from './add-resource-bank/add-resource-bank.component';
 import { AddExamComponent } from './add-exam/add-exam.component';
 import { AddExamDetailComponent } from './add-exam-detail/add-exam-detail.component';
@@ -135,7 +134,6 @@ import { AddEmailComponent } from './add-email/add-email.component';
     AddPurchaseComponent,
     AddSupplierComponent,
     AddTransportComponent,
-    EmailTransportComponent,
     AddResourceBankComponent,
     AddExamComponent,
     AddExamDetailComponent,

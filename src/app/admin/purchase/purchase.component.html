@@ -2,7 +2,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="panel-body box"><h1>
-     List of State{{ data | json }}<button class="btn btn-primary pull-right" (click)="addState()">Add State</button>
+     List of Purchase {{ data | json }}<button class="btn btn-primary pull-right" (click)="addPurchase()">Add Purchase</button>
     </h1></div>
   </section>
 <div class="content">
@@ -33,6 +33,29 @@
 </div>
     </div>
 </div>
+ <table  class="table table-bordered box box-info">
+                    <thead>
+                        <tr>
+                            <th>purchase Type</th>
+                            <th>Description</th>
+                            <th>publisher Name</th> 
+                            <th>productPrice</th>
+                            <th>quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
+                                    totalItems: totalItem}">
+                                    <td>{{datas.purchaseType}}</td> 
+                                    <td>{{datas.productDescription}}</td>
+                                    <td>{{datas.publisherName}}</td>
+                                    <td>{{datas.productPrice}}</td>
+                                    <td>{{datas.quantityPurchased}}</td>
+<td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-purchase/{{this.baseEncode(datas.purchaseId)}}">Edit</a><a class="btn btn-danger" (click)="deletePurchase(this.baseEncode(datas.purchaseId))">Delete</a></td>
+                                    </tr>
+                    </tbody>
+                </table>
                 <pagination-controls *ngIf="totalItem"
 			(pageChange) = "page = getAllState($event,filter)" 
 			id="server"

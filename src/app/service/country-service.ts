@@ -6,7 +6,8 @@ import { Base64 } from 'js-base64';
 @Injectable()
 export class CountryService {
 private  baseurl="http://localhost:8080/lujavaapp/";
-  constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
+  constructor(public localStorageService: LocalStorageService
+    ,public http:HttpClient) { }
 getAllCountry(event,filter){
     if(!filter){
       filter=null;

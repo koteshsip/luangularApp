@@ -2,7 +2,7 @@
   <!-- Content Header (Page header) -->
    <section class="content-header">
      <div class="panel-body box box-info"><h1>
-       List Of Resource Bank {{ data | json}}<button class="btn btn-primary pull-right" (click)="addResourceBank()">Add ResourceBank</button>
+       List Of Resource Bank<button class="btn btn-primary pull-right" (click)="addResourceBank()">Add ResourceBank</button>
      </h1></div> 
    </section>
  <div class="content">
@@ -29,21 +29,22 @@
  <table *ngIf="totalItem" class="table table-bordered box box-info">
                      <thead>
                          <tr>
-                             <th>examId</th>
-                             <th>examType</th>
-                             <th>subjectOfTheExam</th>
-                             <th>examDate</th>
+                             <th>ResourceName</th>
+                             <th>createdAt</th>
+                             <th>Title</th>
+                             <th>Heading</th>
+                             <th>Action</th>
                          </tr>
                      </thead>
                       <tbody>
                                  <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                      totalItems: totalItem}">
-                                     <td>{{datas.exam['examId']}}</td>  
-                                     <td>{{datas.exam['examType']}}</td>
-                                     <td>{{datas.exam['subjectOfTheExam']}}</td>
-                                     <td>{{datas.exam['examDate']}}</td>
+                                     <td>{{datas.resourceName}}</td>  
+                                     <td>{{datas.createdAt}}</td>
+                                     <td>{{datas.title}}</td>
+                                     <td>{{datas.heading}}</td>
                                       
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/addExam/{{this.baseEncode(datas.examId)}}">Edit</a><a class="btn btn-danger" (click)="deleteExam(this.baseEncode(datas.examId))">Delete</a></td>
+ <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-resource-bank/{{this.baseEncode(datas.resourceBankId)}}">Edit</a><a class="btn btn-danger" (click)="deleteResourceBank(this.baseEncode(datas.resourceBankId))">Delete</a></td>
                                      </tr>
                      </tbody> 
                  </table>
