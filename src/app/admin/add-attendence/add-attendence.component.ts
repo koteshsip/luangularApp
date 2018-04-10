@@ -17,6 +17,7 @@ import { FormGroup, FormArray, FormBuilder,
 export class AddAttendenceComponent implements OnInit {
   private data;
   form: FormGroup;
+  private mydat: any;
   private IsExist:any;
     constructor(public mystorage:LocalStorageService,
     public attendenceService:AttendenceService,
