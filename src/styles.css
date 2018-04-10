@@ -17,9 +17,9 @@
     box-shadow: 5px 10px 18px #888888;
     border-radius: 8px;
  }
- /* body{
-    background-size: 2500px;
-    } */
+ body{
+    background-size: cover;
+    }
  /* @media (max-width:1366){
      
  } */
@@ -55,7 +55,17 @@
     color: #000000;
     box-shadow: 10px 10px 18px #000000;
 }
-.login-margin{
+.btn-margin{
     margin-top: 30px;
-
 }
+.root-center{
+    width:100vw;height:100vh;
+}
+.title-2{
+    font-size: 20px;
+    font-weight: 300;
+    width: 500px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.label-font{font-size: 20px;}
