@@ -20,7 +20,10 @@ import { AdminControlSidebarComponent } from './admin/admin-control-sidebar/admi
 import { AdminDashboard1Component } from './admin/admin-dashboard1/admin-dashboard1.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule,HttpClient} from '@angular/common/http';
+// Translate module for multiple language translation start
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { MyServiceService } from './my-service.service';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -31,7 +34,6 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import {NgxPaginationModule} from 'ngx-pagination';
 /* Shared Service */
 import { FormDataService }    from './service/formData.service';
-
 import { CityService }    from './service/city-service';
 import { StateService }    from './service/state-service';
 import { CountryService }    from './service/country-service';
@@ -59,6 +61,11 @@ import { ExamDetailService }    from './service/ExamDetail-service';
 import { HostelService }    from './service/Hostel-service';
 import { InventoryService }    from './service/Inventory-service';
 import { SchoolService }    from './service/school-service';
+// https://github.com/ngx-translate/core
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http,'./assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +88,13 @@ import { SchoolService }    from './service/school-service';
     AuthModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule,TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  }),
     BootstrapModalModule,
     NgxPaginationModule,
     LocalStorageModule.withConfig({

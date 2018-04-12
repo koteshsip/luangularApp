@@ -8,6 +8,7 @@ import { } from 'jqueryui';
 import { } from 'daterangepicker';
 import { } from 'jquery.slimscroll';
 import * as moment from 'moment';
+import {} from 'wheelnav/js/dist/wheelnav.js'
 import { LocalStorageService } from 'angular-2-local-storage';
 import { MyServiceService } from './../../my-service.service';
 // Variable in assets/js/scripts.js file
@@ -25,9 +26,18 @@ export class AdminDashboard1Component implements OnInit {
   knob: JQuery;
   calendar: JQuery;
   totalItem:any;
-
-  constructor(public router: Router,public mystorage:LocalStorageService,public myservice:MyServiceService) { }
+  //public Twheel: wheelnav;
+  //twheel = require('../../../../node_modules/wheelnav/js/dist/wheelnav.min.js');
+	menuContainer: HTMLElement
+  constructor(public router: Router,public mystorage:LocalStorageService,public myservice:MyServiceService) { 
+  }
   ngOnInit() {
+    //alert(this.Twheel);
+    //console.log("wheelDiv"+typeof(new this.twheel.wheelnav('divWheelnav')));
+   // new this.Twheel('divWheelnav', null, 600, 600); //new this.twheel.wheelnav('wheelDiv');
+    
+    //this.Twheel.createWheel("test");
+    //console.log(this.Twheel);
 // let mytoken=this.mystorage.get("token");
 // let logindata=this.mystorage.get("logindata");
 
@@ -108,7 +118,6 @@ export class AdminDashboard1Component implements OnInit {
       lineColors: ['#a0d0e0', '#3c8dbc'],
       hideHover: 'auto'
     });
-
     this.donutChart = Morris.Donut({
       element: 'sales-chart',
       resize: true,

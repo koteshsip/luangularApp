@@ -8,39 +8,13 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent} from './../login/login.component';
 import { ForgotPasswordComponent } from './../forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './../change-password/change-password.component';
-//  import { UserProfileComponent } from './../admin/user-profile/user-profile.component';
-// import { AuthGuard } from './../_guards/auth.guard';
 @NgModule({
   imports: [
     RouterModule.forRoot([
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'starter', component: StarterComponent },
       { path: 'login', component:LoginComponent},
       { path: 'forgot-password', component:ForgotPasswordComponent},
-      { path: 'change-password/:id/:token', component:ChangePasswordComponent},
-      //   { path: 'admin', 
-    //   component:AdminComponent,
-    //        children: [
-    //       {
-    //         path: '',
-    //         redirectTo: 'dashboard1',
-    //         pathMatch: 'full'
-    //       },
-    //       {
-    //         path: 'dashboard1',
-    //         component: AdminDashboard1Component
-    //       },
-    //       {
-    //         path: 'dashboard2',
-    //         component: AdminDashboard2Component
-    //       }
-    //       ,
-    //       // {
-    //       //   path: 'userprofile',
-    //       //   component: UserProfileComponent
-    //       // }
-    //     ]
-    // },
+      { path: 'change-password/:id/:token', component:ChangePasswordComponent}
     ])
   ],
   declarations: [],

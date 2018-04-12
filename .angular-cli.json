@@ -34,8 +34,10 @@
         "../node_modules/jquery/dist/jquery.js",
         "../node_modules/jqueryui/jquery-ui.js",
         "../node_modules/bootstrap/dist/js/bootstrap.js",
-        "../node_modules/raphael/raphael.js",
-        "../node_modules/morris.js/morris.js",
+        "../node_modules/wheelnav/js/dist/raphael.min.js",
+        "../node_modules/wheelnav/js/dist/raphael.icons.min.js",
+        "../node_modules/wheelnav/js/dist/wheelnav.min.js"
+        ,"../node_modules/morris.js/morris.js",
         "../node_modules/jquery-sparkline/jquery.sparkline.js",
         "../node_modules/jquery-knob/dist/jquery.knob.min.js",
         "../node_modules/moment/moment.js",
