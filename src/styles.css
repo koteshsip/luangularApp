@@ -37,9 +37,13 @@
     margin-left: 20px;
 }
 .child-menu-icon{
-    width: 35px;
-    height: 35px;
-    margin-top: 10px;
+    width: 10px;
+    height: 10px;
+    margin-top: 18px;
+}
+.imgcenter {
+    margin-left: 355px;
+    margin-top: 6px;
 }
 .navbar-text:hover{
     color: Yellow;
@@ -109,6 +113,9 @@
 .root-center{
     width:100vw;height:100vh;
 }
+.header-center{
+    width:100vw;
+}
 .title-2{
     font-size: 20px;
     font-weight: 300;
@@ -117,3 +124,19 @@
     margin-top: 10px;
 }
 .label-font{font-size: 20px;}
+/* .sidebartop{
+    
+} */
+.main-sidebar, .left-side {
+    position: absolute !important;
+    top: none !important;
+    left: 0 !important;
+    padding-top: 50px !important;
+    min-height: 100% !important;
+    width: 230px !important;
+    z-index: 810 !important;
+    transition: width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out !important;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out !important;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out !important;  
+}
+
