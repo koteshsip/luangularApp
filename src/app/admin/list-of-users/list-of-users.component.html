@@ -1,7 +1,11 @@
-<div class="content-wrapper">
+        <!-- style="overflow-x: auto;" -->
  <!-- Content Header (Page header) -->
   <section class="content-header">
-    <div class="panel-body"><h1>
+    <div class="panel-body" style="
+        display: block;
+        border-radius: 30px;
+        box-shadow: 19px 2px 83px #035;
+        max-width:95%"><h1>
       List Of Users<button class="btn btn-primary pull-right" (click)="addUser()">Add User</button>
     </h1></div>
   </section>
@@ -10,7 +14,7 @@
     <div class="col-md-8"></div>
     <div class="col-md-4">  
     </div></div>
-<div  class="box">
+<div  class="">
 <div class="row">
     <div class="col-md-4" *ngIf="message;">
         <div class="alert alert-success">
@@ -19,14 +23,14 @@
     </div>
 </div>
 <div class="row">
-        <div class="col-md-3">
-    <nav class="navbar">
-      <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllUsers(page,$event)">
-    </nav>
+    <div class="col-md-3">
+        <nav class="navbar">
+            <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllUsers(page,$event)">
+        </nav>
     </div>
-    </div>
+</div>
 <div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
-<table *ngIf="totalItem" class="table table-bordered">
+    <table  *ngIf="totalItem" class="table-bordered" style="width:85%">
                     <thead>
                         <tr>
                             <th>Name</th>

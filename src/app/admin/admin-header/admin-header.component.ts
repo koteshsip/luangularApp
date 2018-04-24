@@ -25,5 +25,13 @@ this.mydata=JSON.parse(this.mdata).data;
        this.router.navigate(['/login']);
       }
   }
+  sidebartoggle(){
+    let leftbar=document.getElementsByClassName('main-sidebar')[0];//style.height = '10px';
+    alert('hi'+leftbar.getAttribute('width'));  }
+  // $('.sidebar-toggle').click({
+  //   //alert(document.getElementByClassName('main-sidebar').style.width);
+  //   //$(.panel-body)
+  //   alert();
+  // });
 
 }
