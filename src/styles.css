@@ -161,3 +161,17 @@ content-wrapper, .main-footer {
 .custom-wrapper{
     margin-right: 261px;
 }
+
+.custom-panel{
+    display: block;
+    border-radius: 30px;
+    box-shadow: 19px 2px 83px #035;
+}
+th {
+    height: 50px !important;
+    text-align: center !important;
+}
+td {
+    height: 50px !important;
+    text-align: center !important;
+}
