@@ -26,8 +26,16 @@ this.mydata=JSON.parse(this.mdata).data;
       }
   }
   sidebartoggle(){
-    let leftbar=document.getElementsByClassName('main-sidebar')[0];//style.height = '10px';
-    alert('hi'+leftbar.getAttribute('width'));  }
+    // const leftbar=document.getElementsByClassName('main-sidebar');//style.height = '10px';
+    // alert('hi'+leftbar);
+    const cnElems = document.getElementsByClassName("main-sidebar");
+    for (let i = 0; i < cnElems.length; i++) {
+      const e = cnElems[i];
+        if (e instanceof HTMLElement) {
+            e.style.width= "530px";
+        }
+    }
+  }
   // $('.sidebar-toggle').click({
   //   //alert(document.getElementByClassName('main-sidebar').style.width);
   //   //$(.panel-body)
