@@ -167,11 +167,22 @@ content-wrapper, .main-footer {
     border-radius: 30px;
     box-shadow: 19px 2px 83px #035;
 }
-th {
-    height: 50px !important;
-    text-align: center !important;
+.custom-table {
+    background-color: #e8e4e4 !important;
+    width:100%;
 }
-td {
-    height: 50px !important;
-    text-align: center !important;
+.ngx-pagination .disabled {
+    color: #0a0a0a !important;
 }
+@media  (min-width: 768px) 
+            {
+              .main-sidebar{
+                  overflow: auto;height: 700px;
+                background: transparent;
+            }
+            }
+            .custom-anchor{
+                color: black;
+                font-family: verdana;
+                font-size: 200%;
+            }

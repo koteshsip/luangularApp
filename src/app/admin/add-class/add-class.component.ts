@@ -44,12 +44,12 @@ export class AddClassComponent implements OnInit {
     if(tblClassinfo.tblClassId){
     this.tblClassService.updateClass(tblClassinfo).subscribe((data:any)=>{
           this.mystorage.set("message","Record Updated Successfully");
-          this.router.navigate(['/admin/TblClass-list']);
+          this.router.navigate(['/admin/class-list']);
         });
   }else{
             this.tblClassService.addClass(tblClassinfo).subscribe((data:any)=>{
             this.mystorage.set("message","Record add Successfully");
-            this.router.navigate(['/admin/TblClass-list']);
+            this.router.navigate(['/admin/class-list']);
             });
   }
   }
@@ -60,7 +60,7 @@ export class AddClassComponent implements OnInit {
             });
   }
   backList(){
-    this.router.navigate(['/admin/TblClass-list']);
+    this.router.navigate(['/admin/class-list']);
   }
 
 }
