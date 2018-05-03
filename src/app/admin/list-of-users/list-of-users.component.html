@@ -13,7 +13,7 @@
 <div  class="">
 <div class="row">
     <div class="col-md-4" *ngIf="message;">
-        <div class="alert alert-success">
+        <div class="alert-message">
             <strong>Success!</strong> {{message}}.
         </div>
     </div>
@@ -49,13 +49,16 @@
                                     <td>{{datas.address.city.stateMaster['stateName']}}</td>
                                      <td>{{datas.address.city.stateMaster.country['countryName']}}</td> 
                                      <td>{{datas.tblProfile['profileType']}}</td>
-<td><a class="col-xs-3 btn btn-success" routerLink="/admin/addUser/{{this.baseEncode(datas.userId)}}">Edit</a><a class="btn btn-danger" (click)="deleteUser(this.baseEncode(datas.userId))">Delete</a></td>
-                                    </tr>
+<!-- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/addUser/{{this.baseEncode(datas.userId)}}">Edit</a><a class="btn btn-danger" (click)="deleteUser(this.baseEncode(datas.userId))">Delete</a></td> -->
+<td><a href="/admin/addUser/{{this.baseEncode(datas.userId)}}"><img src="assets/img/edit-icon.png" 
+    width="25px" /></a><a class="pointer" (click)="deleteUser(this.baseEncode(datas.userId))"><img src="assets/img/delete-icon.png" 
+        width="25px" /></a></td>               
+</tr>
                     </tbody> 
                 </table>
                 <div *ngIf="!totalItem" class="row">
     <div class="col-md-6" >
-    <div class="alert alert-success">
+    <div class="alert-message">
   <strong>Success!</strong> Record not found
 </div>
     </div>

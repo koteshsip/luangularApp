@@ -12,7 +12,7 @@
  <div>
  <div class="row">
      <div class="col-md-4" *ngIf="message;">
-         <div class="alert alert-success">
+         <div class="alert-message">
              <strong>Success!</strong> {{message}}.
          </div>
      </div>
@@ -40,13 +40,16 @@
                                      <td>{{datas.className}}</td>
                                      <td>{{datas.classRoomName}}</td>
                                      <td>{{datas.classDescription}}</td>
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-class/{{this.baseEncode(datas.tblClassId)}}">Edit</a><a class="btn btn-danger" (click)="deleteTblClass(this.baseEncode(datas.classId))">Delete</a></td>
-                                     </tr>
+ <!-- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-class/{{this.baseEncode(datas.tblClassId)}}">Edit</a><a class="btn btn-danger" (click)="deleteTblClass(this.baseEncode(datas.classId))">Delete</a></td> -->
+ <td><a href="/admin/update-class/{{this.baseEncode(datas.tblClassId)}}"><img src="assets/img/edit-icon.png" 
+    width="25px" /></a><a class="pointer" (click)="deleteTblClass(this.baseEncode(datas.classId))"><img src="assets/img/delete-icon.png" 
+        width="25px" /></a></td>                                      
+</tr>
                      </tbody> 
                  </table>
                  <div *ngIf="!totalItem" class="row">
      <div class="col-md-6" >
-     <div class="alert alert-success">
+     <div class="alert-message">
    <strong>Success!</strong> Record not found
  </div>
      </div>
