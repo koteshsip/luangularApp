@@ -60,6 +60,9 @@ import { AddAttendenceComponent } from './../../admin/add-attendence/add-attende
 import { AddSchoolComponent } from './../../admin/add-school/add-school.component';
 import { AddNewsComponent } from './../../admin/add-news/add-news.component';
 import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.component';
+import { ClassRoomsComponent } from './../../admin/class-rooms/class-rooms.component';
+import { SubjectsComponent } from './../../admin/subjects/subjects.component';
+import { DepartmentsComponent } from './../../admin/departments/departments.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
@@ -460,6 +463,19 @@ import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.compo
           {
             path:'update-drawing/:id',
             component:AddDrawingComponent,
+            canActivate: [AuthGuard]
+          },{
+            path: 'class-rooms-list',
+            component: ClassRoomsComponent,
+            canActivate: [AuthGuard]
+          },{
+            path: 'subjects-list',
+            component: SubjectsComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'departments-list',
+            component: DepartmentsComponent,
             canActivate: [AuthGuard]
           }
         ]
