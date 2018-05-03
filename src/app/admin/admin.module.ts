@@ -68,6 +68,9 @@ import { AddSchoolComponent } from './add-school/add-school.component';
 import { AddNewsComponent } from './add-news/add-news.component';
 import { AddDrawingComponent } from './add-drawing/add-drawing.component';
 import { AddEmailComponent } from './add-email/add-email.component';
+import { ClassRoomsComponent } from './class-rooms/class-rooms.component';
+import { SubjectsComponent } from './subjects/subjects.component';
+import { DepartmentsComponent } from './departments/departments.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -141,7 +144,10 @@ import { AddEmailComponent } from './add-email/add-email.component';
     AddSchoolComponent,
     AddNewsComponent,
     AddDrawingComponent,
-    AddEmailComponent
+    AddEmailComponent,
+    ClassRoomsComponent,
+    SubjectsComponent,
+    DepartmentsComponent
   ],entryComponents: [
         MessageComponent
       ],
