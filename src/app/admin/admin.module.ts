@@ -71,6 +71,9 @@ import { AddEmailComponent } from './add-email/add-email.component';
 import { ClassRoomsComponent } from './class-rooms/class-rooms.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { DepartmentsComponent } from './departments/departments.component';
+import { ParentsComponent } from './parents/parents.component';
+import { StudentsComponent } from './students/students.component';
+import { LibrarySettingsComponent } from './library-settings/library-settings.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -147,7 +150,10 @@ import { DepartmentsComponent } from './departments/departments.component';
     AddEmailComponent,
     ClassRoomsComponent,
     SubjectsComponent,
-    DepartmentsComponent
+    DepartmentsComponent,
+    ParentsComponent,
+    StudentsComponent,
+    LibrarySettingsComponent
   ],entryComponents: [
         MessageComponent
       ],

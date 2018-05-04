@@ -45,7 +45,9 @@
                                      <td>{{datas.totalRoomsAvailable}}</td>
                                      <td>{{datas.totalRoomsOccupied}}</td>
                                       
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-hostel/{{this.baseEncode(datas.hostelId)}}">Edit</a><a class="btn btn-danger" (click)="deleteHostel(this.baseEncode(datas.hostelId))">Delete</a></td>
+ <td><a routerLink="/admin/update-hostel/{{this.baseEncode(datas.hostelId)}}"><img src="assets/icons/edit.png" 
+    width="25px" /></a><a (click)="deleteHostel(this.baseEncode(datas.hostelId))"><img src="assets/icons/delete.png" 
+        width="25px" /></a></td>
                                      </tr>
                      </tbody> 
                  </table>

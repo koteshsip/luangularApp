@@ -63,6 +63,9 @@ import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.compo
 import { ClassRoomsComponent } from './../../admin/class-rooms/class-rooms.component';
 import { SubjectsComponent } from './../../admin/subjects/subjects.component';
 import { DepartmentsComponent } from './../../admin/departments/departments.component';
+import { ParentsComponent } from './../../admin/parents/parents.component';
+import { StudentsComponent } from './../../admin/students/students.component';
+import { LibrarySettingsComponent } from './../../admin/library-settings/library-settings.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
@@ -476,6 +479,20 @@ import { DepartmentsComponent } from './../../admin/departments/departments.comp
           {
             path: 'departments-list',
             component: DepartmentsComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'parents-list',
+            component: ParentsComponent,
+            canActivate: [AuthGuard]
+          },{
+            path: 'students-list',
+            component: StudentsComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'library-settings-list',
+            component: LibrarySettingsComponent,
             canActivate: [AuthGuard]
           }
         ]

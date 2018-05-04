@@ -1,0 +1,72 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="panel-body custom-panel"><h1>
+    List Of Parent<button class="btn btn-primary pull-right" (click)="addParent()">Add Parent</button>
+  </h1></div>
+</section>
+<div class="content">
+  <div><div class="row">
+  <div class="col-md-8"></div>
+  <div class="col-md-4">  
+  </div></div>
+<div>
+<div class="row">
+  <div class="col-md-4" *ngIf="message;">
+  <div class="alert alert-success">
+<strong>Success!</strong> {{message}}.
+</div>
+  </div>
+</div>
+<div class="row">
+      <div class="col-md-3">
+  <nav class="navbar">
+    <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getParentData(page,$event)">      
+  </nav>
+  </div>
+  </div>
+<div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
+<table *ngIf="totalItem" class="table-bordered custom-table">
+                  <thead>
+                      <tr>
+                          <th>Father Name</th>
+                          <th>Mother Name</th>
+                          <th>EmailId</th>
+                          <th>Contact Number</th>
+                          <th>Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                              <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
+                                  totalItems: totalItem}">
+                                  <td>{{datas.notifyType}}</td>
+                                  <td>{{datas.notifyCategory}}</td>
+                                  <td>{{datas.notifyCode}}</td>
+                                  <td>{{datas.notifyMessage}}</td>
+<td><a routerLink="/admin/addParent/{{this.baseEncode(datas.id)}}"><img src="assets/icons/edit.png" 
+  width="25px" /></a><a (click)="deleteParent(this.baseEncode(datas.id))"><img src="assets/icons/delete.png" 
+    width="25px" /></a></td>
+                                  </tr>
+                  </tbody>
+              </table>
+              <div *ngIf="!totalItem" class="row">
+  <div class="col-md-6" >
+  <div class="alert alert-success">
+<strong>Success!</strong> Record not found
+</div>
+  </div>
+</div>
+              <pagination-controls *ngIf="totalItem"
+    (pageChange) = "page = getParentData($event,filter)" 
+    id="server"
+          maxSize = "5"
+    directionLinks = "true"
+          autohide = "true"
+          screenReaderPaginationLabel="Pagination"
+          screenReaderPageLabel="page"
+          screenReaderCurrentLabel="You're on page"
+    >
+      </pagination-controls>
+   </div>
+ </div>
+</div>
+</div>
