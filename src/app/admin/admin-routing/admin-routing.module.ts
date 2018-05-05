@@ -63,6 +63,15 @@ import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.compo
 import { ClassRoomsComponent } from './../../admin/class-rooms/class-rooms.component';
 import { SubjectsComponent } from './../../admin/subjects/subjects.component';
 import { DepartmentsComponent } from './../../admin/departments/departments.component';
+import { TimetableScheduleComponent } from './../../admin/timetable-schedule/timetable-schedule.component';
+import { AddTimetableScheduleComponent } from './../../admin/add-timetable-schedule/add-timetable-schedule.component';
+import { AddFlipbookComponent } from './../../admin/add-flipbook/add-flipbook.component';
+import { FlipbookListComponent } from './../../admin/flipbook-list/flipbook-list.component';
+import { BooksPurchaseListComponent } from './../../admin/books-purchase-list/books-purchase-list.component';
+import { AddBooksPurchaseComponent } from './../../admin/add-books-purchase/add-books-purchase.component';
+import { AddBooksIssuedComponent } from './../../admin/add-books-issued/add-books-issued.component';
+import { BooksIssuedListComponent } from './../../admin/books-issued-list/books-issued-list.component';
+
 @NgModule({
   imports: [
     RouterModule.forChild([
@@ -477,7 +486,48 @@ import { DepartmentsComponent } from './../../admin/departments/departments.comp
             path: 'departments-list',
             component: DepartmentsComponent,
             canActivate: [AuthGuard]
+          },
+          {
+            path: 'timetable-schedule',
+            component: TimetableScheduleComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-timetable-schedule',
+            component: AddTimetableScheduleComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-flipbook',
+            component: AddFlipbookComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'flipbook-list',
+            component: FlipbookListComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'books-purchase-list',
+            component: BooksPurchaseListComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-books-purchase',
+            component: AddBooksPurchaseComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-books-issued',
+            component: AddBooksIssuedComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'books-issued-list',
+            component: BooksIssuedListComponent,
+            canActivate: [AuthGuard]
           }
+          
         ]
       }
     ])

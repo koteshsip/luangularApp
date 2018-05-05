@@ -71,6 +71,14 @@ import { AddEmailComponent } from './add-email/add-email.component';
 import { ClassRoomsComponent } from './class-rooms/class-rooms.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { DepartmentsComponent } from './departments/departments.component';
+import { TimetableScheduleComponent } from './timetable-schedule/timetable-schedule.component';
+import { AddTimetableScheduleComponent } from './add-timetable-schedule/add-timetable-schedule.component';
+import { AddFlipbookComponent } from './add-flipbook/add-flipbook.component';
+import { FlipbookListComponent } from './flipbook-list/flipbook-list.component';
+import { BooksPurchaseListComponent } from './books-purchase-list/books-purchase-list.component';
+import { AddBooksPurchaseComponent } from './add-books-purchase/add-books-purchase.component';
+import { AddBooksIssuedComponent } from './add-books-issued/add-books-issued.component';
+import { BooksIssuedListComponent } from './books-issued-list/books-issued-list.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -147,7 +155,15 @@ import { DepartmentsComponent } from './departments/departments.component';
     AddEmailComponent,
     ClassRoomsComponent,
     SubjectsComponent,
-    DepartmentsComponent
+    DepartmentsComponent,
+    TimetableScheduleComponent,
+    AddTimetableScheduleComponent,
+    AddFlipbookComponent,
+    FlipbookListComponent,
+    BooksPurchaseListComponent,
+    AddBooksPurchaseComponent,
+    AddBooksIssuedComponent,
+    BooksIssuedListComponent
   ],entryComponents: [
         MessageComponent
       ],

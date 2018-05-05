@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'; 
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageComponent } from '../message/message.component';
 declare var AdminLTE: any;
@@ -7,12 +7,14 @@ import { TimeTableService } from './../../service/timeTable-service';
 import { DialogService } from "ng2-bootstrap-modal";
 import { DatepickerOptions } from 'ng2-datepicker';
 import { Base64 } from 'js-base64';
+
 @Component({
-  selector: 'app-time-table-list',
-  templateUrl: './time-table-list.component.html',
-  styleUrls: ['./time-table-list.component.css']
+  selector: 'app-timetable-schedule',
+  templateUrl: './timetable-schedule.component.html',
+  styleUrls: ['./timetable-schedule.component.css']
 })
-export class TimeTableListComponent implements OnInit {
+export class TimetableScheduleComponent implements OnInit {
+
   private message;
   private data  = [];
   private baseEncode:any;
@@ -26,8 +28,8 @@ export class TimeTableListComponent implements OnInit {
     this.page=1;
    this.getAllExams(this.page,""); 
   }
-addTimetable(){
-  this.router.navigate(['/admin/add-timetable']);
+addTimetableSchedule(){
+  this.router.navigate(['/admin/add-timetable-schedule']);
 }
 
 getAllExams(event,filter){

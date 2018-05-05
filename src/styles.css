@@ -189,6 +189,7 @@ content-wrapper, .main-footer {
 
 .pointer {
     cursor: pointer;
+    margin-left: 5px;
 }
 .margin-tab{
     margin-top: 5px;
