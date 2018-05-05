@@ -41,7 +41,9 @@
                                      <td>{{datas.subjectOfTheExam}}</td>
                                      <td>{{datas.examDate}}</td>
                                       
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-exam/{{this.baseEncode(datas.examId)}}">Edit</a><a class="btn btn-danger" (click)="deleteExam(this.baseEncode(datas.examId))">Delete</a></td>
+ <td><a routerLink="/admin/update-exam/{{this.baseEncode(datas.examId)}}"><img src="assets/icons/edit.png" 
+    width="25px" /></a><a (click)="deleteExam(this.baseEncode(datas.examId))"><img src="assets/icons/delete.png" 
+        width="25px" /></a></td>
                                      </tr>
                      </tbody> 
                  </table>

@@ -3,54 +3,55 @@ import { Router } from '@angular/router';
 import { MessageComponent } from '../message/message.component';
 declare var AdminLTE: any;
 import { LocalStorageService } from 'angular-2-local-storage';
-import { ExamService } from './../../service/exam-service';
+import { MyServiceService } from './../../my-service.service';
 import { DialogService } from "ng2-bootstrap-modal";
 import { DatepickerOptions } from 'ng2-datepicker';
 import { Base64 } from 'js-base64';
 @Component({
-  selector: 'app-exam-list',
-  templateUrl: './exam-list.component.html',
-  styleUrls: ['./exam-list.component.css']
+  selector: 'app-students',
+  templateUrl: './students.component.html',
+  styleUrls: ['./students.component.css']
 })
-export class ExamListComponent implements OnInit {
+export class StudentsComponent implements OnInit {
   private message;
   private data  = [];
   private baseEncode:any;
   public totalItem:any;
   page:any;
-  constructor(private dialogService:DialogService,public router: Router,public mystorage:LocalStorageService,public examService:ExamService) { 
+  constructor(private dialogService:DialogService,public router: Router,public mystorage:LocalStorageService,public myservice:MyServiceService) {
     this.baseEncode=Base64.encode;
   }
-
   ngOnInit() {
-    this.page=1;
-   this.getAllExams(this.page,""); 
+    // this.getcount();
+    this.page=1
+    this.getStudentData(this.page,'');  
+    AdminLTE.init();
   }
-addExam(){
-  this.router.navigate(['/admin/add-exam']);
+deleteStudent(id){
+    let myid=Base64.decode(id);
+    this.showConfirm(myid);
 }
-
-getAllExams(event,filter){
-this.message=this.mystorage.get("message");
+	public getStudentData(event,filter){
+          this.message=this.mystorage.get("message");
           this.mystorage.remove("message");
-		this.examService.getAllExam(event,filter).subscribe((data:any)=>{
+		this.myservice.getallnotifications(event,filter).subscribe((data:any)=>{
 				if(data.error) { 
 					alert('Server Error');
 				} else {
-                    this.data=data['exam'];
-                    this.totalItem = data['count'];
-                }
+          this.data=data['notifications'];
+        this.totalItem = data['count'];
+        }
 			},
 			error =>{
 				alert('Server error');
 			}
 		);
 		return event;
-}
-deleteExam(id){
-let myid=Base64.decode(id);
-    this.showConfirm(myid);
-}
+    }
+  addStudent(){
+    this.router.navigate(['/admin/addStudent']);
+  }
+
   showConfirm(id) {
             let disposable = this.dialogService.addDialog(MessageComponent, {
                 title:'Delete Confirm', 
@@ -58,11 +59,12 @@ let myid=Base64.decode(id);
                 .subscribe((isConfirmed)=>{
                     //We get dialog result
                     if(isConfirmed) {
-                        this.examService.deleteExam(id).subscribe((data:any)=>{
-                            this.getAllExams(1,'');
+                        this.myservice.deleteNotification(id).subscribe((data:any)=>{
+                            this.getStudentData(1,'');
                             this.message="Record deleted Successfully";
                         });
-                    }else {
+                    }
+                    else {
                        // alert('declined');
                     }
                 });

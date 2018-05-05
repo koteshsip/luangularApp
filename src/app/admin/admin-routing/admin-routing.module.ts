@@ -63,6 +63,7 @@ import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.compo
 import { ClassRoomsComponent } from './../../admin/class-rooms/class-rooms.component';
 import { SubjectsComponent } from './../../admin/subjects/subjects.component';
 import { DepartmentsComponent } from './../../admin/departments/departments.component';
+<<<<<<< HEAD
 import { TimetableScheduleComponent } from './../../admin/timetable-schedule/timetable-schedule.component';
 import { AddTimetableScheduleComponent } from './../../admin/add-timetable-schedule/add-timetable-schedule.component';
 import { AddFlipbookComponent } from './../../admin/add-flipbook/add-flipbook.component';
@@ -72,6 +73,11 @@ import { AddBooksPurchaseComponent } from './../../admin/add-books-purchase/add-
 import { AddBooksIssuedComponent } from './../../admin/add-books-issued/add-books-issued.component';
 import { BooksIssuedListComponent } from './../../admin/books-issued-list/books-issued-list.component';
 
+=======
+import { ParentsComponent } from './../../admin/parents/parents.component';
+import { StudentsComponent } from './../../admin/students/students.component';
+import { LibrarySettingsComponent } from './../../admin/library-settings/library-settings.component';
+>>>>>>> 6b92ab4757a46a12dc4594a808f195249df2d881
 @NgModule({
   imports: [
     RouterModule.forChild([
@@ -488,6 +494,7 @@ import { BooksIssuedListComponent } from './../../admin/books-issued-list/books-
             canActivate: [AuthGuard]
           },
           {
+<<<<<<< HEAD
             path: 'timetable-schedule',
             component: TimetableScheduleComponent,
             canActivate: [AuthGuard]
@@ -525,6 +532,19 @@ import { BooksIssuedListComponent } from './../../admin/books-issued-list/books-
           {
             path: 'books-issued-list',
             component: BooksIssuedListComponent,
+=======
+            path: 'parents-list',
+            component: ParentsComponent,
+            canActivate: [AuthGuard]
+          },{
+            path: 'students-list',
+            component: StudentsComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'library-settings-list',
+            component: LibrarySettingsComponent,
+>>>>>>> 6b92ab4757a46a12dc4594a808f195249df2d881
             canActivate: [AuthGuard]
           }
           

@@ -40,7 +40,8 @@
                                      <td>{{datas.emailDescription}}</td>
                                      <td>{{datas.emailType}}</td>
                                      <td>{{datas.emailSubject}}</td>                                      
- <td><a class="btn btn-danger" (click)="deleteEmail(this.baseEncode(datas.emailId))">Delete</a></td>
+ <td><a (click)="deleteEmail(this.baseEncode(datas.emailId))"><img src="assets/icons/delete.png" 
+    width="25px" /></a></td>
                                      </tr>
                      </tbody> 
                  </table>
