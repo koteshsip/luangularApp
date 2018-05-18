@@ -79,6 +79,8 @@ import { BooksPurchaseListComponent } from './books-purchase-list/books-purchase
 import { AddBooksPurchaseComponent } from './add-books-purchase/add-books-purchase.component';
 import { AddBooksIssuedComponent } from './add-books-issued/add-books-issued.component';
 import { BooksIssuedListComponent } from './books-issued-list/books-issued-list.component';
+import { StudentsComponent } from './students/students.component';
+import { LibrarySettingsComponent } from './library-settings/library-settings.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -163,7 +165,9 @@ import { BooksIssuedListComponent } from './books-issued-list/books-issued-list.
     BooksPurchaseListComponent,
     AddBooksPurchaseComponent,
     AddBooksIssuedComponent,
-    BooksIssuedListComponent
+    BooksIssuedListComponent,
+    StudentsComponent,
+    LibrarySettingsComponent
   ],entryComponents: [
         MessageComponent
       ],
