@@ -1,0 +1,246 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="panel-body box box-info"><h1>User Details</h1>
+  </div>
+</section>
+<div class="content ">
+<div class="box box-info">
+   <div class="row">
+     <p>                            </p>
+   </div>
+<form #addressForm="ngForm" class="editForm" novalidate>
+<div class="row">
+    <div class="form-group col-sm-8">
+         <label class="col-sm-4 control-label"  for="alterEgo">Correspondence Address1*</label>
+      <div class="col-sm-8">
+        <input class="form-control input-md" #correspondenceAddress1="ngModel" 
+        required id="correspondenceAddress1" name="correspondenceAddress1" type="text"
+         placeholder="Correspondence Address1" maxlength="80" [(ngModel)]="address.correspondenceAddress1">
+    </div>
+     <div [hidden]="correspondenceAddress1.valid || correspondenceAddress1.pristine"
+           class="alert alert-danger">
+           Correspondence Address1 is required
+      </div> 
+    </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-8">
+       <label class="col-sm-4 control-label"  for="alterEgo">Correspondence Address2*</label>
+    <div class="col-sm-8">
+      <input class="form-control input-md" #correspondenceAddress2="ngModel" 
+      required id="correspondenceAddress2" name="correspondenceAddress2" type="text"
+       placeholder="Correspondence Address2" maxlength="80" [(ngModel)]="address.correspondenceAddress2">
+  </div>
+   <div [hidden]="correspondenceAddress2.valid || correspondenceAddress2.pristine"
+         class="alert alert-danger">
+         Correspondence Address2 is required
+    </div> 
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-8">
+       <label class="col-sm-4 control-label"  for="alterEgo">Correspondence Address3*</label>
+    <div class="col-sm-8">
+      <input class="form-control input-md" #correspondenceAddress3="ngModel" 
+      required id="correspondenceAddress3" name="correspondenceAddress3" type="text"
+       placeholder="Correspondence Address3" maxlength="80" [(ngModel)]="address.correspondenceAddress3">
+  </div>
+   <div [hidden]="correspondenceAddress3.valid || correspondenceAddress3.pristine"
+         class="alert alert-danger">
+         Correspondence Address3 is required
+    </div> 
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="form-group col-sm-8">
+       <label class="col-sm-4 control-label"  for="alterEgo">Address Line1*</label>
+    <div class="col-sm-8">
+      <input class="form-control input-md" #permanentAddressLine1="ngModel" required 
+      id="permanentAddressLine1" name="permanentAddressLine1" type="text" 
+      placeholder="Address Line3" maxlength="80" [(ngModel)]="address.permanentAddressLine1">
+  </div>
+   <div [hidden]="permanentAddressLine1.valid || permanentAddressLine1.pristine"
+         class="alert alert-danger">
+         Address Line3 is required
+    </div> 
+  </div>
+  </div>
+    <div  class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label"  for="alterEgo">Address Line2*</label>
+        <div class="col-sm-8">
+          <input class="form-control input-md" #permanentAddressLine2="ngModel" 
+          required id="permanentAddressLine2" name="permanentAddressLine2" type="text" 
+          placeholder="Address Line2 " maxlength="80" [(ngModel)]="address.permanentAddressLine2">
+      </div>
+       <div [hidden]="permanentAddressLine2.valid || permanentAddressLine2.pristine"
+             class="alert alert-danger">
+             Address Line2 is required
+        </div> 
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-8">
+             <label class="col-sm-4 control-label"  for="alterEgo">Address Line3*</label>
+          <div class="col-sm-8">
+            <input class="form-control input-md" #permanentAddressLine3="ngModel" required 
+            id="permanentAddressLine3" name="permanentAddressLine3" type="text" 
+            placeholder="Address Line3" maxlength="80" [(ngModel)]="address.permanentAddressLine3">
+        </div>
+         <div [hidden]="permanentAddressLine3.valid || permanentAddressLine3.pristine"
+               class="alert alert-danger">
+               Address Line3 is required
+          </div> 
+        </div>
+        </div>
+
+    <div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label"  for="alterEgo">Permanent City*</label>
+        <div class="col-sm-8">
+          <input class="form-control input-md" #permanentCity="ngModel" required 
+          id="permanentCity" name="permanentCity" type="text" placeholder="Permanent City" 
+          maxlength="45" [(ngModel)]="address.permanentCity">
+      </div>
+       <div [hidden]="permanentCity.valid || permanentCity.pristine"
+             class="alert alert-danger">
+             Permanent City is required
+        </div> 
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-8">
+             <label class="col-sm-4 control-label"  for="alterEgo">Permanent State*</label>
+           <div class="col-sm-8">
+            <input class="form-control input-md" #permanentState="ngModel" 
+            required id="permanentState" name="permanentState" type="text" 
+            placeholder="Permanent State" maxlength="1" 
+            [(ngModel)]="address.permanentState">
+        </div>
+         <div [hidden]="permanentState.valid || permanentState.pristine"
+               class="alert alert-danger">
+               Permanent State is required
+          </div> 
+        </div>
+        </div>
+
+        <!-- <div class="row">
+          <div class="form-group col-sm-8">
+               <label class="col-sm-4 control-label"  for="alterEgo">Country*</label>
+            <div class="col-sm-8">
+              <input class="form-control input-md" #country="ngModel" 
+              required id="country" name="country" type="text" maxlength="3"
+              placeholder="country" [(ngModel)]="address.country">
+          </div>
+           <div [hidden]="country.valid || country.pristine"
+                 class="alert alert-danger">
+                 Country is required
+            </div> 
+          </div>
+          </div> -->
+
+          <div class="row">
+            <div class="form-group col-sm-8">
+                 <label class="col-sm-4 control-label"  for="alterEgo">Password*</label>
+              <div class="col-sm-8">
+                <input class="form-control input-md" #currentPassword="ngModel" 
+                required id="currentPassword" name="currentPassword" type="password" 
+                placeholder="Enter Password" maxlength="50" 
+                [(ngModel)]="address.currentPassword">
+            </div>
+             <div [hidden]="currentPassword.valid || currentPassword.pristine"
+                   class="alert alert-danger">
+                   Password is required
+              </div> 
+            </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-8">
+                   <label class="col-sm-4 control-label"  for="alterEgo">Correspondence Zip*</label>
+                <div class="col-sm-8">
+                  <input class="form-control input-md" #correspondenceZip="ngModel" 
+                  required id="correspondenceZip" name="correspondenceZip" 
+                  type="text" placeholder="Enter Correspondence Zip" maxlength="10" [(ngModel)]="address.correspondenceZip">
+              </div>
+               <div [hidden]="correspondenceZip.valid || correspondenceZip.pristine"
+                     class="alert alert-danger">
+                     Correspondence Zip is required
+                </div> 
+              </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-sm-8">
+                     <label class="col-sm-4 control-label"  for="alterEgo">Correspondence City*</label>
+                  <div class="col-sm-8">
+                    <input class="form-control input-md" #correspondenceCity="ngModel" 
+                    required id="correspondenceCity" name="correspondenceCity" type="text" 
+                    placeholder="Enter Correspondence City" maxlength="80" [(ngModel)]="address.correspondenceCity">
+                </div>
+                 <div [hidden]="correspondenceCity.valid || correspondenceCity.pristine"
+                       class="alert alert-danger">
+                       Correspondence City is required
+                  </div> 
+                </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-sm-8">
+                       <label class="col-sm-4 control-label"  for="alterEgo">Correspondence State*</label>
+                    <div class="col-sm-8">
+                      <input class="form-control input-md" #correspondenceState="ngModel"
+                       required id="correspondenceState" name="correspondenceState" type="text"
+                        placeholder="Enter Correspondence State" maxlength="80" [(ngModel)]="address.correspondenceState">
+                  </div>
+                   <div [hidden]="correspondenceState.valid || correspondenceState.pristine"
+                         class="alert alert-danger">
+                         Correspondence State is required
+                    </div> 
+                  </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-sm-8">
+                         <label class="col-sm-4 control-label"  for="alterEgo">Permanent Zip*</label>
+                      <div class="col-sm-8">
+                        <input class="form-control input-md" #permanentZip="ngModel" 
+                        required id="permanentZip" name="permanentZip" 
+                        type="text" placeholder="Enter Permanent Zip" maxlength="80" 
+                        [(ngModel)]="address.permanentZip">
+                    </div>
+                     <div [hidden]="permanentZip.valid || permanentZip.pristine"
+                           class="alert alert-danger">
+                           Permanent Zip is required
+                      </div> 
+                    </div>
+                    </div>    
+    <div class="row">
+      <div class="form-group col-sm-4">
+      </div>
+      <div class="form-group col-sm-4">
+        <div class="form-group text-center">
+          <div *ngIf="address.userId; else falsyTemplate">
+              <div class="form-group text-center space-20">
+                <button [routerLink]="['/admin/addStudentProfile/'+address.userId]" class="btn btn-outline-rounded btn-default" > <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
+                <button  class="btn btn-outline-rounded btn-info" [disabled]="!addressForm.valid" (click)="save(addressForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+              </div> 
+          </div>
+        <ng-template #falsyTemplate>
+        <div class="form-group text-center space-20">
+              <button [routerLink]="['/admin/addStudentProfile']" class="btn btn-outline-rounded btn-default" > <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
+              <button  class="btn btn-outline-rounded btn-info" [disabled]="!addressForm.valid" (click)="save(addressForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+          </div>  
+        </ng-template>
+          </div>
+      </div>
+      </div>
+  </form>
+</div>
+</div>

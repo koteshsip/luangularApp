@@ -27,7 +27,7 @@ export class ExamListComponent implements OnInit {
    this.getAllExams(this.page,""); 
   }
 addExam(){
-  this.router.navigate(['/admin/send-email']);
+  this.router.navigate(['/admin/add-exam']);
 }
 
 getAllExams(event,filter){

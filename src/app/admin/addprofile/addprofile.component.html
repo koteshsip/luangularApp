@@ -1,70 +1,137 @@
 <!-- Content Header (Page header) -->
   <section class="content-header">
-    <div class="panel-body box box-info"><h1>Profile Details</h1>
+    <div class="panel-body custom-panel"><h1>Profile Details</h1>
     </div>
   </section>
 <div class="content ">
-  <div class="box box-info">
+  <div class="lu-form">
      <div class="row">
        <p>                            </p>
      </div>
     <form #workForm="ngForm" class="editForm" novalidate>
       <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">profile Name*</label>
+        <label class="col-sm-4 control-label" for="name">Password*</label>
         <div class="col-sm-8">
-        <input class="form-control input-md" #profileName="ngModel" required id="profileName" name="profileName" type="text" placeholder="profileName" [(ngModel)]="profile.profileName">        
+        <input class="form-control input-md" #currentPassword="ngModel" required 
+        id="currentPassword" maxlength="50"  name="currentPassword" type="password" 
+        placeholder="Please Enter Password" [(ngModel)]="profile.currentPassword">        
       </div>
-         <div class="alert alert-danger" [hidden]="profileName.valid || profileName.pristine">profile Name is required</div>  
+         <div class="alert alert-danger" [hidden]="currentPassword.valid || currentPassword.pristine">Password is required</div>  
       </div>
       </div>
- <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">profile Image*</label>
+        <label class="col-sm-4 control-label" for="alterEgo">Email*</label>
         <div class="col-sm-8">
-        <input type="file" class="form-control input-md" #profileImage="ngModel"  id="profileImage" name="profileImage"  placeholder="profileImage" [(ngModel)]="profile.profileImage">                                     
-      </div>
-        <div class="alert alert-danger" [hidden]="profileImage.valid || profileImage.pristine">profile Image is required</div> 
-      </div>
+          <input class="form-control input-md"  (ngModelChange)="emailAlreadyExist($event)" #emailId="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" name="emailId" type="text" maxlength="80" placeholder="Enter valid email" [(ngModel)]="profile.emailId" >
+        </div>
+        <div class="alert alert-danger" [hidden]="emailId.valid || emailId.pristine">Email is required
+          </div>
+        <div *ngIf="IsExist"
+             class="alert alert-danger">
+          Email Id Already Exist
+        </div> 
       </div>
       <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">profile Type*</label>
+           <label class="col-sm-4 control-label" for="alterEgo">Role*</label>
         <div class="col-sm-8">
-        <select class="form-control" id="profileType" 
+        <select class="form-control" id="role" 
                 required
-                [(ngModel)]="profile.profileType" name="profileType"
-                #profileType="ngModel">
-          <option *ngFor="let profiletype of ProfileCatogerys" [value]="profiletype">{{profiletype}}</option>
+                [(ngModel)]="profile.role" name="role"
+                #role="ngModel">
+          <option *ngFor="let role of roleId" [value]="role.roleId">{{role.roleDescription}}</option>
         </select>
         
         
           <!-- <input class="form-control input-md" #profileType="ngModel" required id="profileType" name="profileType" type="text" placeholder="profileType" [(ngModel)]="profile.profileType">         -->
       </div>
-    <div class="alert alert-danger" [hidden]="profileType.valid || profileType.pristine ">profile Type is required</div> 
+    <div class="alert alert-danger" [hidden]="role.valid || role.pristine ">Role is required</div> 
       </div>
       </div>
 <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">Achievment*</label>
+           <label class="col-sm-4 control-label" for="alterEgo">Alter Phone*</label>
         <div class="col-sm-8">
-          <input class="form-control input-md" #achievment="ngModel" required id="achievment" name="achievment" type="text" placeholder="achievment" [(ngModel)]="profile.achievment">
+          <input class="form-control input-md" #alterPhone="ngModel" required 
+          id="alterPhone" maxlength="80" name="alterPhone" type="text" placeholder="Enter Alter Phone" [(ngModel)]="profile.alterPhone">
       </div>
-       <div [hidden]="achievment.valid || achievment.pristine"
+       <div [hidden]="alterPhone.valid || alterPhone.pristine"
              class="alert alert-danger">
-          achivement is required
+             Alternate Phone is required
         </div> 
       </div>
       </div>
     <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="alterEgo">Extra Activities*</label>
+        <label class="col-sm-4 control-label" for="alterEgo">Correspondence Address1*</label>
         <div class="col-sm-8">
-          <input class="form-control input-md" #extraActivities="ngModel" required id="extraActivities" name="extraActivities" type="text" placeholder="extraActivities" [(ngModel)]="profile.extraActivities">                            
+          <input class="form-control input-md" #correspondenceAddress1="ngModel" required 
+          id="correspondenceAddress1" name="correspondenceAddress1" type="text" 
+          placeholder="Correspondence Address1" maxlength="80" [(ngModel)]="profile.correspondenceAddress1">                            
         </div>
-        <div class="alert alert-danger" [hidden]="extraActivities.valid || extraActivities.pristine">extra Activities is required</div> 
+        <div class="alert alert-danger" [hidden]="correspondenceAddress1.valid || correspondenceAddress1.pristine">Correspondence Address1 is required</div> 
       </div>
-      </div>      
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-8">
+          <label class="col-sm-4 control-label" for="alterEgo">Correspondence Address2*</label>
+          <div class="col-sm-8">
+            <input class="form-control input-md" #correspondenceAddress2="ngModel" required 
+            id="correspondenceAddress2" name="correspondenceAddress2" type="text" 
+            placeholder="Correspondence Address2"  maxlength="80"
+            [(ngModel)]="profile.correspondenceAddress2">                            
+          </div>
+          <div class="alert alert-danger" [hidden]="correspondenceAddress2.valid || correspondenceAddress2.pristine">Correspondence Address2 is required</div> 
+        </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-8">
+            <label class="col-sm-4 control-label" for="alterEgo">Correspondence Address3*</label>
+            <div class="col-sm-8">
+              <input class="form-control input-md" maxlength="80" #correspondenceAddress3="ngModel" required id="correspondenceAddress3" name="correspondenceAddress3" type="text" placeholder="Correspondence Address3" [(ngModel)]="profile.correspondenceAddress3">                            
+            </div>
+            <div class="alert alert-danger" [hidden]="correspondenceAddress3.valid || correspondenceAddress3.pristine">Correspondence Address3 is required</div> 
+          </div>
+          </div>    
+          
+          <div class="row">
+            <div class="form-group col-sm-8">
+              <label class="col-sm-4 control-label" for="alterEgo">Correspondence City*</label>
+              <div class="col-sm-8">
+                <input class="form-control input-md" #correspondenceCity="ngModel" 
+                required id="correspondenceCity" name="correspondenceCity" 
+                type="text" placeholder="Correspondence  City" maxlength="45" 
+                [(ngModel)]="profile.correspondenceCity">                            
+              </div>
+              <div class="alert alert-danger" [hidden]="correspondenceCity.valid || correspondenceCity.pristine">Correspondence City is required</div> 
+            </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-8">
+                <label class="col-sm-4 control-label" for="alterEgo">Correspondence State*</label>
+                <div class="col-sm-8">
+                  <input class="form-control input-md" #correspondenceState="ngModel"
+                   required id="correspondenceState" name="correspondenceState" 
+                   type="text" placeholder="Correspondence State" maxlength="1" 
+                   [(ngModel)]="profile.correspondenceState">                            
+                </div>
+                <div class="alert alert-danger" [hidden]="correspondenceState.valid || correspondenceState.pristine">Correspondence State is required</div> 
+              </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-sm-8">
+                  <label class="col-sm-4 control-label" for="alterEgo">Permanent Zip*</label>
+                  <div class="col-sm-8">
+                    <input class="form-control input-md" #permanentZip="ngModel" 
+                    required id="permanentZip" name="permanentZip" type="text" maxlength="11"
+                    placeholder="Enter Permanent Zip" [(ngModel)]="profile.permanentZip">                            
+                  </div>
+                  <div class="alert alert-danger" [hidden]="permanentZip.valid || permanentZip.pristine">Permanent Zip is required</div> 
+                </div>
+                </div>
       <div class="row">
         <div class="form-group col-sm-4">
         </div>

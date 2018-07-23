@@ -1,5 +1,4 @@
-        <!-- style="overflow-x: auto;" -->
- <!-- Content Header (Page header) -->
+<!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="panel-body custom-panel"><h1>
       List Of Users<button class="btn btn-primary pull-right" (click)="addUser()">Add User</button>
@@ -10,10 +9,10 @@
     <div class="col-md-8"></div>
     <div class="col-md-4">  
     </div></div>
-<div  class="">
+<div  class="lu-form">
 <div class="row">
     <div class="col-md-4" *ngIf="message;">
-        <div class="alert alert-success">
+        <div class="alert-message">
             <strong>Success!</strong> {{message}}.
         </div>
     </div>
@@ -26,7 +25,7 @@
     </div>
 </div>
 <div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
-    <table  *ngIf="totalItem" class="table-bordered" style="background-color: #e8e4e4;" width=100%>
+    <table  *ngIf="totalItem" class="table-bordered custom-table">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -43,19 +42,22 @@
                                 <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                     totalItems: totalItem}">
                                     <td>{{datas.firstName+" "+datas.middleName+" "+datas.lastName}}</td> 
-                                    <td>{{datas.email}}</td>  
-                                    <td>{{datas.mobile}}</td>
-                                    <td>{{datas.address.city['cityName']}}</td>
-                                    <td>{{datas.address.city.stateMaster['stateName']}}</td>
-                                     <td>{{datas.address.city.stateMaster.country['countryName']}}</td> 
-                                     <td>{{datas.tblProfile['profileType']}}</td>
-<td><a class="col-xs-3 btn btn-success" routerLink="/admin/addUser/{{this.baseEncode(datas.userId)}}">Edit</a><a class="btn btn-danger" (click)="deleteUser(this.baseEncode(datas.userId))">Delete</a></td>
-                                    </tr>
+                                    <td>{{datas.user['emailId']}}</td>  
+                                    <td>{{datas.mobilePhone}}</td>
+                                    <td>{{datas.perCity}}</td>
+                                    <td>{{datas.perState}}</td>
+                                     <td>{{datas.country}}</td> 
+                                     <td>{{datas.role['roleDescription']}}</td>
+<!-- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/addUser/{{this.baseEncode(datas.userId)}}">Edit</a><a class="btn btn-danger" (click)="deleteUser(this.baseEncode(datas.userId))">Delete</a></td> -->
+<td><a href="/admin/addUser/{{this.baseEncode(datas.user['userId'])}}"><img src="assets/icons/edit.png" 
+    width="25px" /></a><a class="pointer" (click)="deleteUser(this.baseEncode(datas.user['userId']))"><img src="assets/icons/delete.png" 
+        width="25px" /></a></td>               
+</tr>
                     </tbody> 
                 </table>
                 <div *ngIf="!totalItem" class="row">
     <div class="col-md-6" >
-    <div class="alert alert-success">
+    <div class="alert-message">
   <strong>Success!</strong> Record not found
 </div>
     </div>

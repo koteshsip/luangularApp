@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {Http,Response,RequestOptions} from '@angular/http';
 import { LocalStorageService } from 'angular-2-local-storage';
+import {AppSettings} from '../appSettings'
 import { Base64 } from 'js-base64';
 @Injectable()
 export class AttendenceService {
-private  baseurl="http://localhost:8080/lujavaapp/";
+private  baseurl=AppSettings['API_ENDPOINT'];
   constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
 getAllAttendence(event,filter){
     if(!filter){

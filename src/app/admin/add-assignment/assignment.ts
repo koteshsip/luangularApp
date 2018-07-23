@@ -1,15 +1,17 @@
 export class   Assignment   {
   constructor(
 	public assignmentId:any,
-	public loginId:any,
-	// public tblClass:String,
-	public assignmentNumber:any,
-	public assignmentType:any,
-	public assignmentDueDate:any,
-	public assignmentIssuedDate:any,
-	public assignmentSubject:String,
-	public reviewComments:String,
-	public assignmentMarks:any,
-	public assignmentAttachment:any,
-  ) {  }
+	public classId:any,
+	public sectionId:any,
+	public associateTeacherId:any,
+	public assignType:any,
+	public subjectId:any,
+	public assignStartDate:any,
+	public assignDueDate:String,
+	public assignActive:any,
+	public maxMarks:any,
+	public assignPath:any,	
+	public assignCreatedBy:any,
+	public insertedBy:any
+) {  }
 }

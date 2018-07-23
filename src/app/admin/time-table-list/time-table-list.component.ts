@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; 
 import { Router } from '@angular/router';
 import { MessageComponent } from '../message/message.component';
 declare var AdminLTE: any;

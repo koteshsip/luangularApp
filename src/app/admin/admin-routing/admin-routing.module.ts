@@ -20,8 +20,8 @@ import { AddStateComponent } from './../../admin/add-state/add-state.component';
 import { StateListComponent } from './../../admin/state-list/state-list.component';
 import { CityListComponent } from './../../admin/city-list/city-list.component';
 import { CountryListComponent } from './../../admin/country-list/country-list.component';
-
-
+import { AddStudentProfileComponent } from './../../admin/add-student-profile/add-student-profile.component';
+import { AddStudentAddressComponent } from './../../admin/add-student-address/add-student-address.component';
 import { HostelListComponent } from './../../admin/hostel-list/hostel-list.component';
 import { ClassListComponent } from './../../admin/class-list/class-list.component';
 import { BookListComponent } from './../../admin/book-list/book-list.component';
@@ -60,6 +60,29 @@ import { AddAttendenceComponent } from './../../admin/add-attendence/add-attende
 import { AddSchoolComponent } from './../../admin/add-school/add-school.component';
 import { AddNewsComponent } from './../../admin/add-news/add-news.component';
 import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.component';
+import { ClassRoomsComponent } from './../../admin/class-rooms/class-rooms.component';
+import { SubjectsComponent } from './../../admin/subjects/subjects.component';
+import { DepartmentsComponent } from './../../admin/departments/departments.component';
+import { TimetableScheduleComponent } from './../../admin/timetable-schedule/timetable-schedule.component';
+import { AddTimetableScheduleComponent } from './../../admin/add-timetable-schedule/add-timetable-schedule.component';
+import { AddFlipbookComponent } from './../../admin/add-flipbook/add-flipbook.component';
+import { FlipbookListComponent } from './../../admin/flipbook-list/flipbook-list.component';
+import { BooksPurchaseListComponent } from './../../admin/books-purchase-list/books-purchase-list.component';
+import { AddBooksPurchaseComponent } from './../../admin/add-books-purchase/add-books-purchase.component';
+import { AddBooksIssuedComponent } from './../../admin/add-books-issued/add-books-issued.component';
+import { BooksIssuedListComponent } from './../../admin/books-issued-list/books-issued-list.component';
+import { ParentsComponent } from './../../admin/parents/parents.component';
+import { StudentsComponent } from './../../admin/students/students.component';
+import { LibrarySettingsComponent } from './../../admin/library-settings/library-settings.component';
+import { AddSubjectComponent } from './../../admin/add-subject/add-subject.component';
+import { ClassSectionComponent } from './../../admin/class-section/class-section.component';
+import { ClassSubjectListComponent } from './../../admin/class-subject-list/class-subject-list.component';
+import { AddClassSubjectComponent } from './../../admin/add-class-subject/add-class-subject.component';
+import { AssignmentEvaluationListComponent } from './../../admin/assignment-evaluation-list/assignment-evaluation-list.component';
+import { AddClassSectionComponent } from '../add-class-section/add-class-section.component';
+import { AddAssignmentEvaluationComponent } from './../../admin/add-assignment-evaluation/add-assignment-evaluation.component';
+import { AddStudentComponent } from './../../admin/add-student/add-student.component';
+import { StudentListComponent } from './../../admin/student-list/student-list.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
@@ -116,7 +139,7 @@ import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.compo
             path: 'addUser/:id',
             component: AdduserComponent,
             canActivate: [AuthGuard]
-          },
+          }, 
           {
             path: 'addProfile/:id',
             component: AddprofileComponent,
@@ -136,6 +159,25 @@ import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.compo
             component: AddaddressComponent,
             canActivate: [AuthGuard]
           },{
+            path: 'addStudentProfile/:id',
+            component: AddStudentProfileComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'addStudentAddress/:id',
+            component: AddStudentAddressComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'addStudentProfile',
+            component: AddStudentProfileComponent,
+            canActivate: [AuthGuard]
+          },{
+            path: 'addStudentAddress',
+            component: AddStudentAddressComponent,
+            canActivate: [AuthGuard]
+          },
+          {
             path: 'list-of-users',
             component: ListOfUsersComponent,
             canActivate: [AuthGuard]
@@ -235,6 +277,12 @@ import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.compo
             canActivate: [AuthGuard]
           },
           {
+            path: 'class-section-list',
+            component: ClassSectionComponent,
+            canActivate: [AuthGuard]
+          }
+          ,
+          {
             path: 'transport-list',
             component: TransportListComponent,
             canActivate: [AuthGuard]
@@ -315,7 +363,7 @@ import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.compo
             canActivate: [AuthGuard]
           },
           {
-            path: 'update-assignment/:id',
+            path: 'update-assignment/:assignmentId/:classId/:sectionId',
             component: AddAssignmentComponent,
             canActivate: [AuthGuard]
           },
@@ -461,7 +509,146 @@ import { AddDrawingComponent } from './../../admin/add-drawing/add-drawing.compo
             path:'update-drawing/:id',
             component:AddDrawingComponent,
             canActivate: [AuthGuard]
+          },{
+            path: 'class-rooms-list',
+            component: ClassRoomsComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'subjects-list',
+            component: SubjectsComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-subject',
+            component: AddSubjectComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path:'update-subject/:subjectId/:textBookISBN',
+            component:AddSubjectComponent,
+            canActivate: [AuthGuard]
           }
+          ,
+          {
+            path: 'departments-list',
+            component: DepartmentsComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'timetable-schedule',
+            component: TimetableScheduleComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-timetable-schedule',
+            component: AddTimetableScheduleComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-flipbook',
+            component: AddFlipbookComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'flipbook-list',
+            component: FlipbookListComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'books-purchase-list',
+            component: BooksPurchaseListComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-books-purchase',
+            component: AddBooksPurchaseComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-books-issued',
+            component: AddBooksIssuedComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'books-issued-list',
+            component: BooksIssuedListComponent,
+            canActivate:[AuthGuard]
+          },
+            {
+            path: 'parents-list',
+            component: ParentsComponent,
+            canActivate: [AuthGuard]
+          }
+          ,
+          {
+            path: 'students-list',
+            component: StudentsComponent,
+            canActivate: [AuthGuard]
+          }
+          ,
+          {
+            path: 'library-settings-list',
+            component: LibrarySettingsComponent,
+            canActivate: [AuthGuard]
+          }
+          ,
+          {
+            path: 'add-class-section',
+            component: AddClassSectionComponent,
+            canActivate: [AuthGuard]
+          }
+          ,
+          {
+            path:'update-class-section/:classId/:sectionId',
+            component:AddClassSectionComponent,
+            canActivate: [AuthGuard]
+          }
+          ,
+          {
+            path: 'class-subject-list',
+            component: ClassSubjectListComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'add-class-subject',
+            component: AddClassSubjectComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'update-class-subject/:classId/:sectionId',
+            component: AddClassSubjectComponent,
+            canActivate: [AuthGuard]
+          }
+          ,
+          {
+            path: 'assignment-evaluation-list',
+            component: AssignmentEvaluationListComponent,
+            canActivate: [AuthGuard]
+          },{
+            path:'add-assignment-evaluation',
+            component: AddAssignmentEvaluationComponent,
+            canActivate:[AuthGuard]
+          },{
+            path:'add-assignment-evaluation/:studentId/:assignId',
+            component: AddAssignmentEvaluationComponent,
+            canActivate:[AuthGuard]
+          }
+          ,
+          {
+            path: 'student-list',
+            component: StudentListComponent,
+            canActivate: [AuthGuard]
+          },{
+            path:'addStudent',
+            component: AddStudentComponent,
+            canActivate:[AuthGuard]
+          },{
+            path:'add-student/:userId',
+            component: AddStudentComponent,
+            canActivate:[AuthGuard]
+          }
+
         ]
       }
     ])

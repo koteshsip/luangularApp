@@ -3,7 +3,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {Http,Response,RequestOptions} from '@angular/http';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { Base64 } from 'js-base64';
-
+import { AppSettings } from '../appSettings'
 import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -11,7 +11,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class UserServices {
-private  baseurl="http://localhost:8080/lujavaapp/";
+private  baseurl=AppSettings['API_ENDPOINT'];
   constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
 
     public  addUser(formdata: any) {
@@ -19,6 +19,15 @@ private  baseurl="http://localhost:8080/lujavaapp/";
         return this.http.post(_url, formdata)
         .catch(this._errorHandler);
     }
+    public  addStudent(formdata: any) {
+      let _url: string = this.baseurl+'saveStudentDetails';
+      return this.http.post(_url, formdata)
+      .catch(this._errorHandler);
+  }
+  getAllClassSection(){   
+    const url=this.baseurl+"getAllClassSectionMasterSelect";
+    return this.http.get(url);
+  }
     public  updateUser(formdata: any,id) {
         let _url: string = this.baseurl+'saveUserDetails/'+id;
          return this.http.put(_url, formdata)
@@ -70,4 +79,13 @@ private _errorHandler(error: Response) {
     const url=this.baseurl+"deleteUser/"+id;
     return this.http.put(url,"");
   }
+  getAllRole(){
+    const url=this.baseurl+"getAllRoll";
+    return this.http.get(url);
+  }
+  getAllUserSelect(){
+    const url=AppSettings['API_ENDPOINT']+"getAllUserSelect";
+      return this.http.get(url);
+  }
+
 }

@@ -1,0 +1,128 @@
+<section class="content-header">
+  <div class="panel-body custom-panel"><h1>
+    <div *ngIf="model.stateId; else falsyTemplate">
+      Edit Class Subject
+    </div>
+    <ng-template #falsyTemplate>
+      Add Class Subject 
+    </ng-template>
+  </h1>
+  </div>
+</section>
+<div class="content ">
+<div class="lu-form">
+   <div class="row">
+     <p>                            </p>
+   </div>
+<form (ngSubmit)="addClassSubject(model)" enctype="multipart/form-data" #classsubjectForm="ngForm"> 
+    <div class="row">
+    <div class="form-group col-sm-8">
+      <label class="col-sm-4 control-label" for="name">Teacher Select*</label>
+      <div class="col-sm-8">
+      <select required minlength="1" class="lu-input" name="teacherId" id="teacherId" [(ngModel)]="model.teacherId" 
+      (ngModelChange)="getname($event)" #teacherId="ngModel">
+              <option *ngFor='let teacher of teacherdata' [selected]='teacher.userId+","+teacher.firstName+" "+teacher.middleName+" "+teacher.lastName===model.teacherId' [value]='teacher.userId+","+teacher.firstName+" "+teacher.middleName+" "+teacher.lastName' >{{teacher.emailId}}</option>
+      </select>
+            </div>
+        <div [hidden]="teacherId.valid || teacherId.pristine"
+           class="alert alert-danger">
+           Email is required
+      </div>   
+    </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Class Section*</label>
+        <div class="col-sm-8">
+        <select required minlength="1" class="lu-input" name="classId" 
+        id="classId" (ngModelChange)="classsubject($event)"  [(ngModel)]="model.classId"  #classId="ngModel" 
+        >
+                <!-- <option *ngFor='let classsection of classsectiondata' [selected]="classsection['classSectionMasterId'].classId===model.classId" [ngValue]='classsection['classSectionMasterId'].classId,classsection['classSectionMasterId'].sectionId' >{{classsection.className}} {{classsection.sectionName}}</option> --> -->
+                <option *ngFor='let mydata of classsectiondata' 
+                [selected]='mydata["classSectionMasterId"].classId+","+mydata["classSectionMasterId"].sectionId===model.classId' [value]='mydata["classSectionMasterId"].classId+","+mydata["classSectionMasterId"].sectionId' >{{mydata.className}}  {{mydata.sectionName}}</option>
+        </select>
+              </div>
+          <div [hidden]="classId.valid || classId.pristine"
+             class="alert alert-danger">
+             Class Section is required
+        </div>   
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-8">
+          <label class="col-sm-4 control-label" for="name">Select Subject*</label>
+          <div class="col-sm-8">
+          <select  required minlength="1" (ngModelChange)="getsubjectname($event)" class="lu-input" name="subjectId" id="subjectId" [(ngModel)]="model.subjectId"
+          #subjectId="ngModel">
+                  <option *ngFor='let subjectmaster of subjectmasterdata' [selected]="subjectmaster.subjectId===model.subjectId" [value]='subjectmaster["subjectMasterId"].subjectId+","+subjectmaster.subjectName' >{{subjectmaster.subjectName}}</option>
+          </select>
+                </div>
+            <div [hidden]="subjectName.valid || subjectName.pristine"
+               class="alert alert-danger">
+               subject Name is required
+          </div>   
+        </div>
+        </div>
+
+
+
+    <div class="row">
+    <div class="form-group col-sm-8">
+      <label class="col-sm-4 control-label" for="name">Subject Name*</label>
+      <div class="col-sm-8">
+      <input type="text" readonly  maxlength="50"  class="" pattern="[a-zA-Z0-9-\&quot;-'-$-.- ,]*" id="subjectName"
+             required 
+             [(ngModel)]="model.subjectName" name="subjectName"
+             #subjectName="ngModel">
+             <input type="hidden"  name="sectionId" [value]="model.sectionId"/>
+            </div>
+       <div [hidden]="subjectName.valid || subjectName.pristine"
+           class="alert alert-danger">
+           Subject Name is required
+      </div>  
+    </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Academic Year*</label>
+        <div class="col-sm-8">
+        <input type="text"  maxlength="4"  class="" pattern="[a-zA-Z0-9-\&quot;-'-$-.- ,]*" id="academicYear"
+               required 
+               [(ngModel)]="model.academicYear" name="academicYear"
+               #academicYear="ngModel">
+              </div>
+         <div [hidden]="academicYear.valid || academicYear.pristine"
+             class="alert alert-danger">
+             Academic Year is required
+        </div>  
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-8">
+          <label class="col-sm-4 control-label" for="name">Teacher Name*</label>
+          <div class="col-sm-8">
+          <input type="text"  maxlength="50" readonly class="" pattern="[a-zA-Z0-9-\&quot;-'-$-.- ,]*" id="teacherName"
+                 required 
+                 [(ngModel)]="model.teacherName" name="teacherName"
+                 #teacherName="ngModel">
+                </div>
+           <div [hidden]="teacherName.valid || teacherName.pristine"
+               class="alert alert-danger">
+               Teacher Name is required
+          </div>  
+        </div>
+        </div>
+
+    <div class="row">
+      <div class="form-group col-sm-4">
+      </div>
+      <div class="form-group col-sm-4">
+        <button type="submit" class="btn btn-success" [disabled]="!classsubjectForm.form.valid">Save</button>
+        <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
+      </div>
+      </div>
+  </form>
+</div>
+</div>

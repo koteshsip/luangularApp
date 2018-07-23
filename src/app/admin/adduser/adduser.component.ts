@@ -16,12 +16,23 @@ export class AdduserComponent implements OnInit {
     baseEncode:any;
     // private elem: ElementRef;
     constructor(private formDataService: FormDataService,private elem: 
-        ElementRef,private myuser : UserServices,private router:Router,private route: ActivatedRoute) {
+        ElementRef,private myuser : UserServices,private router:Router
+        ,private route: ActivatedRoute) {
     this.baseEncode=Base64.encode;
     }
 id=this.route.snapshot.params;
+Gender = ["Male","Female"];
+// myuserA(arr){
+//     for(var key in arr)
+// {
+//   var value = arr[key];
+//   alert(key + " = " + value + '<br>');
+// }
+// }
     ngOnInit() {
+    //    setTimeout(this.myuserA(this.Gender),500011);
         this.user = this.formDataService.getUser();
+        this.user['gender']=this.Gender[0];
         if(this.id['id']){
             let myid=Base64.decode(this.id['id']);
         this.getUserById(myid);
@@ -40,10 +51,10 @@ this.formDataService.setProfile(profileData);
 this.formDataService.getProfile();
 let addressdata;
 addressdata=data['address'];
-addressdata['state']=data.address.city.stateMaster.stateId;
-addressdata['countryId']=data.address.city.stateMaster.country.countryId;
-addressdata['city']=data.address.city.cityId;
-addressdata['zip']=data.address.zipCode;
+// addressdata['state']=data.address.city.stateMaster.stateId;
+// addressdata['countryId']=data.address.city.stateMaster.country.countryId;
+// addressdata['city']=data.address.city.cityId;
+// addressdata['zip']=data.address.zipCode;
 
 this.formDataService.setAddress(addressdata);
 //console.log("Address data"+this.formDataService.getAddress());
@@ -54,16 +65,6 @@ this.formDataService.setAddress(addressdata);
             return;
         this.formDataService.setUser(this.user);
     }
-emailAlreadyExist(event){
-    let email=Base64.encode(event);
-    this.myuser.userAlreadyExist(email).subscribe((data:any)=>{
-        if(data){
-          this.IsExist=data;
-          }else{
-            this.IsExist=false;
-          }
-    });
-}
 
 
 

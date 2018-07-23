@@ -3,9 +3,10 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {Http,Response,RequestOptions} from '@angular/http';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { Base64 } from 'js-base64';
+import {AppSettings} from '../appSettings'
 @Injectable()
 export class BookService {
-private  baseurl="http://localhost:8080/lujavaapp/";
+private  baseurl=AppSettings['API_ENDPOINT'];
   constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
 getAllBook(event,filter){
     if(!filter){

@@ -39,12 +39,12 @@ export class AddTimetableComponent implements OnInit {
     if(TimeTableinfo.timeTableId){
       this.timeTableService.updateTimeTable(TimeTableinfo).subscribe((data:any)=>{
             this.mystorage.set("message","Record Updated Successfully");
-            this.router.navigate(['/admin/timeTable-list']);
+            this.router.navigate(['/admin/timetable-list']);
           });
     }else{
               this.timeTableService.addTimeTable(TimeTableinfo).subscribe((data:any)=>{
               this.mystorage.set("message","Record add Successfully");
-              this.router.navigate(['/admin/timeTable-list']);
+              this.router.navigate(['/admin/timetable-list']);
               });
     }
   }
@@ -55,7 +55,7 @@ export class AddTimetableComponent implements OnInit {
       });
   }
   backList(){
-    this.router.navigate(['/admin/timeTable-list']);
+     this.router.navigate(['/admin/timetable-list']);
   }
   //  timeTableAlreadyExist(){
   //   this.timeTableService.timeTableAlreadyExist().subscribe((data:any)=>{

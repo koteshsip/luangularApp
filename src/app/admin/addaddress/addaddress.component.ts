@@ -25,52 +25,100 @@ id=this.route.snapshot.params;
         this.address['userId']=this.id['id']
         }
         console.log('Address feature loaded!');
-        this.getAllCountry();
-        this.getAllCitySelect();
-        this.getAllState();
+        // this.getAllCountry();
+        // this.getAllCitySelect();
+        // this.getAllState();
     }
 
     save(form: any) {
         // if (!form.valid) 
         //     return;
         this.formDataService.setAddress(this.address);
-        //let address= this.formDataService.getAddress();
+        let address= this.formDataService.getAddress();
         let profile=this.formDataService.getProfile();
         let user=this.formDataService.getUser();
         let formData = new FormData();
-        if(profile.profileImage){
-            formData.append("selectFile",profile.profileImage,profile.profileImage.name);
+        if(user.profilePic){
+            formData.append("selectFile",user.profilePic,user.profilePic.name);
         }
         formData.append('PROFILEDATA', new Blob([JSON.stringify({
-                userId: user.userId,
-                id: user.profileId,
-                addressId: user.addressId,
-                profileName: profile.profileName,
-                profileType:profile.profileType,
-                achievment:profile.achievment,
-                extraactivities:profile.extraActivities,
-                email:user.email,
-                userDesc: user.userDesc,
-                password: user.Password,
-                firstName:user.firstName,
-                middleName:user.middleName,
-                lastName:user.lastName,
-                mobile: user.mobile,
-                attendance: user.attendance,
-                books: user.books,
-                class: user.class,
-                drawing: user.drawing,
-                news: user.news,
-                notes: user.notes,
-                notify: user.notify,
-                subject: user.subject,
-                timetable: user.timetable,
-                test: user.test,
-                video: user.video,
-                communicationAddress:this.address.communicationAddress,
-                permanentAddress:this.address.permanentAddress,
-                zipCode:this.address.zip, 
-                city:{"cityId":this.address.city}              
+            userId: "",
+            userOrganisationId: "s",
+            emailId : profile.emailId,
+            currentPassword: profile.currentPassword,
+            alterPhone:profile.alterPhone,
+            //passwordLastChangeDate:"2018-05-10T18:30:00.000+0000",
+            roleId:profile.role,
+            firstName:user.firstName,
+            middleName:user.middleName,
+            lastName:user.lastName,
+            dateOfBirth:user.dateOfBirth,
+            mobilePhone:user.mobilePhone,
+            alternatePhone:user.alternatePhone,
+            qulaificationDegree:user.qulaificationDegree,
+            degreeOfSpecilization:user.degreeOfSpecilization,
+            univFrom:user.univFrom,
+            deg_pass_year:user.deg_pass_year,
+            correspondenceAddress1:profile.correspondenceAddress1,
+            correspondenceAddress2:profile.correspondenceAddress2,
+            correspondenceAddress3:profile.correspondenceAddress3,
+            correspondenceCity:profile.correspondenceCity,
+            correspondenceState:profile.correspondenceState,
+            permanentZip:profile.permanentZip,
+            correspondenceZip:profile.correspondenceZip,
+            employeeId:user.employeeId,
+            dateOfJoining:user.dateOfJoining,
+            dateOfLeaving:user.dateOfLeaving,
+            gender:user.gender,
+            addressLine1:address.addressLine1,
+            addressLine2:address.addressLine2,
+            addressLine3:address.addressLine3,	
+            perCity:address.perCity,
+            perState:address.perState,
+            country:address.country,
+            fatherFirstName:address.fatherFirstName,	
+            fatherMiddleName:address.fatherMiddleName,
+            fatherLastName:address.fatherLastName,
+            motheFirstName:address.motheFirstName,
+            motherMiddleName:address.motherMiddleName,
+            motherLastname:address.motherLastname,
+            fatherContact:address.fatherContact,
+            motherContact:address.motherContact,
+            // useField1:"zxfvxz",
+            // useField2:"vxczxv",
+            // useField3:"xzfcxz",
+            // useField4:"zxczx",
+            // useField5:"zxfvzxv",
+            // useField6:"dfssd",
+                // userId: user.userId,
+                // id: user.profileId,
+                // addressId: user.addressId,
+                // profileName: profile.profileName,
+                // profileType:profile.profileType,
+                // achievment:profile.achievment,
+                // extraactivities:profile.extraActivities,
+                // email:user.email,
+                // userDesc: user.userDesc,
+                // password: user.Password,
+                // firstName:user.firstName,
+                // middleName:user.middleName,
+                // lastName:user.lastName,
+                // mobile: user.mobile,
+                // attendance: user.attendance,
+                // books: user.books,
+                // class: user.class,
+                // drawing: user.drawing,
+                // news: user.news,
+                // notes: user.notes,
+                // notify: user.notify,
+                // subject: user.subject,
+                // timetable: user.timetable,
+                // test: user.test,
+                // video: user.video,
+                // communicationAddress:this.address.communicationAddress,
+                // permanentAddress:this.address.permanentAddress,
+                // zipCode:this.address.zip, 
+                // city:{"cityId":this.address.city}              
             })], {
                 type: "application/json"
             }));
@@ -88,29 +136,5 @@ id=this.route.snapshot.params;
                 });
             }
     }
-    public  getAllState(){
-        this.user.getAllState(0).subscribe((data:any)=>{
-        this.statedata=data;
-        });
-    }
-    public  getAllCountry(){
-            this.user.getAllCountry().subscribe((data:any)=>{
-            this.countrydata=data;
-        });
-    }
-    public  getAllCitySelect(){
-            this.user.getAllCitySelect(0).subscribe((data:any)=>{
-            this.citydata=data;
-            });
-    }
-    public getStateByCountryId(event){
-        this.user.getAllState(event).subscribe((data:any)=>{
-            this.statedata=data;
-            });
-    }
-    public  getAllCityByStateId(event){
-            this.user.getAllCitySelect(event).subscribe((data:any)=>{
-            this.citydata=data;
-            });
-    }
+
 }

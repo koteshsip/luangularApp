@@ -51,7 +51,7 @@ export class AddResourceBankComponent implements OnInit {
       });
   }
   backList(){
-    this.router.navigate(['/admin/resourceBank-list']);
+    this.router.navigate(['/admin/resource-bank-list']);
   }
   // resourceBankAlreadyExist(){
   //   this.resourceBankService.resourceBankAlreadyExist().subscribe((data:any)=>{

@@ -1,0 +1,191 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="panel-body box box-info"><h1>Student Details</h1>
+  </div>
+</section>
+<div class="content ">
+<div class="box box-info">
+   <div class="row">
+     <p>                            </p>
+   </div>
+  <form #workForm="ngForm" class="editForm" novalidate>
+    <div class="row">
+    <div class="form-group col-sm-8">
+      <label class="col-sm-4 control-label" for="name">Father First Name*</label>
+      <div class="col-sm-8">
+          <input class="form-control input-md" #fatherFirstName="ngModel" 
+          required id="fatherFirstName" name="fatherFirstName" type="text" placeholder="Father First Name" maxlength="80" [(ngModel)]="profile.fatherFirstName" pattern="[a-zA-Z\&quot;-'-$-.-, ]*">   
+            <!-- <input    type="hidden" name="employeeId"  [(ngModel)]="user.employeeId"> -->
+        </div>
+      <div class="alert alert-danger" [hidden]="fatherFirstName.valid || fatherFirstName.pristine">Father First Name is required</div>  
+    </div>
+    </div>
+<div class="row">
+    <div class="form-group col-sm-8">
+         <label class="col-sm-4 control-label" for="alterEgo">Father Middle Name*</label>
+      <div class="col-sm-8">
+      <input class="form-control input-md" #fatherMiddleName="ngModel" required id="fatherMiddleName" name="fatherMiddleName" maxlength="80" type="text" placeholder="Father Middle Name" [(ngModel)]="profile.fatherMiddleName" pattern="[a-zA-Z-\&quot;-'-$-.-, ]*">
+    </div>
+      <div class="alert alert-danger" [hidden]="fatherMiddleName.valid || fatherMiddleName.pristine">Father Middle Name is required</div> 
+    </div>
+    </div>
+    <div class="row">
+    <div class="form-group col-sm-8">
+         <label class="col-sm-4 control-label" for="alterEgo">Father Last Name*</label>
+      <div class="col-sm-8">
+      <input class="form-control input-md" #fatherLastName="ngModel" required  maxlength="80" id="fatherLastName" name="fatherLastName" type="text" placeholder="Father Last Name" [(ngModel)]="profile.fatherLastName" pattern="[a-zA-Z-\&quot;-'-$-.-, ]*">
+    </div>
+  <div class="alert alert-danger" [hidden]="fatherLastName.valid || fatherLastName.pristine ">Father Last Name is required</div> 
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Mother First Name*</label>
+        <div class="col-sm-8">
+            <input class="form-control input-md" #motherFirstName="ngModel" 
+            required id="motherFirstName" name="motherFirstName" type="text" placeholder="mother First Name" maxlength="80" [(ngModel)]="profile.motherFirstName" pattern="[a-zA-Z\&quot;-'-$-.-, ]*">   
+              <!-- <input    type="hidden" name="employeeId"  [(ngModel)]="user.employeeId"> -->
+          </div>
+        <div class="alert alert-danger" [hidden]="motherFirstName.valid || motherFirstName.pristine">Mother First Name is required</div>  
+      </div>
+</div>
+<div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">Mother Middle Name*</label>
+        <div class="col-sm-8">
+        <input class="form-control input-md" #motherMiddleName="ngModel" required id="motherMiddleName" name="motherMiddleName" maxlength="80" type="text" placeholder="Mother Middle Name" [(ngModel)]="profile.motherMiddleName" pattern="[a-zA-Z-\&quot;-'-$-.-, ]*">
+      </div>
+        <div class="alert alert-danger" [hidden]="motherMiddleName.valid || motherMiddleName.pristine">Mother Middle Name is required</div> 
+      </div>
+</div>
+      <div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">Mother Last Name*</label>
+        <div class="col-sm-8">
+        <input class="form-control input-md" #motherLastName="ngModel" required  maxlength="80" id="motherLastName" name="motherLastName" type="text" placeholder="Mother Last Name" [(ngModel)]="profile.motherLastName" pattern="[a-zA-Z-\&quot;-'-$-.-, ]*">
+      </div>
+    <div class="alert alert-danger" [hidden]="motherLastName.valid || motherLastName.pristine ">Mother Last Name is required</div> 
+      </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-8">
+          <label class="col-sm-4 control-label" for="name">Guardian First Name*</label>
+          <div class="col-sm-8">
+              <input class="form-control input-md" #guardianFirstName="ngModel" 
+              required id="guardianFirstName" name="guardianFirstName" type="text" 
+              placeholder="Guardian First Name" maxlength="80" [(ngModel)]="profile.guardianFirstName" 
+              pattern="[a-zA-Z\&quot;-'-$-.-, ]*">   
+                <!-- <input    type="hidden" name="employeeId"  [(ngModel)]="user.employeeId"> -->
+            </div>
+          <div class="alert alert-danger" [hidden]="guardianFirstName.valid || guardianFirstName.pristine">Guardian First Name is required</div>  
+        </div>
+  </div>
+  <div class="row">
+        <div class="form-group col-sm-8">
+             <label class="col-sm-4 control-label" for="alterEgo">Guardian Middle Name*</label>
+          <div class="col-sm-8">
+          <input class="form-control input-md" #guardianMiddleName="ngModel" required id="guardianMiddleName" name="guardianMiddleName" maxlength="80" type="text" placeholder="Guardian Middle Name" [(ngModel)]="profile.guardianMiddleName" pattern="[a-zA-Z-\&quot;-'-$-.-, ]*">
+          </div>
+          <div class="alert alert-danger" [hidden]="guardianMiddleName.valid || guardianMiddleName.pristine">Guardian Middle Name is required</div> 
+        </div>
+  </div>
+        <div class="row">
+        <div class="form-group col-sm-8">
+             <label class="col-sm-4 control-label" for="alterEgo">Guardian Last Name*</label>
+          <div class="col-sm-8">
+          <input class="form-control input-md" #guardianLastName="ngModel" required  maxlength="80" id="guardianLastName" name="guardianLastName" type="text" placeholder="Guardian Last Name" [(ngModel)]="profile.guardianLastName" pattern="[a-zA-Z-\&quot;-'-$-.-, ]*">
+        </div>
+      <div class="alert alert-danger" [hidden]="guardianLastName.valid || guardianLastName.pristine">Guardian Last Name is required</div> 
+        </div>
+        </div>
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Admission Date*</label>
+        <div class="col-sm-8">
+<input type="date"  maxlength="50"  class="form-control"  id="admissionDate"
+               required
+               [(ngModel)]="profile.admissionDate" name="admissionDate" onkeypress="return false;"
+               #admissionDate="ngModel" value="">
+              </div> 
+              <div [hidden]="admissionDate.valid || admissionDate.pristine"
+                  class="alert alert-danger">
+                  Admission Date is required
+              </div> 
+      </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-8">
+       <label class="col-sm-4 control-label" for="alterEgo">Father Contact*</label>
+    <div class="col-sm-8">
+      <input class="form-control input-md" minlength="10" maxlength="11" #fatherContact="ngModel" 
+      required id="fatherContact" name="fatherContact" 
+      pattern="[0-9]*" type="text" placeholder="Father Contact Number" [(ngModel)]="profile.fatherContact">
+  </div>
+   <div [hidden]="fatherContact.valid || fatherContact.pristine"
+         class="alert alert-danger">
+         Father Contact is required
+    </div> 
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-8">
+         <label class="col-sm-4 control-label" for="alterEgo">Mother Contact*</label>
+      <div class="col-sm-8">
+        <input class="form-control input-md" minlength="10" maxlength="11" #motherContact="ngModel" 
+        required id="motherContact" name="motherContact" 
+        pattern="[0-9]*" type="text" placeholder="Mother Contact Number" [(ngModel)]="profile.motherContact">
+    </div>
+     <div [hidden]="motherContact.valid || motherContact.pristine"
+           class="alert alert-danger">
+           Mother Contact is required
+      </div> 
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">Guardian Contact*</label>
+        <div class="col-sm-8">
+          <input class="form-control input-md" minlength="10" maxlength="11" #guardianContact="ngModel" 
+          required id="guardianContact" name="guardianContact" 
+          pattern="[0-9]*" type="text" placeholder="Guardian Contact Number" [(ngModel)]="profile.guardianContact">
+      </div>
+       <div [hidden]="guardianContact.valid || guardianContact.pristine"
+             class="alert alert-danger">
+             Guardian Contact is required
+        </div> 
+      </div>
+      </div>
+  <div class="row">
+    <div class="form-group col-sm-8">
+      <label class="col-sm-4 control-label" for="alterEgo">Previous School*</label>
+      <div class="col-sm-8">
+        <input class="form-control input-md"  #previousSchool="ngModel" required  name="previousSchool" type="text" maxlength="45"  placeholder="Previous School" pattern="[a-zA-Z\&quot;-'-$-.-, ]*" [(ngModel)]="profile.previousSchool">
+      </div>
+      <div class="alert alert-danger" [hidden]="previousSchool.valid || previousSchool.pristine">Previous School is required</div> 
+    </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-4">
+      </div>
+      <div class="form-group col-sm-4">
+        <div *ngIf="profile.userId; else falsyTemplate">
+             <div class="form-group text-center space-20">
+              <button [routerLink]="['/admin/addStudent/'+profile.userId]" class="btn btn-outline-rounded btn-default"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
+              <button [routerLink]="['/admin/addStudentAddress/'+profile.userId]" class="btn btn-outline-rounded btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+          </div> 
+        </div>
+        <ng-template #falsyTemplate>
+        <div class="form-group text-center space-20">
+              <button [routerLink]="['/admin/addStudent']" class="btn btn-outline-rounded btn-default" (click)="save(workForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
+              <button [routerLink]="['/admin/addStudentAddress']" class="btn btn-outline-rounded btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+          </div>  
+        </ng-template>
+      </div>
+      </div>
+  </form>
+</div>
+</div>

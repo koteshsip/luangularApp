@@ -68,6 +68,31 @@ import { AddSchoolComponent } from './add-school/add-school.component';
 import { AddNewsComponent } from './add-news/add-news.component';
 import { AddDrawingComponent } from './add-drawing/add-drawing.component';
 import { AddEmailComponent } from './add-email/add-email.component';
+import { ClassRoomsComponent } from './class-rooms/class-rooms.component';
+import { SubjectsComponent } from './subjects/subjects.component';
+import { DepartmentsComponent } from './departments/departments.component';
+import { TimetableScheduleComponent } from './timetable-schedule/timetable-schedule.component';
+import { AddTimetableScheduleComponent } from './add-timetable-schedule/add-timetable-schedule.component';
+import { AddFlipbookComponent } from './add-flipbook/add-flipbook.component';
+import { FlipbookListComponent } from './flipbook-list/flipbook-list.component';
+import { BooksPurchaseListComponent } from './books-purchase-list/books-purchase-list.component';
+import { AddBooksPurchaseComponent } from './add-books-purchase/add-books-purchase.component';
+import { AddBooksIssuedComponent } from './add-books-issued/add-books-issued.component';
+import { BooksIssuedListComponent } from './books-issued-list/books-issued-list.component';
+import { ParentsComponent } from './parents/parents.component';
+import { StudentsComponent } from './students/students.component';
+import { LibrarySettingsComponent } from './library-settings/library-settings.component';
+import { AddSubjectComponent } from './add-subject/add-subject.component';
+import { ClassSectionComponent } from './class-section/class-section.component';
+import { AddClassSectionComponent } from './add-class-section/add-class-section.component';
+import { ClassSubjectListComponent } from './class-subject-list/class-subject-list.component';
+import { AddClassSubjectComponent } from './add-class-subject/add-class-subject.component';
+import { AssignmentEvaluationListComponent } from './assignment-evaluation-list/assignment-evaluation-list.component';
+import { AddAssignmentEvaluationComponent } from './add-assignment-evaluation/add-assignment-evaluation.component';
+import { AddStudentComponent } from './add-student/add-student.component';
+import { StudentListComponent } from './student-list/student-list.component';
+import { AddStudentProfileComponent } from './add-student-profile/add-student-profile.component';
+import { AddStudentAddressComponent } from './add-student-address/add-student-address.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -141,7 +166,32 @@ import { AddEmailComponent } from './add-email/add-email.component';
     AddSchoolComponent,
     AddNewsComponent,
     AddDrawingComponent,
-    AddEmailComponent
+    AddEmailComponent,
+    ClassRoomsComponent,
+    SubjectsComponent,
+    DepartmentsComponent,
+    TimetableScheduleComponent,
+    AddTimetableScheduleComponent,
+    AddFlipbookComponent,
+    FlipbookListComponent,
+    BooksPurchaseListComponent,
+    AddBooksPurchaseComponent,
+    AddBooksIssuedComponent,
+    BooksIssuedListComponent,
+    ParentsComponent,
+    StudentsComponent,
+    LibrarySettingsComponent,
+    AddSubjectComponent,
+    ClassSectionComponent,
+    AddClassSectionComponent,
+    ClassSubjectListComponent,
+    AddClassSubjectComponent,
+    AssignmentEvaluationListComponent,
+    AddAssignmentEvaluationComponent,
+    AddStudentComponent,
+    StudentListComponent,
+    AddStudentProfileComponent,
+    AddStudentAddressComponent
   ],entryComponents: [
         MessageComponent
       ],

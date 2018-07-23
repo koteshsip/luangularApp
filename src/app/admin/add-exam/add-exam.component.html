@@ -1,6 +1,6 @@
 <!-- Content Header (Page header) -->
   <section class="content-header">
-    <div class="panel-body box box-info"><h1>
+    <div class="panel-body custom-panel"><h1>
       <div *ngIf="model.examId; else falsyTemplate">
         Edit Exam
       </div>
@@ -11,7 +11,7 @@
     </div>
   </section>
 <div class="content ">
-  <div class="box box-info">
+  <div class="lu-form">
      <div class="row">
        <p>                         
 	   </p>
@@ -45,7 +45,7 @@
               </div> 
               <div [hidden]="user.valid || user.pristine"
                   class="alert alert-danger">
-                  user is required
+                  User is required
               </div> 
       </div>
 </div>
@@ -60,7 +60,7 @@
               </div> 
               <div [hidden]="subjectOfTheExam.valid || subjectOfTheExam.pristine"
                   class="alert alert-danger">
-                  SubjectOfTheExam is required
+                  Subject Of the exam is required
               </div> 
       </div>
 </div>

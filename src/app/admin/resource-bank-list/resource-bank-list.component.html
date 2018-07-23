@@ -1,11 +1,11 @@
 <!-- Content Header (Page header) -->
    <section class="content-header">
-     <div class="panel-body box box-info"><h1>
+     <div class="panel-body custom-panel"><h1>
        List Of Resource Bank<button class="btn btn-primary pull-right" (click)="addResourceBank()">Add ResourceBank</button>
      </h1></div> 
    </section>
  <div class="content">
-     <div><div class="row">
+     <div class="lu-form"><div class="row">
      <div class="col-md-8"></div>
      <div class="col-md-4">  
      </div></div>
@@ -20,12 +20,12 @@
  <div class="row">
          <div class="col-md-3">
      <nav class="navbar">
-       <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllExams(page,$event)">
+       <input class="lu-input" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllExams(page,$event)">
      </nav>
      </div>
      </div>
  <div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
- <table *ngIf="totalItem" class="table table-bordered box box-info">
+ <table *ngIf="totalItem" class="table-bordered custom-table">
                      <thead>
                          <tr>
                              <th>ResourceName</th>

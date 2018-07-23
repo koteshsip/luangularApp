@@ -1,10 +1,10 @@
 <!-- Content Header (Page header) -->
   <section class="content-header">
-    <div class="panel-body box box-info"><h1>User Details</h1>
+    <div class="panel-body custom-panel"><h1>User Details</h1>
     </div>
   </section>
 <div class="content ">
-  <div class="box box-info">
+  <div class="lu-form">
      <div class="row">
        <p>                            </p>
      </div>
@@ -13,10 +13,8 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">First Name*</label>
         <div class="col-sm-8">
-            <input class="form-control input-md" #firstName="ngModel" required id="firstName" name="firstName" type="text" placeholder="First Name" [(ngModel)]="user.firstName" pattern="[a-zA-Z\&quot;-'-$-.-, ]*">   
-              <input    type="hidden" name="userId"  [(ngModel)]="user.userId">
-              <input    type="hidden" name="profileId"  [(ngModel)]="user.profileId">
-              <input    type="hidden" name="addressId"  [(ngModel)]="user.addressId">   
+            <input class=" input-md" #firstName="ngModel" required id="firstName" name="firstName" type="text" placeholder="First Name" [(ngModel)]="user.firstName" pattern="[a-zA-Z\&quot;-'-$-.-, ]*">   
+              <input    type="hidden" name="employeeId"  [(ngModel)]="user.employeeId">
           </div>
         <div class="alert alert-danger" [hidden]="firstName.valid || firstName.pristine">First Name is required</div>  
       </div>
@@ -25,7 +23,7 @@
       <div class="form-group col-sm-8">
            <label class="col-sm-4 control-label" for="alterEgo">Middle Name*</label>
         <div class="col-sm-8">
-        <input class="form-control input-md" #middleName="ngModel" required id="middleName" name="middleName" type="text" placeholder="Middle Name" [(ngModel)]="user.middleName" pattern="[a-zA-Z-\&quot;-'-$-.-, ]*">
+        <input class=" input-md" #middleName="ngModel" required id="middleName" name="middleName" type="text" placeholder="Middle Name" [(ngModel)]="user.middleName" pattern="[a-zA-Z-\&quot;-'-$-.-, ]*">
       </div>
         <div class="alert alert-danger" [hidden]="middleName.valid || middleName.pristine">Middle Name is required</div> 
       </div>
@@ -34,18 +32,92 @@
       <div class="form-group col-sm-8">
            <label class="col-sm-4 control-label" for="alterEgo">Last Name*</label>
         <div class="col-sm-8">
-        <input class="form-control input-md" #lastName="ngModel" required id="lastName" name="lastName" type="text" placeholder="lastName" [(ngModel)]="user.lastName" pattern="[a-zA-Z-\&quot;-'-$-.-, ]*">
+        <input class=" input-md" #lastName="ngModel" required maxlength="80" id="lastName" name="lastName" type="text" placeholder="lastName" [(ngModel)]="user.lastName" pattern="[a-zA-Z-\&quot;-'-$-.-, ]*">
       </div>
     <div class="alert alert-danger" [hidden]="lastName.valid || lastName.pristine ">Last Name is required and must be valid</div> 
       </div>
       </div>
+      
+      <div class="row">
+        <div class="form-group col-sm-8">
+          <label class="col-sm-4 control-label" for="name">Date Of Birth*</label>
+          <div class="col-sm-8">
+  <input type="date"  maxlength="50"  class="form-control"  id="dateOfBirth"
+                 required
+                 [(ngModel)]="user.dateOfBirth" name="dateOfBirth" onkeypress="return false;"
+                 #dateOfBirth="ngModel" value="">
+                </div> 
+                <div [hidden]="dateOfBirth.valid || dateOfBirth.pristine"
+                    class="alert alert-danger">
+                    Date Of Birth is required
+                </div> 
+        </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-8">
+      <label class="col-sm-4 control-label" for="name">Date Of Joining*</label>
+      <div class="col-sm-8">
+<input type="date"  maxlength="50"  class="form-control"  id="dateOfJoining"
+             required
+             [(ngModel)]="user.dateOfJoining" name="dateOfJoining" onkeypress="return false;"
+             #dateOfJoining="ngModel" value="">
+            </div> 
+            <div [hidden]="dateOfJoining.valid || dateOfJoining.pristine"
+                class="alert alert-danger">
+                Date Of Joining is required
+            </div> 
+    </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-8">
+    <label class="col-sm-4 control-label" for="name">Date Of Leaving*</label>
+    <div class="col-sm-8">
+<input type="date"  maxlength="50"  class="form-control"  id="dateOfLeaving"
+           required
+           [(ngModel)]="user.dateOfLeaving" name="dateOfLeaving" onkeypress="return false;"
+           #dateOfLeaving="ngModel" value="">
+          </div> 
+          <div [hidden]="dateOfLeaving.valid || dateOfLeaving.pristine"
+              class="alert alert-danger">
+              Date Of Leaving is required
+          </div> 
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-8">
+       <label class="col-sm-4 control-label" for="alterEgo">Gender</label>
+    <div class="col-sm-8">
+  <select class="form-control" id="gender" 
+            required
+            [(ngModel)]="user.gender" name="gender"
+            #gender="ngModel">
+      <option *ngFor="let notifyC of Gender" [value]="notifyC">{{notifyC}}</option>
+    </select>         
+  </div>
+     <div [hidden]="gender.valid || gender.pristine"
+         class="alert alert-danger">
+         Gender is required
+    </div> 
+  </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-8">
+         <label class="col-sm-4 control-label" for="alterEgo">profile Image*</label>
+      <div class="col-sm-8">
+      <input type="file" class="form-control input-md" #profilePic="ngModel"  id="profilePic" name="profilePic" [(ngModel)]="user.profilePic">                                     
+    </div>
+      <div class="alert alert-danger" [hidden]="profilePic.valid || profilePic.pristine">profile Image is required</div> 
+    </div>
+    </div>
 <div class="row">
       <div class="form-group col-sm-8">
            <label class="col-sm-4 control-label" for="alterEgo">Mobile No*</label>
         <div class="col-sm-8">
-          <input class="form-control input-md" #mobile="ngModel" required id="mobile" name="mobile" pattern="[0-9]*" maxlength="10" type="text" placeholder="mobile" [(ngModel)]="user.mobile" pattern="[0-9-\&quot;-'-$-.-, ]*">
+          <input class="form-control input-md" minlength="10" maxlength="11" #mobilePhone="ngModel" required id="mobilePhone" name="mobilePhone" 
+          pattern="[0-9]*" type="text" placeholder="mobile number" [(ngModel)]="user.mobilePhone">
       </div>
-       <div [hidden]="mobile.valid || mobile.pristine"
+       <div [hidden]="mobilePhone.valid || mobilePhone.pristine"
              class="alert alert-danger">
           Mobile is required
         </div> 
@@ -53,91 +125,48 @@
       </div>
     <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="alterEgo">EmailId*</label>
+        <label class="col-sm-4 control-label" for="alterEgo">Alternate Phone*</label>
+          <input class="form-control input-md" #alternatePhone="ngModel"  
+          minlength="10" maxlength="11" pattern="[0-9]*"
+          name="alternatePhone" type="text" placeholder="alternatePhone" 
+           [(ngModel)]="user.alternatePhone">
+      </div>
+      </div>
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="alterEgo">Qulaification Degree*</label>
         <div class="col-sm-8">
-          <input class="form-control input-md"  (ngModelChange)="emailAlreadyExist($event)" #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" name="email" type="text" placeholder="email" [(ngModel)]="user.email">
+          <input class="form-control input-md"  #qulaificationDegree="ngModel" required  name="qulaificationDegree" type="text" maxlength="45"  placeholder="Qulaification Degree" pattern="[a-zA-Z\&quot;-'-$-.-, ]*" [(ngModel)]="user.qulaificationDegree">
         </div>
-        <div class="alert alert-danger" [hidden]="email.valid || email.pristine">Email is required
+        <div class="alert alert-danger" [hidden]="qulaificationDegree.valid || qulaificationDegree.pristine">Qulaification Degree is required</div> 
+      </div>
+      </div>
+      
+      <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="alterEgo">Degree Of Specilization*</label>
+          <input class="form-control input-md" #degreeOfSpecilization="ngModel"  
+           name="degreeOfSpecilization" type="text" pattern="[a-zA-Z\&quot;-'-$-.-, ]*"  maxlength="45" placeholder="Degree Of Specilization" 
+           [(ngModel)]="user.degreeOfSpecilization">
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-8">
+          <label class="col-sm-4 control-label" for="alterEgo">University Name*</label>
+            <input class="form-control input-md" #univFrom="ngModel"  
+             name="univFrom" type="text" maxlength="45" placeholder="University Name" pattern="[a-zA-Z\&quot;-'-$-.-, ]*" 
+             [(ngModel)]="user.univFrom">
+        </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-8">
+            <label class="col-sm-4 control-label" for="alterEgo">Degree Passing Year*</label>
+              <input class="form-control input-md" #deg_pass_year="ngModel"  
+              maxlength="4" name="deg_pass_year" pattern="[0-9]*" type="text" placeholder="Degree Passing Year" 
+               [(ngModel)]="user.deg_pass_year">
           </div>
-        <div *ngIf="IsExist"
-             class="alert alert-danger">
-          Email Id Already Exist
-        </div> 
-      </div>
-      </div>
-    <div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="alterEgo">Password*</label>
-        <div *ngIf="user.userId; else newTemplate" class="col-sm-8">
-          <input class="form-control input-md" #Password="ngModel"  
-           name="Password" type="password" placeholder="password" 
-           [(ngModel)]="user.Password">
-        </div>
-          <ng-template #newTemplate>
-            <div class="col-sm-8">
-            <input class="form-control input-md" #Password="ngModel" required 
-           name="Password" type="password" placeholder="password" 
-           [(ngModel)]="user.Password">
-           <div class="alert alert-danger" [hidden]="Password.valid || Password.pristine">Password is required</div>
           </div>
-          </ng-template>
-      </div>
-      </div>
-    <div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="alterEgo">User Details*</label>
-        <div class="col-sm-8">
-          <input class="form-control input-md" #userDesc="ngModel" required  name="userDesc" type="text"maxlength="15"  placeholder="user description" [(ngModel)]="user.userDesc">
-        </div>
-        <div class="alert alert-danger" [hidden]="userDesc.valid || userDesc.pristine">user Description is required</div> 
-      </div>
-      </div>   
-    <!-- <div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="alterEgo">User Image*</label>
-        <div class="col-sm-8">
-          <input type="file" class="form-control input-md" #userImage="ngModel"   id="userImage"  name="userImage" placeholder="user Image" [(ngModel)]="user.userImage">
-        </div>
-        <div class="alert alert-danger" [hidden]="userImage.valid || userImage.pristine">User Image is required</div> 
-      </div>
-      </div> -->
-    <div class="row">
-      <div class="form-group col-sm-12">
-        <label class="col-lg-2 control-label" for="Attendance">Attendance<br>                                             
-            <input type="checkbox" value="1" class="checkbox"  [(ngModel)]="user.attendance" name="attendance" id="attendance" #attendance="ngModel">
-            </label>
-        <label class="col-lg-2 control-label" for="Books">Books<br>                                      
-            <input type="checkbox" value="1" class="checkbox" [(ngModel)]="user.books" name="books" id="books" #books="ngModel">
-        </label>
-        <label class="col-lg-2 control-label" for="Class">Class<br>                   
-            <input type="checkbox" value="1" class="checkbox" [(ngModel)]="user.class" name="class" id="class" #class="ngModel">
-        </label>
-          <label class="col-lg-2 control-label" for="Drawing">Drawing<br>
-            <input type="checkbox" value="1" class="checkbox" [(ngModel)]="user.drawing" name="drawing" id="drawing" #drawing="ngModel">
-        </label>
-        <label class="col-lg-2 control-label" for="News">News<br>  
-            <input type="checkbox" value="1" class="checkbox" [(ngModel)]="user.news" name="news" id="news" #news="ngModel">
-        </label>
-        <label class="col-lg-2 control-label" for="Notes">Notes<br>
-            <input type="checkbox" value="1" class="checkbox" [(ngModel)]="user.notes" name="notes" id="notes" #notes="ngModel">
-        </label>
-        <label class="col-lg-2 control-label" for="Notify">Notify<br>
-            <input type="checkbox" value="1" class="checkbox" [(ngModel)]="user.notify" name="notify" id="notify" #notify="ngModel">
-        </label>
-        <label class="col-lg-2 control-label" for="Subject">Subject<br>
-            <input type="checkbox" value="1" class="checkbox" [(ngModel)]="user.subject" name="subject" id="subject" #subject="ngModel">
-        </label>
-        <label class="col-lg-2 control-label" for="Timetable">Timetable<br>
-        <input type="checkbox" value="1" class="checkbox" [(ngModel)]="user.timetable" name="timetable" id="timetable" #timetable="ngModel">
-        </label>
-        <label class="col-lg-2 control-label" for="Test">Test<br>
-            <input type="checkbox" value="1" class="checkbox" [(ngModel)]="user.test" name="test" id="test" #test="ngModel">
-        </label>
-        <label class="col-lg-2 control-label" for="Video">Video<br>                                           
-        <input type="checkbox" value="1" class="checkbox" [(ngModel)]="user.video" name="video" id="video" #video="ngModel">
-        </label>
-      </div>
-    </div>
       <div class="row">
         <div class="form-group col-sm-4">
         </div>

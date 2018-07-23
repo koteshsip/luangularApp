@@ -1,6 +1,5 @@
-<!-- Content Header (Page header) -->
-  <section class="content-header">
-    <div class="panel-body box box-info"><h1>
+<section class="content-header">
+    <div class="panel-body custom-panel"><h1>
       <div *ngIf="model.assignmentId; else falsyTemplate">
         Edit Assignment
       </div>
@@ -11,37 +10,22 @@
     </div>
   </section>
 <div class="content ">
-  <div class="box box-info">
+  <div class="lu-form">
      <div class="row">
        <p>                         
 	   </p>
      </div>
     <form (ngSubmit)="addAssignment(model)" #assignmentform="ngForm">
-<!-- <div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">tblClass*</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="tblClass"
-               required
-               [(ngModel)]="model.tblClass" name="tblClass"
-               #tblClass="ngModel">
-              </div> 
-              <div [hidden]="tblClass.valid ||tblClass.pristine"
-                  class="alert alert-danger">
-                 tblClass is required
-              </div> 
-      </div>
-</div> -->
 <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">Assignment Number *</label>
+        <label class="col-sm-4 control-label" for="name">Assignment Marks *</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignmentNumber"
+<input type="text"  maxlength="50"  class="" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="maxMarks"
                required
-               [(ngModel)]="model.assignmentNumber" name="assignmentNumber"
-               #assignmentNumber="ngModel">
+               [(ngModel)]="model.maxMarks" name="maxMarks"
+               #maxMarks="ngModel">
               </div> 
-              <div [hidden]="assignmentNumber.valid || assignmentNumber.pristine"
+              <div [hidden]="maxMarks.valid || maxMarks.pristine"
                   class="alert alert-danger">
                   Assignment Number is required
               </div> 
@@ -52,27 +36,27 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">Assignment Type*</label>
         <div class="col-sm-8">
-<select  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignmentType"
+<select  maxlength="50"  class="lu-input" id="assignType"
                required
-               [(ngModel)]="model.assignmentType" name="assignmentType"
-               #assignmentType="ngModel">
+               [(ngModel)]="model.assignType" name="assignType"
+               #assignType="ngModel">
 			   <option value="Incomplete" >Story</option>
 			   <option value="Punishment" >Autobiography</option>
 			   <option value="Normal" >Novel</option>
 			   <option value="Partioned">Fiction</option>
 			   </select>
               </div> 
-              <div [hidden]="assignmentType.valid || assignmentType.pristine"
+              <div [hidden]="assignType.valid || assignType.pristine"
                   class="alert alert-danger">
                 Assignment Type is required
               </div> 
       </div>
 </div>
-<div class="row">
+<!-- <div class="row">
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">BookCategoery*</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="bookCategoery"
+<input type="text"  maxlength="50"  class="" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="bookCategoery"
                required
                [(ngModel)]="model.bookCategoery" name="bookCategoery"
                #bookCategoery="ngModel">
@@ -82,102 +66,159 @@
                BookCategoery is required
               </div> 
       </div>
+</div> -->
+<div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Assignmen StartDate*</label>
+        <div class="col-sm-8">
+<input type="date"  maxlength="50"  class=""  id="assignStartDate"
+               required
+               [(ngModel)]="model.assignStartDate" name="assignStartDate" onkeypress="return false;"
+               #assignStartDate="ngModel" value="">
+              </div> 
+              <div [hidden]="assignStartDate.valid || assignStartDate.pristine"
+                  class="alert alert-danger">
+               Assignment Start Date is required
+              </div> 
+      </div>
 </div>
 <div class="row">
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">Assignment DueDate*</label>
         <div class="col-sm-8">
-<input type="date"  maxlength="50"  class="form-control"  id="assignmentDueDate"
+<input type="date"  maxlength="50"  class=""  id="assignDueDate"
                required
-               [(ngModel)]="model.assignmentDueDate" name="assignmentDueDate"
-               #assignmentDueDate="ngModel">
+               [(ngModel)]="model.assignDueDate" name="assignDueDate" onkeypress="return false;"
+               #assignDueDate="ngModel">
               </div> 
-              <div [hidden]="assignmentDueDate.valid || assignmentDueDate.pristine"
+              <div [hidden]="assignDueDate.valid || assignDueDate.pristine"
                   class="alert alert-danger">
                Assignment DueDate is required
               </div> 
       </div>
 </div>
+<!-- <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Assignment Path*</label>
+        <div class="col-sm-8">
+<input type="text"  maxlength="50"  class="" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignPath"
+               required
+               [(ngModel)]="model.assignPath" name="assignPath"
+               #assignPath="ngModel">
+              </div> 
+              <div [hidden]="assignPath.valid || assignPath.pristine"
+                  class="alert alert-danger">
+                  Assignment Path is required
+              </div> 
+      </div>
+</div> -->
 <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">Assignment IssuedDate*</label>
+        <label class="col-sm-4 control-label" for="name">Assignment CreatedBy*</label>
         <div class="col-sm-8">
-<input type="date"  maxlength="50"  class="form-control"  id="assignmentIssuedDate"
+<input type="text"  maxlength="50"  class="" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignCreatedBy"
                required
-               [(ngModel)]="model.assignmentIssuedDate" name="assignmentIssuedDate"
-               #assignmentIssuedDate="ngModel">
+               [(ngModel)]="model.assignCreatedBy" name="assignCreatedBy"
+               #assignCreatedBy="ngModel">
               </div> 
-              <div [hidden]="assignmentIssuedDate.valid || assignmentIssuedDate.pristine"
+              <div [hidden]="assignCreatedBy.valid || assignCreatedBy.pristine"
                   class="alert alert-danger">
-               Assignment IssuedDate is required
+                  Assignment CreatedBy is required
               </div> 
       </div>
 </div>
-<div class="row">
+
+<!-- <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">assignmentSubject*</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignmentSubject"
-               required
-               [(ngModel)]="model.assignmentSubject" name="assignmentSubject"
-               #assignmentSubject="ngModel">
-              </div> 
-              <div [hidden]="assignmentSubject.valid || assignmentSubject.pristine"
+        <label class="col-sm-4 control-label" for="name">class Section Select*</label>
+              <div class="col-sm-8">
+              <select required class="" name="associateTeacherId" id="associateTeacherId" [(ngModel)]="model.associateTeacherId" #associateTeacherId="ngModel" 
+        >
+                <option *ngFor='let users of classSectiondata'  [ngValue]='users.userId' >{{users.emailId}}</option>
+        </select></div>
+              <div [hidden]="associateTeacherId.valid || associateTeacherId.pristine"
                   class="alert alert-danger">
-               AssignmentSubject is required
+                  associate Teacher is required
               </div> 
       </div>
+</div> -->
+<div class="row">
+  <div class="form-group col-sm-8">
+    <label class="col-sm-4 control-label" for="name">Class Section*</label>
+    <div class="col-sm-8">
+    <select required minlength="1" class="lu-input" name="classId" 
+    id="classId"   [(ngModel)]="model.classId"  #classId="ngModel" 
+    >
+            <!-- <option *ngFor='let classsection of classsectiondata' [selected]="classsection['classSectionMasterId'].classId===model.classId" [ngValue]='classsection['classSectionMasterId'].classId,classsection['classSectionMasterId'].sectionId' >{{classsection.className}} {{classsection.sectionName}}</option> --> -->
+            <!-- <div *ngIf="model.assignmentId; else falsyTemplate">
+              Edit Assignment
+            </div>
+            <ng-template #falsyTemplate>
+              Add Assignment
+            </ng-template> -->
+            <option *ngFor='let mydata of classSectiondata'
+            [selected]="mydata['classSectionMasterId'].classId+','+mydata['classSectionMasterId'].sectionId == model.classId"  
+            [value]='mydata["classSectionMasterId"].classId+","+mydata["classSectionMasterId"].sectionId' 
+            >{{mydata.className }}  {{mydata.sectionName}}</option>
+    </select>
+          </div>
+      <div [hidden]="classId.valid || classId.pristine"
+         class="alert alert-danger">
+         Class Section is required
+    </div>   
+  </div>
+  </div>
+<div class="row">
+  <div class="form-group col-sm-8">
+    <label class="col-sm-4 control-label" for="name">Assignment AssociateTeacher*</label>
+          <div class="col-sm-8">
+          <select required class="lu-input" name="associateTeacherId" 
+          id="associateTeacherId" [(ngModel)]="model.associateTeacherId" 
+          #associateTeacherId="ngModel">
+            <option *ngFor='let users of userdata'  [ngValue]='users.userId' >{{users.emailId}}</option>
+    </select></div>
+          <div [hidden]="associateTeacherId.valid || associateTeacherId.pristine"
+              class="alert alert-danger">
+              Associate Teacher is required
+          </div> 
+  </div>
 </div>
 <div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">Review Comments*</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="reviewComments"
-               required
-               [(ngModel)]="model.reviewComments" name="reviewComments"
-               #reviewComments="ngModel">
-              </div> 
-              <div [hidden]="reviewComments.valid || reviewComments.pristine"
-                  class="alert alert-danger">
-               Review Comments is required
-              </div> 
-      </div>
-</div>
-<div class="row">
-      <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">Assignment Marks*</label>
-        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignmentMarks"
-               required
-               [(ngModel)]="model.assignmentMarks" name="assignmentMarks"
-               #assignmentMarks="ngModel">
-              </div> 
-              <div [hidden]="assignmentMarks.valid || assignmentMarks.pristine"
-                  class="alert alert-danger">
-               Assignment Marks is required
-              </div> 
-      </div>
+  <div class="form-group col-sm-8">
+    <label class="col-sm-4 control-label" for="name">Subject</label>
+    <div class="col-sm-8">
+      <select required class="lu-input" name="subjectId" id="subjectId" [(ngModel)]="model.subjectId" #subjectId="ngModel" 
+>
+        <option *ngFor='let subjectmaster of subjectmasterdata' [selected]="subjectmaster['subjectMasterId'].subjectId === model.subjectId" [ngValue]='subjectmaster["subjectMasterId"].subjectId' >{{subjectmaster.subjectName}}</option>
+</select></div>
+          <div [hidden]="subjectId.valid || subjectId.pristine"
+              class="alert alert-danger">
+              subject Id is required
+          </div> 
+  </div>
 </div>
 <div class="row">
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">Assignment Attachment*</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="assignmentAttachment"
-               required
-               [(ngModel)]="model.assignmentAttachment" name="assignmentAttachment"
-               #assignmentAttachment="ngModel">
+<input type="file"  maxlength="50"  class=""  id="assignPath"
+               [(ngModel)]="model.assignPath" name="assignPath"
+               #assignPath="ngModel">
               </div> 
-              <div [hidden]="assignmentAttachment.valid || assignmentAttachment.pristine"
+              <!-- <div [hidden]="assignPath.valid || assignPath.pristine"
                   class="alert alert-danger">
               Assignment Attachment is required
-              </div> 
+              </div>  -->
       </div>
 </div>
+            <input type="hidden" name="assignmentId" [value]="model.assignmentId"/>
+            <input type="hidden" name="sectionId" [value]="model.sectionId"/>
+            <!-- <input type="text" name="sectionId1" [value]="model.classId"/> -->
 <div class="row">
         <div class="form-group col-sm-4">
         </div>
         <div class="form-group col-sm-4">
-          <button type="submit" class="btn btn-success" [disabled]="!assignmentform.form.valid || IsExist">Save</button>
+          <button type="submit" class="btn btn-success" [disabled]="!assignmentform.form.valid">Save</button>
           <button type="button" class="btn btn-default" (click)="backList();">Cancel</button>
         </div>
         </div>

@@ -36,7 +36,7 @@ export class LogsComponent implements OnInit {
         alert('Server Error');
       } else {
         this.data = data;
-        //console.log("data===="+);
+        console.log("data===="+data);
         this.totalItem = data[0]['RecordTotal'];
       }
     },

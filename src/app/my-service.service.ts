@@ -3,9 +3,10 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {Http,Response,RequestOptions} from '@angular/http';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { Base64 } from 'js-base64';
+
 @Injectable()
 export class MyServiceService {
-private  baseurl="http://localhost:8080/";
+private  baseurl="http://107.180.76.152:8080/";
   constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
 
 
@@ -24,7 +25,7 @@ getalllogs(event,filter){
     if(!filter){
       filter=null;
     }
-    const url=this.baseurl+"lujavaapp/listNotification/"+event+"/"+Base64.encode(filter);
+    const url=this.baseurl+"ListNotification/"+event+"/"+filter;
     return this.http.get(url);
   }
 getnotificationcount(){

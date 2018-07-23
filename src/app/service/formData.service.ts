@@ -19,80 +19,97 @@ export class FormDataService {
 getUser(): User {
         // Return the Personal data
            var user: User = {
-            addressId: this.formData.addressId,
-            profileId: this.formData.profileId,
-            userId: this.formData.userId,
+            employeeId: this.formData.employeeId,
             firstName: this.formData.firstName,
-            Password: this.formData.Password,
-            userDesc: this.formData.userDesc,
             middleName: this.formData.middleName,
             lastName: this.formData.lastName,
-            mobile:this.formData.mobile,
-            email: this.formData.email,
-           // userImage: this.formData.userImage,
-            attendance: this.formData.attendance,
-            books: this.formData.books,
-            class: this.formData.class,
-            drawing: this.formData.drawing,
-            news: this.formData.news,
-            notes: this.formData.notes,
-            notify: this.formData.notify,
-            subject: this.formData.subject,
-            timetable: this.formData.timetable,
-            test: this.formData.test,
-            video: this.formData.video
+            dateOfBirth: this.formData.dateOfBirth,
+            dateOfJoining: this.formData.dateOfJoining,
+            dateOfLeaving: this.formData.dateOfLeaving,
+            gender: this.formData.gender,
+            profilePic: this.formData.profilePic,
+            mobilePhone: this.formData.mobilePhone,
+            alternatePhone: this.formData.alternatePhone,
+            qulaificationDegree: this.formData.qulaificationDegree,
+            degreeOfSpecilization: this.formData.degreeOfSpecilization,
+            univFrom: this.formData.univFrom,
+            deg_pass_year: this.formData.deg_pass_year
         };
         return user;
     }
     setUser(data: User) {
         // Update the Personal data only when the Personal Form had been validated successfully
         this.isUserFormValid = true;
+        this.formData.employeeId=this.formData.employeeId,
+        this.formData.firstName= data.firstName,
+        this.formData.middleName= data.middleName,
+        this.formData.lastName= data.lastName,
+        this.formData.dateOfBirth= data.dateOfBirth,
+        this.formData.dateOfJoining= data.dateOfJoining,
+        this.formData.dateOfLeaving= data.dateOfLeaving,
+        this.formData.gender= data.gender,
+        this.formData.profilePic= data.profilePic,
+        this.formData.mobilePhone= data.mobilePhone,
+        this.formData.alternatePhone= data.alternatePhone,
+        this.formData.qulaificationDegree= data.qulaificationDegree,
+        this.formData.degreeOfSpecilization= data.degreeOfSpecilization,
+        this.formData.univFrom= data.univFrom,
+        this.formData.deg_pass_year= data.deg_pass_year
         this.formData.firstName = data.firstName;
-        this.formData.Password=data.Password;
-        this.formData.userDesc=data.userDesc;
-        this.formData.middleName = data.middleName;
-        this.formData.lastName = data.lastName;
-        this.formData.email = data.email;
-        this.formData.mobile = data.mobile;
-        //this.formData.userImage=data.userImage;
-
-        this.formData.attendance= data.attendance;
-        this.formData.books= data.books;
-        this.formData.class= data.class;
-        this.formData.drawing= data.drawing;
-        this.formData.news= data.news;
-        this.formData.notes= data.notes;
-        this.formData.notify= data.notify;
-        this.formData.subject= data.subject;
-        this.formData.timetable= data.timetable;
-        this.formData.test= data. test;
-        this.formData.video= data.video;
-        // Validate Personal Step in Workflow
-        this.formData.addressId= data.addressId,
-        this.formData.profileId= data.profileId,
-        this.formData.userId= data.userId
         this.workflowService.validateStep(STEPS.user);
     }
 
     getProfile(): Profile {
-        // Return the Personal data
            var profile: Profile = {
-            profileName: this.formData.profileName,
-            profileImage: this.formData.profileImage,
-            profileType: this.formData.profileType,
-            achievment:this.formData.achievment,
-            extraActivities: this.formData.extraActivities
+            insertedTime: this.formData.insertedTime,
+            updatedBy: this.formData.updatedBy,
+            updatedTime: this.formData.updatedTime,
+            role: this.formData.role,
+            user: this.formData.user,
+            userOrganisationId: this.formData.userOrganisationId,
+            emailId: this.formData.emailId,
+            currentPassword: this.formData.currentPassword,
+            passwordLastChangeDate: this.formData.passwordLastChangeDate,
+            previousChange1: this.formData.previousChange1,
+            previousChange2: this.formData.previousChange2,
+            previousChange3: this.formData.previousChange3,
+            previousChange4: this.formData.previousChange4,
+            previousChange5: this.formData.previousChange5,
+            alterPhone: this.formData.alterPhone,
+            correspondenceAddress1: this.formData.correspondenceAddress1,
+            correspondenceAddress2: this.formData.correspondenceAddress2,
+            correspondenceAddress3: this.formData.correspondenceAddress3,
+            correspondenceCity: this.formData.correspondenceCity,
+            correspondenceState: this.formData.correspondenceState,
+            permanentZip: this.formData.permanentZip,
+            correspondenceZip: this.formData.correspondenceZip
         };
         return profile;
     }
     setProfile(data: Profile) {
         // Update the Personal data only when the Personal Form had been validated successfully
         this.isProfileFormValid = true;
-        this.formData.profileName = data.profileName;
-        this.formData.profileImage = data.profileImage;
-        this.formData.profileType = data.profileType;
-        this.formData.achievment = data.achievment;
-        this.formData.extraActivities = data.extraActivities;
+        this.formData.insertedTime=data.insertedTime;
+        this.formData.updatedBy=data.updatedBy;
+        this.formData.updatedTime=data.updatedTime;
+        this.formData.role=data.role;
+        this.formData.userOrganisationId=data.userOrganisationId;
+        this.formData.emailId=data.emailId;
+        this.formData.currentPassword=data.currentPassword;
+        this.formData.passwordLastChangeDate=data.passwordLastChangeDate;
+        this.formData.previousChange1=data.previousChange1;
+        this.formData.previousChange2=data.previousChange2;
+        this.formData.previousChange3=data.previousChange3;
+        this.formData.previousChange4=data.previousChange4;
+        this.formData.previousChange5=data.previousChange5;
+        this.formData.alterPhone=data.alterPhone;
+        this.formData.correspondenceAddress1=data.correspondenceAddress1;
+        this.formData.correspondenceAddress2=data.correspondenceAddress2;
+        this.formData.correspondenceAddress3=data.correspondenceAddress3;
+        this.formData.correspondenceCity=data.correspondenceCity;
+        this.formData.correspondenceState=data.correspondenceState;
+        this.formData.permanentZip=data.permanentZip;
+        this.formData.correspondenceZip=data.correspondenceZip;
         // Validate Personal Step in Workflow
         this.workflowService.validateStep(STEPS.user);
     }
@@ -100,13 +117,34 @@ getUser(): User {
     getAddress() : Address {
         // Return the Address data
         var address: Address = {
-            street: this.formData.street,
-            countryId:this.formData.countryId,
-            city: this.formData.city,
-            state: this.formData.state,
-            zip: this.formData.zip,
-            permanentAddress: this.formData.permanentAddress,
-            communicationAddress:this.formData.communicationAddress
+addressLine1: this.formData.addressLine1,
+addressLine2: this.formData.addressLine2,
+addressLine3: this.formData.addressLine3,	
+perCity: this.formData.perCity,
+perState: this.formData.perState,
+perZip: this.formData.perZip,
+crspAdd1: this.formData.crspAdd1,
+crspAdd2: this.formData.crspAdd2,
+crspAdd3: this.formData.crspAdd3,
+crspCity: this.formData.crspCity,
+crspState: this.formData.crspState,
+crspZip: this.formData.crspZip,
+country: this.formData.country,
+fatherFirstName: this.formData.fatherFirstName,
+fatherMiddleName: this.formData.fatherMiddleName,
+fatherLastName: this.formData.fatherLastName,
+motheFirstName: this.formData.motheFirstName,
+motherMiddleName: this.formData.motherMiddleName,
+motherLastname: this.formData.motherLastname,
+fatherContact: this.formData.fatherContact,
+motherContact: this.formData.motherContact,
+useField1: this.formData.useField1,
+useField2: this.formData.useField2,
+useField3: this.formData.useField3,
+useField4: this.formData.useField4,
+useField5: this.formData.useField5,
+useField6: this.formData.useField6,
+insertedBy: this.formData.insertedBy
         };
         return address;
     }
@@ -114,13 +152,34 @@ getUser(): User {
     setAddress(data: Address) {
         // Update the Address data only when the Address Form had been validated successfully
         this.isAddressFormValid = true;
-        this.formData.street = data.street;
-        this.formData.countryId=data.countryId;
-        this.formData.city = data.city;
-        this.formData.state = data.state;
-        this.formData.zip = data.zip;
-        this.formData.permanentAddress = data.permanentAddress;
-        this.formData.communicationAddress=data.communicationAddress;
+        this.formData.addressLine1= data.addressLine1,
+        this.formData.addressLine2= data.addressLine2,
+        this.formData.addressLine3= data.addressLine3,	
+        this.formData.perCity= data.perCity,
+        this.formData.perState= data.perState,
+        this.formData.perZip= data.perZip,
+        this.formData.crspAdd1= data.crspAdd1,
+        this.formData.crspAdd2= data.crspAdd2,
+        this.formData.crspAdd3= data.crspAdd3,
+        this.formData.crspCity= data.crspCity,
+        this.formData.crspState= data.crspState,
+        this.formData.crspZip= data.crspZip,
+        this.formData.country= data.country,
+        this.formData.fatherFirstName= data.fatherFirstName,
+        this.formData.fatherMiddleName= data.fatherMiddleName,
+        this.formData.fatherLastName= data.fatherLastName,
+        this.formData.motheFirstName= data.motheFirstName,
+        this.formData.motherMiddleName= data.motherMiddleName,
+        this.formData.motherLastname= data.motherLastname,
+        this.formData.fatherContact= data.fatherContact,
+        this.formData.motherContact= data.motherContact,
+        this.formData.useField1= data.useField1,
+        this.formData.useField2= data.useField2,
+        this.formData.useField3= data.useField3,
+        this.formData.useField4= data.useField4,
+        this.formData.useField5= data.useField5,
+        this.formData.useField6= data.useField6,
+        this.formData.insertedBy= data.insertedBy
         // Validate Address Step in Workflow
         this.workflowService.validateStep(STEPS.address);
     }

@@ -1,16 +1,18 @@
 <div class="row">
     <div class="row">
        <div class="col-md-4"></div>
-       <div class="col-md-4">
-        <img src="/assets/img/lu-logo.png"/>
+       <div class="col-md-4" style="text-align: center">
+        <img src="assets/img/lu-logo.png"/>
     </div>
     </div>
     <div class="row">
-    <div class="col-md-8" *ngIf="message;">
-    <div class="alert alert-success">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" *ngIf="message;">
+    <div class="alert-message">
         <strong>Success!</strong> {{message}}.
     </div>
     </div>
+    <div class="col-md-4"></div>
     </div>
     <div class="row">
             <div class="col-md-4"></div>
@@ -20,16 +22,16 @@
         <div class="form-group col-md-8" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <label class="label-font" for="username">Username</label>
             <input type="text" required class="lu-input" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Enter valid Email</div>
         </div>
         <div class="form-group col-md-8" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
             <label class="label-font" for="password">Password</label>
             <input type="password" required class="lu-input" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Valid valid password</div>
         </div>
         <div class="form-group col-md-8 btn-margin">
             <button [disabled]="loading" class="extend-button">Login</button>
-            <a routerLink="/forgot-password"  class="pull-right extend-button-orange">Forget Password</a>
+            <a routerLink="/forgot-password"  class="pull-right extend-button-orange">Forgot Password</a>
             <img *ngIf="loading"  />
         </div>
         <div *ngIf="error" class="alert alert-danger">{{error}}</div>

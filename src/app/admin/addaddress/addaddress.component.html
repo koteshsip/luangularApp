@@ -18,7 +18,7 @@
          <div class="alert alert-danger" [hidden]="street.valid || street.pristine">Street Address is required</div>  
       </div>
       </div> -->
- <div class="row">
+ <!-- <div class="row">
       <div class="form-group col-sm-8">
            <label class="col-sm-4 control-label" for="alterEgo">Country*</label>
         <div class="col-sm-8">
@@ -43,8 +43,8 @@
       </div>
     <div class="alert alert-danger" [hidden]="state.valid || state.pristine ">State is required</div> 
       </div>
-      </div>
-    <div class="row">
+      </div> -->
+    <!-- <div class="row">
       <div class="form-group col-sm-8">
            <label class="col-sm-4 control-label" for="alterEgo">City*</label>
         <div class="col-sm-8">
@@ -54,35 +54,207 @@
       </div>
         <div class="alert alert-danger" [hidden]="city.valid || city.pristine">City is required</div> 
       </div>
-      </div>
+      </div> -->
 <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label"  for="alterEgo">Zip Code*</label>
+           <label class="col-sm-4 control-label"  for="alterEgo">Address Line1*</label>
         <div class="col-sm-8">
-          <input class="form-control input-md" #zip="ngModel" required id="zip" name="zip" type="text" placeholder="Zip" maxlength="6" [(ngModel)]="address.zip">
+          <input class="form-control input-md" #addressLine1="ngModel" 
+          required id="addressLine1" name="addressLine1" type="text"
+           placeholder="Address Line1" maxlength="80" [(ngModel)]="address.addressLine2">
       </div>
-       <div [hidden]="zip.valid || zip.pristine"
+       <div [hidden]="addressLine1.valid || addressLine1.pristine"
              class="alert alert-danger">
-          Zip Code is required
+             Address Line1 is required
         </div> 
       </div>
       </div>
+
+      <div class="row">
+        <div class="form-group col-sm-8">
+             <label class="col-sm-4 control-label"  for="alterEgo">Address Line2*</label>
+          <div class="col-sm-8">
+            <input class="form-control input-md" #addressLine2="ngModel" 
+            required id="addressLine2" name="addressLine2" type="text" 
+            placeholder="Address Line2 " maxlength="80" [(ngModel)]="address.addressLine2">
+        </div>
+         <div [hidden]="addressLine2.valid || addressLine2.pristine"
+               class="alert alert-danger">
+               Address Line2 is required
+          </div> 
+        </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-8">
+               <label class="col-sm-4 control-label"  for="alterEgo">Address Line3*</label>
+            <div class="col-sm-8">
+              <input class="form-control input-md" #addressLine3="ngModel" required 
+              id="addressLine3" name="addressLine3" type="text" 
+              placeholder="Address Line3" maxlength="80" [(ngModel)]="address.addressLine3">
+          </div>
+           <div [hidden]="addressLine3.valid || addressLine3.pristine"
+                 class="alert alert-danger">
+                 Address Line3 is required
+            </div> 
+          </div>
+          </div>
+
+      <div class="row">
+        <div class="form-group col-sm-8">
+             <label class="col-sm-4 control-label"  for="alterEgo">Permanent City*</label>
+          <div class="col-sm-8">
+            <input class="form-control input-md" #perCity="ngModel" required 
+            id="perCity" name="perCity" type="text" placeholder="Permanent City" 
+            maxlength="45" [(ngModel)]="address.perCity">
+        </div>
+         <div [hidden]="perCity.valid || perCity.pristine"
+               class="alert alert-danger">
+               Permanent City is required
+          </div> 
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-8">
+               <label class="col-sm-4 control-label"  for="alterEgo">Permanent State*</label>
+             <div class="col-sm-8">
+              <input class="form-control input-md" #perState="ngModel" 
+              required id="perState" name="perState" type="text" 
+              placeholder="Permanent State" maxlength="1" 
+              [(ngModel)]="address.perState">
+          </div>
+           <div [hidden]="perState.valid || perState.pristine"
+                 class="alert alert-danger">
+                 Permanent State is required
+            </div> 
+          </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-8">
+                 <label class="col-sm-4 control-label"  for="alterEgo">Country*</label>
+              <div class="col-sm-8">
+                <input class="form-control input-md" #country="ngModel" 
+                required id="country" name="country" type="text" maxlength="3"
+                placeholder="country" [(ngModel)]="address.country">
+            </div>
+             <div [hidden]="country.valid || country.pristine"
+                   class="alert alert-danger">
+                   Country is required
+              </div> 
+            </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-8">
+                   <label class="col-sm-4 control-label"  for="alterEgo">FatherFirstName*</label>
+                <div class="col-sm-8">
+                  <input class="form-control input-md" #fatherFirstName="ngModel" 
+                  required id="fatherFirstName" name="fatherFirstName" type="text" 
+                  placeholder="Father FirstName" maxlength="80" 
+                  [(ngModel)]="address.fatherFirstName">
+              </div>
+               <div [hidden]="fatherFirstName.valid || fatherFirstName.pristine"
+                     class="alert alert-danger">
+                     Father FirstName is required
+                </div> 
+              </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-sm-8">
+                     <label class="col-sm-4 control-label"  for="alterEgo">Father MiddleName*</label>
+                  <div class="col-sm-8">
+                    <input class="form-control input-md" #fatherMiddleName="ngModel" 
+                    required id="fatherMiddleName" name="fatherMiddleName" 
+                    type="text" placeholder="Father Middle Name" maxlength="80" [(ngModel)]="address.fatherMiddleName">
+                </div>
+                 <div [hidden]="fatherMiddleName.valid || fatherMiddleName.pristine"
+                       class="alert alert-danger">
+                       Father MiddleName is required
+                  </div> 
+                </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-sm-8">
+                       <label class="col-sm-4 control-label"  for="alterEgo">Father LastName*</label>
+                    <div class="col-sm-8">
+                      <input class="form-control input-md" #fatherLastName="ngModel" 
+                      required id="fatherLastName" name="fatherLastName" type="text" 
+                      placeholder="Father LastName" maxlength="80" [(ngModel)]="address.fatherLastName">
+                  </div>
+                   <div [hidden]="fatherLastName.valid || fatherLastName.pristine"
+                         class="alert alert-danger">
+                         Father LastName is required
+                    </div> 
+                  </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-sm-8">
+                         <label class="col-sm-4 control-label"  for="alterEgo">Mother FirstName*</label>
+                      <div class="col-sm-8">
+                        <input class="form-control input-md" #motheFirstName="ngModel"
+                         required id="motheFirstName" name="motheFirstName" type="text"
+                          placeholder="Mother FirstName" maxlength="80" [(ngModel)]="address.motheFirstName">
+                    </div>
+                     <div [hidden]="motheFirstName.valid || motheFirstName.pristine"
+                           class="alert alert-danger">
+                           Mother FirstName is required
+                      </div> 
+                    </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-sm-8">
+                           <label class="col-sm-4 control-label"  for="alterEgo">Mother MiddleName*</label>
+                        <div class="col-sm-8">
+                          <input class="form-control input-md" #motherMiddleName="ngModel" 
+                          required id="motherMiddleName" name="motherMiddleName" 
+                          type="text" placeholder="Mother MiddleName" maxlength="80" 
+                          [(ngModel)]="address.motherMiddleName">
+                      </div>
+                       <div [hidden]="motherMiddleName.valid || motherMiddleName.pristine"
+                             class="alert alert-danger">
+                             Mother MiddleName is required
+                        </div> 
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-sm-8">
+                             <label class="col-sm-4 control-label"  for="alterEgo">Mother Lastname*</label>
+                          <div class="col-sm-8">
+                            <input class="form-control input-md" #motherLastname="ngModel" required
+                             id="motherLastname" name="motherLastname" type="text" 
+                             placeholder="Mother Lastname" maxlength="80" [(ngModel)]="address.motherLastname">
+                        </div>
+                         <div [hidden]="motherLastname.valid || motherLastname.pristine"
+                               class="alert alert-danger">
+                               Mother Lastname is required
+                          </div> 
+                        </div>
+                        </div>
     <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="alterEgo">Permanent Address*</label>
+        <label class="col-sm-4 control-label" for="alterEgo">Father Contact*</label>
         <div class="col-sm-8">
-          <input class="form-control input-md" #permanentAddress="ngModel" required id="permanentAddress" name="permanentAddress" type="text" minlength="10"   maxlength="35"  placeholder="permanent Address" [(ngModel)]="address.permanentAddress">
+          <input class="form-control input-md" #fatherContact="ngModel" 
+          required id="fatherContact" name="fatherContact" type="text" minlength="10"
+             maxlength="11"  placeholder="Father Contact" 
+             [(ngModel)]="address.fatherContact">
         </div>
-        <div class="alert alert-danger" [hidden]="permanentAddress.valid || permanentAddress.pristine">Permanent Address is required</div> 
+        <div class="alert alert-danger" [hidden]="fatherContact.valid || fatherContact.pristine">Father Contact is required</div> 
       </div>
       </div>   
     <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="alterEgo">Communication Address*</label>
+        <label class="col-sm-4 control-label" for="alterEgo">Mother Contact*</label>
         <div class="col-sm-8">
-          <input class="form-control input-md" #communicationAddress="ngModel" required id="communicationAddress" name="communicationAddress" type="text" minlength="10"   maxlength="35"   placeholder="communication Address" [(ngModel)]="address.communicationAddress">
+          <input class="form-control input-md" #motherContact="ngModel" required id="motherContact" 
+          name="motherContact" type="text" minlength="10"   maxlength="11"   placeholder="Mother Contact" [(ngModel)]="address.motherContact">
         </div>
-        <div class="alert alert-danger" [hidden]="communicationAddress.valid || communicationAddress.pristine">Communication Address is required</div> 
+        <div class="alert alert-danger" [hidden]="motherContact.valid || motherContact.pristine">Mother Contact is required</div> 
       </div>
       </div>
       

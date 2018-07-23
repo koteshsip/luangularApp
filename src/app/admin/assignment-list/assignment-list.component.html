@@ -1,15 +1,16 @@
-<!-- Content Header (Page header) -->
-  <section class="content-header">
-    <div class="panel-body box"><h1>
+<section class="content-header">
+    <div class="panel-body custom-panel"><h1>
       List Of Assignment <button class="btn btn-primary pull-right" (click)="addAssignment()">Add Assignment</button>
     </h1></div>
   </section>
 <div class="content">
-    <div><div class="row">
-    <div class="col-md-8"></div>
-    <div class="col-md-4">  
-    </div></div>
-<div  class="box">
+    <div>
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">  
+        </div>
+    </div>
+<div  class="lu-form">
 <div class="row">
     <div class="col-md-4" *ngIf="message;">
     <div class="alert alert-success">
@@ -17,37 +18,38 @@
 </div>
     </div>
 </div>
-<div class="row">
+<!-- <div class="row">
         <div class="col-md-3">
     <nav class="navbar">
-      <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllAssignment(page,$event)">      
+      <input class="lu-input" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllAssignment(page,$event)">      
     </nav>
     </div>
-    </div>
+    </div> -->
 <div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
- <table  class="table table-bordered box box-info">
+ <table  class="table-bordered custom-table">
                     <thead>
-                        <tr>
-                            <th>Number</th>
-                            <th>Due Date</th>
-                            <th>Assignment Type</th> 
-                            <th>Assignment Subject</th>
-                            <th>Review Comments</th>
-                            <th>Assignment Marks</th>
-                            <th>Action</th>
+                        <tr> 
+                            <th>Assignment Type</th>
+                            <th>StartDate</th>
+                            <th>EndDate</th> 
+                            <th>Max Marks</th>
+                            <th>Class Name</th>                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                                 <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                     totalItems: totalItem}">
-                                    <td>{{datas.assignmentNumber}}</td>
-                                    <td>{{datas.assignmentDueDate}}</td>
-                                    <td>{{datas.assignmentType}}</td>
-                                    <td>{{datas.assignmentSubject}}</td>
-                                    <td>{{datas.reviewComments}}</td>
-                                    <td>{{datas.assignmentMarks}}</td>
-<td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-assignment/{{this.baseEncode(datas.assignmentId)}}">Edit</a><a class="btn btn-danger" (click)="deleteAssignment(this.baseEncode(datas.assignmentId))">Delete</a></td>
-                                    </tr>
+                                    <td>{{datas.AssignmentType}}</td>
+                                    <td>{{datas.AssignmentCreatedDate | date:"dd/MM/yyyy"}}</td>
+                                    <td>{{datas.AssignmentDueDate | date:"dd/MM/yyyy"}}</td>
+                                    <td>{{datas.AssignmentMark}}</td>
+                                    <td>{{datas.ClassName}}</td>
+                                    <!-- <td>{{datas.assignmentMarks}}</td> -->
+<!-- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-assignment/{{this.baseEncode(datas['classSectionMasterId'].classId)}}/{{this.baseEncode(datas['classSectionMasterId'].sectionId)}}">Edit</a><a class="btn btn-danger" (click)="deleteAssignment(this.baseEncode(datas.assignmentId))">Delete</a></td> -->
+<td><a routerLink="/admin/update-assignment/{{this.baseEncode(datas.Id)}}/{{this.baseEncode(datas.ClassId)}}/{{this.baseEncode(datas.SectionId)}}"><img src="assets/img/edit-icon.png" 
+    width="25px" /></a></td>
+
+</tr>
                     </tbody>
                 </table> 
                 <div *ngIf="!totalItem" class="row">

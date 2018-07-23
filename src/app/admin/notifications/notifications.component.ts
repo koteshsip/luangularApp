@@ -24,7 +24,7 @@ export class NotificationsComponent implements OnInit {
   ngOnInit() {
     // this.getcount();
     this.page=1
-    this.getNotificationData(this.page,'');  
+    this.getNotificationData(this.page,1);  
     AdminLTE.init();
   }
 deleteNotification(id){

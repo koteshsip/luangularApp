@@ -12,3 +12,11 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+th {
+    height: 50px !important;
+    text-align: center !important;
+}
+td {
+    height: 50px !important;
+    text-align: center !important;
+}

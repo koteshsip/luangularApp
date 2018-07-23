@@ -1,6 +1,6 @@
 <!-- Content Header (Page header) -->
   <section class="content-header">
-    <div class="panel-body box box-info"><h1>
+    <div class="panel-body custom-panel"><h1>
       <div *ngIf="model.id; else falsyTemplate">
         Edit News
       </div>
@@ -11,12 +11,12 @@
     </div>
   </section>
 <div class="content ">
-  <div class="box box-info">
+  <div class="lu-form">
      <div class="row">
        <p>                      
 	   </p>
      </div>
-    <form (ngSubmit)="addnews(model)" #newsForm="ngForm">
+    <form (ngSubmit)="addNews(model)" #newsForm="ngForm">
 <div class="row">
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">News Type *</label>

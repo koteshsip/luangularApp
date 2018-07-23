@@ -1,6 +1,6 @@
 <!-- Content Header (Page header) -->
   <section class="content-header">
-    <div class="panel-body box box-info"><h1>
+    <div class="panel-body custom-panel"><h1>
       <div *ngIf="model.classId; else falsyTemplate">
         Edit Class
       </div>
@@ -11,12 +11,12 @@
     </div>
   </section>
 <div class="content ">
-  <div class="box box-info">
+  <div class="lu-form">
      <div class="row">
        <p>                         
 	   </p>
      </div>
-    <form (ngSubmit)="addClass(model)" #classForm="ngForm">
+    <form (ngSubmit)="addTblClass(model)" #classForm="ngForm">
 
 <div class="row">
       <div class="form-group col-sm-8">

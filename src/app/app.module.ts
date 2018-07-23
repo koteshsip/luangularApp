@@ -34,6 +34,9 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import {NgxPaginationModule} from 'ngx-pagination';
 /* Shared Service */
 import { FormDataService }    from './service/formData.service';
+import { StudentDataService }    from './admin/add-student/formData.service';
+import { StudentWorkflowService }    from './admin/add-student/workflow.service';
+
 import { CityService }    from './service/city-service';
 import { StateService }    from './service/state-service';
 import { CountryService }    from './service/country-service';
@@ -42,7 +45,7 @@ import { WorkflowService }    from './workflow/workflow.service';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { EqualValidator } from './change-password/equal-validator.directive';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { AssignmentService }    from './service/assignment-service';
+import { AssignmentService }    from './service/assignment-service'
 import { LibraryService }    from './service/library-service';
 import { NewsService }    from './service/news-service';
 import { PurchaseService }    from './service/purchase-service';
@@ -61,6 +64,13 @@ import { ExamDetailService }    from './service/ExamDetail-service';
 import { HostelService }    from './service/Hostel-service';
 import { InventoryService }    from './service/Inventory-service';
 import { SchoolService }    from './service/school-service';
+import { ClassRoomService }    from './service/class-room-service';
+import { SubjectService }    from './service/subject-service';
+import { DepartmentService }    from './service/department-service';
+import { ClassSectionMasterService }    from './service/class-section-master.service';
+import { AssignmentEvaluationService }    from './service/assignment-evaluation-service';
+import { ClassSubjectService }    from './service/class-subject-service';
+//AssignmentEvaluation
 // https://github.com/ngx-translate/core
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -106,9 +116,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     StateService,CountryService,AuthGuard,AuthenticationService,InventoryService,
     AssignmentService,LibraryService,NewsService,PurchaseService,ExamService,
     ResourceBankService,TimeTableService,EmailService,LibraryTransactionService,
-    SupplierService,TransportService,AttendenceService,BookService,HostelService,TblClassService,ExamDetailService,DrawingService,
+    SupplierService,TransportService,AttendenceService,BookService,HostelService,TblClassService,
+    ExamDetailService,DrawingService,ClassRoomService,SubjectService,ClassSubjectService,
+    DepartmentService,ClassSectionMasterService,AssignmentEvaluationService,
                 { provide: HTTP_INTERCEPTORS,useClass: TokenInterceptor,multi: true},
                 { provide: FormDataService, useClass: FormDataService },
+                { provide: StudentDataService, useClass: StudentDataService },
+                { provide: StudentWorkflowService, useClass: StudentWorkflowService },
                 { provide: WorkflowService, useClass: WorkflowService }],
   bootstrap: [AppComponent]
 })

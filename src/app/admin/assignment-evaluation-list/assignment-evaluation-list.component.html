@@ -1,0 +1,78 @@
+<section class="content-header">
+    <div class="panel-body custom-panel"><h1>
+      List Of Assignment Evaluation <button class="btn btn-primary pull-right" (click)="addAssignment()">Add Assignment</button>
+    </h1></div>
+  </section>
+<div class="content">
+    <div class="lu-form"><div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">  
+    </div></div>
+<div>
+<div class="row">
+    <div class="col-md-4" *ngIf="message;">
+    <div class="alert-message">
+  <strong>Success!</strong> {{message}}.
+</div>
+    </div>
+</div>
+<!-- <div class="row">
+        <div class="col-md-3">
+    <nav class="navbar">
+      <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllAssignment(page,$event)">      
+    </nav>
+    </div>
+    </div> -->
+<div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
+ <table  class="table-bordered custom-table">
+                    <thead>
+                        <tr>
+                            <th>assignType</th>
+                            <th>StartDate</th>
+                            <th>Max Marks</th>
+                            <th>Assign Path</th> 
+                            <th>Created By</th>
+                            <th>Created At</th>
+                            <!-- <th>Assignment Marks</th> -->
+                            <!-- <th>Action</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                                <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
+                                    totalItems: totalItem}">
+                                    <td>{{datas.assignType}}</td>
+                                    <td>{{datas.assignStartDate | date:"dd/MM/yyyy"}}</td>
+                                    <td>{{datas.maxMarks}}</td>
+                                    <td>{{datas.assignPath}}</td>
+                                    <td>{{datas.insertedBy}}</td>
+                                    <td>{{datas.insertedTime | date:"dd/MM/yyyy"}}</td>
+                                    <!-- <td>{{datas.assignmentMarks}}</td> -->
+<!-- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-assignment/{{this.baseEncode(datas['classSectionMasterId'].classId)}}/{{this.baseEncode(datas['classSectionMasterId'].sectionId)}}">Edit</a><a class="btn btn-danger" (click)="deleteAssignment(this.baseEncode(datas.assignmentId))">Delete</a></td> -->
+<!-- <td><a routerLink="/admin/update-assignment/{{this.baseEncode(datas['classSectionMasterId'].classId)}}/{{this.baseEncode(datas['classSectionMasterId'].sectionId)}}"><img src="assets/img/edit-icon.png" 
+    width="25px" /></a></td> -->
+
+</tr>
+                    </tbody>
+                </table> 
+                <div *ngIf="!totalItem" class="row">
+    <div class="col-md-6" >
+    <div class="alert alert-success">
+  <strong>Success!</strong> Record not found
+</div>
+    </div>
+</div>
+                <pagination-controls *ngIf="totalItem"
+			(pageChange) = "page = getAllAssignment($event,filter)" 
+			id="server"
+            maxSize = "5"
+			directionLinks = "true"
+            autohide = "true"
+            screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page"
+			>
+        </pagination-controls>
+     </div>
+   </div>
+</div>
+</div>
