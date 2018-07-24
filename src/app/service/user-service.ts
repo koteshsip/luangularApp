@@ -67,6 +67,13 @@ private _errorHandler(error: Response) {
     const url=this.baseurl+"listOfAllUser/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
   }
+  getAllstudents(event,filter){
+    if(!filter){
+      filter=null;
+    }
+    const url=this.baseurl+"listOfAllStudent/"+event+"/"+Base64.encode(filter);
+    return this.http.get(url);
+  }
   getUserById(id){   
     const url=this.baseurl+"getUserById/"+id;
     return this.http.get(url);

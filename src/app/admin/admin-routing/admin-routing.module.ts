@@ -585,8 +585,7 @@ import { StudentListComponent } from './../../admin/student-list/student-list.co
             path: 'students-list',
             component: StudentsComponent,
             canActivate: [AuthGuard]
-          }
-          ,
+          },
           {
             path: 'library-settings-list',
             component: LibrarySettingsComponent,

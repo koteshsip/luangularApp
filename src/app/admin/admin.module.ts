@@ -79,6 +79,7 @@ import { BooksPurchaseListComponent } from './books-purchase-list/books-purchase
 import { AddBooksPurchaseComponent } from './add-books-purchase/add-books-purchase.component';
 import { AddBooksIssuedComponent } from './add-books-issued/add-books-issued.component';
 import { BooksIssuedListComponent } from './books-issued-list/books-issued-list.component';
+
 import { ParentsComponent } from './parents/parents.component';
 import { StudentsComponent } from './students/students.component';
 import { LibrarySettingsComponent } from './library-settings/library-settings.component';
@@ -93,6 +94,7 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { AddStudentProfileComponent } from './add-student-profile/add-student-profile.component';
 import { AddStudentAddressComponent } from './add-student-address/add-student-address.component';
+
 @NgModule({
   imports: [
     CommonModule,

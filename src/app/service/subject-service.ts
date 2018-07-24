@@ -7,12 +7,14 @@ import {AppSettings} from '../appSettings'
 @Injectable()
 export class SubjectService {
 private  baseurl=AppSettings['API_ENDPOINT'];
-  constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
+constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
 getAllSubject(event,filter){
     if(!filter){
       filter=null;
     }
+
     const url=this.baseurl+"listOfAllSubjectMaster/"+event+"/"+Base64.encode(filter);
+
     return this.http.get(url);
   }
 getSubjectcount(){
@@ -20,19 +22,19 @@ getSubjectcount(){
     return this.http.get(url);
 }
 addSubject(formdata){   
-    const url=this.baseurl+"addSubjectMaster";
+    const url=this.baseurl+"addSubject";
     return this.http.post(url,formdata);
   }
-updateSubject(formdata,subjectId,textBookISBN){ 
-    const url=this.baseurl+"addSubjectMaster/"+subjectId+"/"+textBookISBN;
+updateSubject(formdata){ 
+    const url=this.baseurl+"addSubject/"+formdata.subjectId;
     return this.http.put(url,formdata);
   }
-getSubjectById(SubjectId,textBookISBN){   
-  const url=this.baseurl+"getSubjectMasterbyId/"+SubjectId+"/"+textBookISBN;
+getSubjectById(id){   
+  const url=this.baseurl+"getSubjectById/"+id;
   return this.http.get(url);
 }
 deleteSubject(id){
-    const url=this.baseurl+"deleteSubjectMaster/"+id;
+    const url=this.baseurl+"deleteSubject/"+id;
     return this.http.put(url,"");
 }
 SubjectAlreadyExist(drawingName){
