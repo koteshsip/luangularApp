@@ -21,9 +21,9 @@
 
 <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">ExamType*</label>
+        <label class="col-sm-4 control-label" for="name">Exam Type*</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="examType"
+<input type="text"  maxlength="50" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="examType"
                required
                [(ngModel)]="model.examType" name="examType"
                #examType="ngModel">
@@ -36,9 +36,9 @@
 </div>
 <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">user *</label>
+        <label class="col-sm-4 control-label" for="name">User *</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="user"
+<input type="text"  maxlength="50" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="user"
                required
                [(ngModel)]="model.user" name="user"
                #user="ngModel">
@@ -51,16 +51,16 @@
 </div>
 <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">SubjectOfTheExam *</label>
+        <label class="col-sm-4 control-label" for="name">Subject of the Exam *</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="subjectOfTheExam"
+<input type="text"  maxlength="50" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="subjectOfTheExam"
                required
                [(ngModel)]="model.subjectOfTheExam" name="subjectOfTheExam"
                #subjectOfTheExam="ngModel">
               </div> 
               <div [hidden]="subjectOfTheExam.valid || subjectOfTheExam.pristine"
                   class="alert alert-danger">
-                  Subject Of the exam is required
+                  Subject of the exam is required
               </div> 
       </div>
 </div>
@@ -68,7 +68,7 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">Exam Date *</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="examDate"
+<input type="text"  maxlength="50" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="examDate"
                required
                [(ngModel)]="model.examDate" name="examDate"
                #examDate="ngModel">
@@ -79,11 +79,11 @@
               </div> 
       </div>
 </div>
-<div class="row">
+<!-- <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">school *</label>
+        <label class="col-sm-4 control-label" for="name">School *</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="school"
+<input type="text"  maxlength="50" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="school"
                required
                [(ngModel)]="model.school" name="school"
                #school="ngModel">
@@ -93,7 +93,7 @@
                   School is required
               </div> 
       </div>
-</div>
+</div> -->
 
 <div class="row">
         <div class="form-group col-sm-4">

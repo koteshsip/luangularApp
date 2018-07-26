@@ -103,7 +103,7 @@
     margin: 5px;
 }
 span:hover{
-    color:#fff;
+    color:rgb(255, 251, 0);
     cursor: pointer;
     margin-top: 20px;
 }

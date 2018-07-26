@@ -29,10 +29,10 @@ updateSubject(formdata){
     const url=this.baseurl+"addSubject/"+formdata.subjectId;
     return this.http.put(url,formdata);
   }
-getSubjectById(id){   
-  const url=this.baseurl+"getSubjectById/"+id;
-  return this.http.get(url);
-}
+  getSubjectById(SubjectId,textBookISBN){   
+    const url=this.baseurl+"getSubjectMasterbyId/"+SubjectId+"/"+textBookISBN;
+    return this.http.get(url);
+  }
 deleteSubject(id){
     const url=this.baseurl+"deleteSubject/"+id;
     return this.http.put(url,"");

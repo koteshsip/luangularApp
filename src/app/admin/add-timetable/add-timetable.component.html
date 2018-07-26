@@ -20,9 +20,9 @@
 
  <div class="row">
       <div class="form-group col-sm-8">
-        <label class="col-sm-4 control-label" for="name">tblClass *</label>
+        <label class="col-sm-4 control-label" for="name">Class *</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="tblClass"
+<input type="text"  maxlength="50"  pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="tblClass"
                required
                [(ngModel)]="model.tblClass" name="tblClass"
                #tblClass="ngModel">
@@ -37,7 +37,7 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">Start Date *</label>
         <div class="col-sm-8">
-<input type="date"    class="form-control"  id="startDate"
+          <input type="date" placeholder="DD/MM/YYYY"  id="startDate"
                required
                [(ngModel)]="model.startDate" name="startDate"
                #startDate="ngModel">
@@ -52,7 +52,7 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">End Date *</label>
         <div class="col-sm-8">
-<input type="date"  class="form-control"  id="endDate"
+            <input type="date" placeholder="DD/MM/YYYY" id="endDate"
                required
                [(ngModel)]="model.endDate" name="endDate"
                #endDate="ngModel">
@@ -67,14 +67,14 @@
      <div class="form-group col-sm-8">
        <label class="col-sm-4 control-label" for="name">Section *</label>
        <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="section"
+<input type="text"  maxlength="50"  pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="section"
               required
               [(ngModel)]="model.section" name="section"
               #section="ngModel">
              </div> 
              <div [hidden]="section.valid || section.pristine"
                  class="alert alert-danger">
-                 section is required
+                 Section is required
              </div> 
      </div>
 </div>

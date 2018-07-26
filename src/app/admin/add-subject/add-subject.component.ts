@@ -64,7 +64,7 @@ export class AddSubjectComponent implements OnInit {
       type: "application/json"
   }));
     if(userinfo.subjectId,userinfo.textBookISBN){
-      this.subjectService.updateSubject(formData,userinfo.subjectId,userinfo.textBookISBN).subscribe((data:any)=>{
+      this.subjectService.updateSubject(formData).subscribe((data:any)=>{
             this.mystorage.set("message","Record Updated Successfully");
             this.router.navigate(['/admin/subjects-list']);
           });
