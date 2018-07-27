@@ -20,7 +20,7 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">Notify Type</label>
         <div class="col-sm-8">
-        <input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-,]*" id="notifyType"
+        <input type="text"  maxlength="50"  pattern="[a-zA-Z0-9-\&quot;-'-$-.-,]*" id="notifyType"
                required 
                [(ngModel)]="model.notifyType" name="notifyType"
                #notifyType="ngModel">
@@ -35,7 +35,7 @@
       <div class="form-group col-sm-8">
            <label class="col-sm-4 control-label" for="alterEgo">Notify Category</label>
         <div class="col-sm-8">
-      <select class="form-control" id="notifyCategory" 
+      <select id="notifyCategory" class="lu-input"
                 required
                 [(ngModel)]="model.notifyCategory" name="notifyCategory"
                 #notifyCategory="ngModel">
@@ -44,7 +44,7 @@
       </div>
          <div [hidden]="notifyCategory.valid || notifyCategory.pristine"
              class="alert alert-danger">
-          Notify Category is required
+             Notification Category is required
         </div> 
       </div>
       </div>
@@ -52,32 +52,32 @@
       <div class="form-group col-sm-8">
            <label class="col-sm-4 control-label" for="alterEgo">Notify Code</label>
         <div class="col-sm-8">
-        <input type="text" maxlength="50" class="form-control" id="notifyCode"
+        <input type="text" maxlength="50" id="notifyCode"
         required       
         [(ngModel)]="model.notifyCode" (ngModelChange)="notificationCode($event)" pattern="[a-zA-Z0-9-\&quot;-'-$-.-,]*" name="notifyCode" #notifyCode="ngModel">        
       </div>
     <div *ngIf="IsExist"
              class="alert alert-danger">
-          Notify Code Already Exist
+             Notification Code Already Exist
         </div>
        <div [hidden]="notifyCode.valid || notifyCode.pristine || IsExist"
              class="alert alert-danger">
-          Notify Code is required
+             Notification Code is required
         </div> 
       </div>
       </div>
 <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">Notify Message</label>
+           <label class="col-sm-4 control-label" for="alterEgo">Notification Message</label>
         <div class="col-sm-8">
           <input type="hidden" name="test" [value]="model.id"/>
-          <textarea type="text" maxlength="500" class="form-control" id="notifyMessage"
+          <textarea type="text" class="lu-input" maxlength="500" rows="4" id="notifyMessage"
         required       
         [(ngModel)]="model.notifyMessage" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" name="notifyMessage" #notifyMessage="ngModel" rows="5" cols="120"></textarea>
       </div>
        <div [hidden]="notifyMessage.valid || notifyMessage.pristine"
              class="alert alert-danger">
-          Notify Message is required
+             Notification Message is required
         </div> 
       </div>
       </div>
@@ -85,11 +85,11 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="alterEgo">Notify Date</label>
         <div class="col-sm-8">
-          <input type="date" onkeypress="return false;"  min="{{mymindate}}" max="{{mymaxdate}}" class="form-control no-spin" [(ngModel)]="model.notifyDate" name="notifyDate" #notifyDate="ngModel"  value="">
+          <input type="date" onkeypress="return false;"  min="{{mymindate}}" max="{{mymaxdate}}" class="no-spin" [(ngModel)]="model.notifyDate" name="notifyDate" #notifyDate="ngModel"  value="">
         </div>
          <div [hidden]="notifyDate.valid || notifyDate.pristine"
              class="alert alert-danger">
-          Notify Date is required
+             Notification Date is required
         </div> 
       </div>
       </div>
@@ -98,7 +98,7 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="alterEgo">Expiary Date</label>
         <div class="col-sm-8" >
-        <input  min="{{mymindate}}" onkeypress="return false;"  max="{{mymaxdate}}" type="date" class="form-control no-spin" [(ngModel)]="model.expiaryDate" name="expiaryDate" #expiaryDate="ngModel"  value="">
+        <input  min="{{mymindate}}" onkeypress="return false;"  max="{{mymaxdate}}" type="date" class="no-spin" [(ngModel)]="model.expiaryDate" name="expiaryDate" #expiaryDate="ngModel"  value="">
         </div>
          <div [hidden]="expiaryDate.valid || expiaryDate.pristine"
              class="alert alert-danger">

@@ -3,22 +3,22 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {Http,Response,RequestOptions} from '@angular/http';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { Base64 } from 'js-base64';
-
+import { AppSettings } from './appSettings';
 @Injectable()
 export class MyServiceService {
-private  baseurl="http://107.180.76.152:8080/";
+  private  baseurl=AppSettings['API_ENDPOINT'];
   constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
 
 
 myprofile(id){
-  const url=this.baseurl+"lujavaapp/getProfileById/"+id;
+  const url=this.baseurl+"getProfileById/"+id;
   return this.http.get(url);
 }
 getalllogs(event,filter){
   if(!filter){
     filter=null;
   }
-    const url=this.baseurl+"lujavaapp/logs/"+event+"/"+Base64.encode(filter);
+    const url=this.baseurl+"logs/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
 }
   getallnotifications(event,filter){
@@ -29,11 +29,11 @@ getalllogs(event,filter){
     return this.http.get(url);
   }
 getnotificationcount(){
-  const url=this.baseurl+"lujavaapp/getAllNotification";
+  const url=this.baseurl+"getAllNotification";
     return this.http.get(url);
 }
   getlogcount(){
-  const url=this.baseurl+"lujavaapp/getTotalLogs";
+  const url=this.baseurl+"getTotalLogs";
     return this.http.get(url);
 }
 getToken(){
@@ -43,32 +43,32 @@ getToken(){
     // const headers = new Headers({'Content-Type':'application/json'});
     // const options = new RequestOptions({headers:headers});
     //  headers.append('token', `${this.localStorageService.get("token")}`);   
-    const url=this.baseurl+"lujavaapp/addNotification";
+    const url=this.baseurl+"addNotification";
     return this.http.post(url,formdata);
   }
 updateNotification(formdata){
     // const headers = new Headers({'Content-Type':'application/json'});
     // const options = new RequestOptions({headers:headers});
     //  headers.append('token', `${this.localStorageService.get("token")}`);   
-    const url=this.baseurl+"lujavaapp/addNotification/"+formdata.id;
+    const url=this.baseurl+"addNotification/"+formdata.id;
     return this.http.put(url,formdata);
   }
 getNotificationById(id){
   // const headers = new Headers({'Content-Type':'application/json'});
   //   const options = new RequestOptions({headers:headers});
   //    headers.append('token', `${this.localStorageService.get("token")}`);   
-  const url=this.baseurl+"lujavaapp/getNotificationById/"+id;
+  const url=this.baseurl+"getNotificationById/"+id;
   return this.http.get(url);
 }
 deleteNotification(id){
     // const headers = new Headers({'Content-Type':'application/json'});
     // const options = new RequestOptions({headers:headers});
     // headers.append('token', `${this.localStorageService.get("token")}`);
-    const url=this.baseurl+"lujavaapp/deleteNotification/"+id;
+    const url=this.baseurl+"deleteNotification/"+id;
     return this.http.delete(url);
 }
 notifyCodeExist(NotifyCode){
-    const url=this.baseurl+"lujavaapp/NotifCodeIsExist/"+NotifyCode;
+    const url=this.baseurl+"NotifCodeIsExist/"+NotifyCode;
     return this.http.get(url);
 }
 

@@ -28,11 +28,13 @@
 <table *ngIf="totalItem" class="table-bordered custom-table">
                     <thead>
                         <tr>
-                            <th>Notify Type</th>
-                            <th>Notify Category</th>
-                            <th>Notify Code</th>
-                            <th>Notify Message</th>
-                            <th>Notify Date</th>
+                            <th>Notification Type</th>
+                            <th>Notification Title</th>
+                            <!-- <th>Notify Category</th>
+                            <th>Notify Code</th> -->
+                            <th>Notification Message</th>
+                            <!-- <th>Notification Date</th> -->
+                            <th>Class</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -41,8 +43,9 @@
                                     totalItems: totalItem}">
                                     <td>{{datas.NotificationType}}</td>
                                     <td>{{datas.NotificationTitle}}</td>
-                                    <td>{{datas.ClassId}}</td>
+                                    
                                     <td>{{datas.NotificationDescription}}</td>
+                                    <td>{{datas.ClassId}}</td>
                                     <!-- <td>{{datas.notifyDate | date:"dd/MM/yyyy"}}</td> -->
 <td><a class="col-xs-3 btn btn-success" routerLink="/admin/addNotificatin/{{this.baseEncode(datas.id)}}">Edit</a><a class="btn btn-danger" (click)="deleteNotification(this.baseEncode(datas.id))">Delete</a></td>
                                     </tr>

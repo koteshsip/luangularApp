@@ -64,7 +64,7 @@
     </div>
 <div class="row">
   <div class="form-group col-sm-8">
-    <label class="col-sm-4 control-label" for="alterEgo">Book Link</label>
+    <label class="col-sm-4 control-label" for="alterEgo">Book URL</label>
  <div class="col-sm-8">
  <input type="text" maxlength="50" class="" id="textBookLink"
  required       
@@ -79,7 +79,7 @@
 
     <div class="row">
       <div class="form-group col-sm-8">
-           <label class="col-sm-4 control-label" for="alterEgo">Subject Material File type</label>
+           <label class="col-sm-4 control-label" for="alterEgo">File type</label>
         <div class="col-sm-8">
       <select class="lu-input" id="subjectMaterialFiletype" 
                 required
@@ -90,7 +90,7 @@
       </div>
          <div [hidden]="subjectMaterialFiletype.valid || subjectMaterialFiletype.pristine"
              class="alert alert-danger">
-             subject Material File type is required
+             Subject Material File type is required
         </div> 
       </div>
       </div>
