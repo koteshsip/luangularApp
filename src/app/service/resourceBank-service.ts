@@ -12,7 +12,7 @@ getAllResourceBank(event,filter){
     if(!filter){
       filter=null;
     }
-    const url=this.baseurl+"getAllResourceBank/"+event+"/"+Base64.encode(filter);
+    const url=this.baseurl+"ListOfAllResourceBank/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
   }
 getResourceBankcount(){

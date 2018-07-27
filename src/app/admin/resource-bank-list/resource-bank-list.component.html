@@ -28,20 +28,20 @@
  <table *ngIf="totalItem" class="table-bordered custom-table">
                      <thead>
                          <tr>
-                             <th>ResourceName</th>
-                             <th>createdAt</th>
+                             <th>Resource Name</th>
+                             <th>Resource Type</th>
                              <th>Title</th>
-                             <th>Heading</th>
+                             <th>Subject Name</th>
                              <th>Action</th>
                          </tr>
                      </thead>
                       <tbody>
                                  <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                      totalItems: totalItem}">
-                                     <td>{{datas.resourceName}}</td>  
-                                     <td>{{datas.createdAt}}</td>
-                                     <td>{{datas.title}}</td>
-                                     <td>{{datas.heading}}</td>
+                                     <td>{{datas.ResourceId}}</td>  
+                                     <td>{{datas.ResourceTitle}}</td>
+                                     <td>{{datas.ResourceType}}</td>
+                                     <td>{{datas.SubjectName}}</td>
                                       
  <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-resource-bank/{{this.baseEncode(datas.resourceBankId)}}">Edit</a><a class="btn btn-danger" (click)="deleteResourceBank(this.baseEncode(datas.resourceBankId))">Delete</a></td>
                                      </tr>

@@ -37,8 +37,8 @@ this.message=this.mystorage.get("message");
 				if(data.error) { 
 					alert('Server Error');
 				} else {
-                    this.data=data['resourceBank'];
-                    this.totalItem = data['count'];
+                    this.totalItem = data['Count'];
+                    this.data=data['SubjectResourceList'];
                 }
 			},
 			error =>{
