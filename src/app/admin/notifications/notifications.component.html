@@ -47,7 +47,9 @@
                                     <td>{{datas.NotificationDescription}}</td>
                                     <td>{{datas.ClassId}}</td>
                                     <!-- <td>{{datas.notifyDate | date:"dd/MM/yyyy"}}</td> -->
-<td><a class="col-xs-3 btn btn-success" routerLink="/admin/addNotificatin/{{this.baseEncode(datas.id)}}">Edit</a><a class="btn btn-danger" (click)="deleteNotification(this.baseEncode(datas.id))">Delete</a></td>
+<td><a routerLink="/admin/addNotificatin/{{this.baseEncode(datas.id)}}"><img src="assets/img/edit-icon.png" 
+    width="25px" /></a><a (click)="deleteNotification(this.baseEncode(datas.id))"><img src="assets/img/delete-icon.png" 
+        width="25px" /></a></td>
                                     </tr>
                     </tbody>
                 </table>

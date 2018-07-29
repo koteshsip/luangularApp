@@ -28,21 +28,23 @@
  <table *ngIf="totalItem" class="table-bordered custom-table">
                      <thead>
                          <tr>
-                             <th>ExamType</th>
-                             <th>SubjectOfTheExam</th>
-                             <th>ExamDate</th>
+                             <th>Exam Description</th>
+                             <th>Exam Type</th>
+                             <th>Subject</th>
+                             <th>Exam Date</th>
                              <th>Action</th>
                          </tr>
                      </thead>
                       <tbody>
                                  <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                      totalItems: totalItem}">
-                                     <td>{{datas.examType}}</td>
-                                     <td>{{datas.subjectOfTheExam}}</td>
-                                     <td>{{datas.examDate}}</td>
+                                     <td>{{datas.TestDescription}}</td>
+                                     <td>{{datas.TestType}}</td>
+                                     <td>{{datas.SubjectId}}</td>
+                                     <td>{{datas.TestDate}}</td>
                                       
- <td><a routerLink="/admin/update-exam/{{this.baseEncode(datas.examId)}}"><img src="assets/icons/edit.png" 
-    width="25px" /></a><a (click)="deleteExam(this.baseEncode(datas.examId))"><img src="assets/icons/delete.png" 
+ <td><a routerLink="/admin/update-exam/{{this.baseEncode(datas.TestId)}}"><img src="assets/icons/edit.png" 
+    width="25px" /></a><a (click)="deleteExam(this.baseEncode(datas.TestId))"><img src="assets/icons/delete.png" 
         width="25px" /></a></td>
                                      </tr>
                      </tbody> 

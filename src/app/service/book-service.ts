@@ -12,7 +12,7 @@ getAllBook(event,filter){
     if(!filter){
       filter=null;
     }
-    const url=this.baseurl+"getAllTextBook/"+event+"/"+Base64.encode(filter);
+    const url=this.baseurl+"getAllTextBooks/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
   }
 getBookcount(){

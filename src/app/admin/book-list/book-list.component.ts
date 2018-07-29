@@ -8,7 +8,7 @@ import { DialogService } from "ng2-bootstrap-modal";
 import { DatepickerOptions } from 'ng2-datepicker';
 import { Base64 } from 'js-base64';
 @Component({
-  selector: 'app-book-list',
+  selector: 'book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
@@ -39,8 +39,8 @@ this.message=this.mystorage.get("message");
 				if(data.error) { 
 					alert('Server Error');
 				} else {
-                    this.data=data['book'];
-                    this.totalItem = data['count'];
+                    this.totalItem = data['Count'];
+                    this.data=data['BookData'];                   
                 }
 			},
 			error =>{

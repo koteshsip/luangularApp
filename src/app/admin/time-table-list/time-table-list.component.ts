@@ -36,9 +36,9 @@ this.message=this.mystorage.get("message");
 		this.timeTableService.getAllTimeTable(event,filter).subscribe((data:any)=>{
 				if(data.error) { 
 					alert('Server Error');
-				} else {
-                    this.data=data['timeTable'];//['news'];
-                    this.totalItem = data['count'];
+				} else {                    
+                    this.totalItem = data['Count'];
+                    this.data=data['TimeTables'];
                 }
 			},
 			error =>{

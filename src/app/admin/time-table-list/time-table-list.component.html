@@ -28,19 +28,21 @@
  <table *ngIf="totalItem" class="table-bordered custom-table">
                      <thead>
                          <tr>
-                             <th>Start Date</th>
-                             <th>End Date</th>
-                             <th>createdAt</th>
+                             <th>Class</th>
+                             <th>Work</th>
+                             <th>Subject</th>
                              <th>Action</th>
                          </tr>
                      </thead>
                       <tbody>
                                  <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                      totalItems: totalItem}">
-                                     <td>{{datas.startDate | date: 'dd/MM/yyyy'}}</td>  
-                                     <td>{{datas.endDate | date: 'dd/MM/yyyy'}}</td>
-                                     <td>{{datas.createdAt | date: 'dd/MM/yyyy'}}</td>                                      
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-timetable/{{this.baseEncode(datas.timeTableId)}}">Edit</a><a class="btn btn-danger" (click)="deleteExam(this.baseEncode(datas.timeTableId))">Delete</a></td>
+                                     <td>{{datas.timeTableId.classId}}</td>  
+                                     <td>{{datas.timeTableId.workId}}</td>
+                                     <td>{{datas.timeTableId.subjId}}</td>                                      
+ <td><a routerLink="/admin/update-timetable/{{this.baseEncode(datas.timeTableId)}}"><img src="assets/img/edit-icon.png" 
+    width="25px" /></a><a (click)="deleteExam(this.baseEncode(datas.timeTableId))"><img src="assets/img/delete-icon.png" 
+        width="25px" /></a></td>
                                      </tr>
                      </tbody> 
                  </table>

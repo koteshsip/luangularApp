@@ -12,7 +12,7 @@ getAllExam(event,filter){
     if(!filter){
       filter=null;
     }
-    const url=this.baseurl+"getAllExam/"+event+"/"+Base64.encode(filter);
+    const url=this.baseurl+"getAllExamSchedule/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
   }
 getExamcount(){

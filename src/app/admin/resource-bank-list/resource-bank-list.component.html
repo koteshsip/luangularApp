@@ -43,7 +43,9 @@
                                      <td>{{datas.ResourceType}}</td>
                                      <td>{{datas.SubjectName}}</td>
                                       
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-resource-bank/{{this.baseEncode(datas.resourceBankId)}}">Edit</a><a class="btn btn-danger" (click)="deleteResourceBank(this.baseEncode(datas.resourceBankId))">Delete</a></td>
+ <td><a routerLink="/admin/update-resource-bank/{{this.baseEncode(datas.resourceBankId)}}"><img src="assets/img/edit-icon.png" 
+    width="25px" /></a><a  (click)="deleteResourceBank(this.baseEncode(datas.resourceBankId))"><img src="assets/img/delete-icon.png" 
+        width="25px" /></a></td>
                                      </tr>
                      </tbody> 
                  </table>

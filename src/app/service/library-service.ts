@@ -12,7 +12,7 @@ getAllLibrary(event,filter){
     if(!filter){
       filter=null;
     }
-    const url=this.baseurl+"getAllLibrary/"+event+"/"+Base64.encode(filter);
+    const url=this.baseurl+"GetAllLibBooks/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
   }
 getLibrarycount(){

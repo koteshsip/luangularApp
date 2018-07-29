@@ -71,7 +71,7 @@ private _errorHandler(error: Response) {
     if(!filter){
       filter=null;
     }
-    const url=this.baseurl+"listOfAllStudent/"+event+"/"+Base64.encode(filter);
+    const url=this.baseurl+"getAllStudents/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
   }
   getUserById(id){   

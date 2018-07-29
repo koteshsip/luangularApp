@@ -8,7 +8,7 @@ import { DialogService } from "ng2-bootstrap-modal";
 import { DatepickerOptions } from 'ng2-datepicker';
 import { Base64 } from 'js-base64';
 @Component({
-  selector: 'app-booking-request-list',
+  selector: 'booking-request-list',
   templateUrl: './booking-request-list.component.html',
   styleUrls: ['./booking-request-list.component.css']
 })
@@ -38,9 +38,9 @@ this.message=this.mystorage.get("message");
 		this.libraryTransactionService.getAllLibraryTransaction(event,filter).subscribe((data:any)=>{
 				if(data.error) { 
 					alert('Server Error');
-				} else {
-                    this.data=data['libraryTransaction'];
+				} else {                   
                     this.totalItem = data['count'];
+                    this.data=data['libraryRequest'];
                 }
 			},
 			error =>{

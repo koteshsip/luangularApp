@@ -12,7 +12,7 @@ getAllTimeTable(event,filter){
     if(!filter){
       filter=null;
     }
-    const url=this.baseurl+"getAllClassTimeTable/"+event+"/"+Base64.encode(filter);
+    const url=this.baseurl+"GetAllTimeTables/"+event+"/"+filter;
     return this.http.get(url);
   }
 getTimeTablecount(){

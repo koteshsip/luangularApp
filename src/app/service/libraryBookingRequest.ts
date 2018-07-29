@@ -7,12 +7,12 @@ import {AppSettings} from '../appSettings'
 @Injectable()
 export class LibraryTransactionService {
 private  baseurl=AppSettings['API_ENDPOINT'];
-  constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
+constructor(public localStorageService: LocalStorageService,public http:HttpClient) { }
 getAllLibraryTransaction(event,filter){
     if(!filter){
       filter=null;
     }
-    const url=this.baseurl+"getAllLibraryBookingRequest/"+event+"/"+Base64.encode(filter);
+    const url=this.baseurl+"listLibBooksRequest/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
   }
 getLibraryTransactioncount(){

@@ -20,7 +20,7 @@
  <div class="row">
          <div class="col-md-3">
      <nav class="navbar">
-       <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllTblClasss(page,$event)">
+       <input placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllTblClasss(page,$event)">
      </nav>
      </div>
      </div>
@@ -28,29 +28,25 @@
  <table *ngIf="totalItem" class="table-bordered custom-table">
                      <thead>
                          <tr>
-                             <th>created At</th>
-                             <th>Actual Return Date</th>
+                             <th>Book Name</th>
                              <th>Booking Date</th>
-                             <th>Book Issued By</th>
-                             <th>Number Of Days</th>
-                             <th>Reason For Delay</th>
-                             <th>FineAmount Per Day</th>
-                             <th>Library Book IssuedDate</th>
+                             <th>Expected Return Date</th>
+                             <th>Requsted By</th>
+                             <th>No Of Renewals</th>
                              <th>Action</th>
                          </tr>
                      </thead>
                       <tbody>
                                  <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                      totalItems: totalItem}">  
-                                     <td>{{datas.createdAt}}</td>
-                                     <td>{{datas.actualReturnDate}}</td>
-                                     <td>{{datas.bookingDate}}</td>
-                                     <td>{{datas.bookIssuedBy}}</td>
-                                     <td>{{datas.numberOfDaysToReturn}}</td>
-                                     <td>{{datas.reasonForDelay}}</td>
-                                     <td>{{datas.fineAmountPerDay}}</td>
-                                     <td>{{datas.libraryBookIssuedDate}}</td>
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-booking-request/{{this.baseEncode(datas.bookingRequestId)}}">Edit</a><a class="btn btn-danger" (click)="deleteBookingRequesting(this.baseEncode(datas.bookingRequestId))">Delete</a></td>
+                                     <td>{{datas.title}}</td>
+                                     <td>{{datas.requestOn}}</td>
+                                     <td>{{datas.expectedReturn}}</td>
+                                     <td>{{datas.libraryRequestId.studentId}}</td>
+                                     <td>{{datas.noOfRenewals}}</td>
+ <td><a routerLink="/admin/update-booking-request/{{this.baseEncode(datas.bookingRequestId)}}"><img src="assets/icons/edit.png" 
+    width="25px" /></a><a (click)="deleteBookingRequesting(this.baseEncode(datas.bookingRequestId))"><img src="assets/icons/delete.png" 
+        width="25px" /></a></td>
                                      </tr>
                      </tbody> 
                  </table>

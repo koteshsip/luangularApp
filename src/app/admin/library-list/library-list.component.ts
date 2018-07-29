@@ -8,7 +8,7 @@ import { DialogService } from "ng2-bootstrap-modal";
 import { DatepickerOptions } from 'ng2-datepicker';
 import { Base64 } from 'js-base64';
 @Component({
-  selector: 'app-library-list',
+  selector: 'library-list',
   templateUrl: './library-list.component.html',
   styleUrls: ['./library-list.component.css']
 })
@@ -38,8 +38,8 @@ this.message=this.mystorage.get("message");
 				if(data.error) { 
 					alert('Server Error');
 				} else {
-                    this.data=data['library'];
                     this.totalItem = data['count'];
+                    this.data=data['libraryBooks'];
                 }
 			},
 			error =>{

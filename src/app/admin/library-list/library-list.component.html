@@ -1,7 +1,7 @@
   <!-- Content Header (Page header) -->
    <section class="content-header">
      <div class="panel-body custom-panel"><h1>
-       List Of Library {{ data | json}}<button class="btn btn-primary pull-right" (click)="addLibrary()">Add Library</button>
+       List Of Library Books<button class="btn btn-primary pull-right" (click)="addLibrary()">Add Library</button>
      </h1></div> 
    </section>
  <div class="content">
@@ -20,7 +20,7 @@
  <div class="row">
          <div class="col-md-3">
      <nav class="navbar">
-       <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllExams(page,$event)">
+       <input placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllExams(page,$event)">
      </nav>
      </div>
      </div>
@@ -28,23 +28,25 @@
   <table *ngIf="totalItem" class="table-bordered custom-table">
                      <thead>
                          <tr>
-                             <th>Library Name</th>
-                             <th>Amount To Pay</th>
-                             <th>Book Alloted To</th>
-                             <th>bookCategoery</th>
-                             <th>bookDueDate</th>
+                             <th>Book Name</th>
+                             <th>Author</th>
+                             <th>Book Publisher</th>
+                             <th>Copies Available</th>
+                             <th>Book ISBN</th>
                              <th>Action</th>
                          </tr>
                      </thead>
                       <tbody>
                                  <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
-                                     totalItems: totalItem}">
-                                     <td>{{datas.libraryName}}</td>  
-                                     <td>{{datas.amountToPay}}</td>
-                                     <td>{{datas.bookAllotedTo}}</td>
-                                     <td>{{datas.bookCategoery}}</td>
-                                      <td>{{datas.bookDueDate}}</td>
- <td><a class="col-xs-3 btn btn-success" routerLink="/admin/update-library/{{this.baseEncode(datas.libraryId)}}">Edit</a><a class="btn btn-danger" (click)="deleteLibrary(this.baseEncode(datas.libraryId))">Delete</a></td>
+                                    totalItems: totalItem}">
+                                    <td>{{datas.title}}</td>  
+                                    <td>{{datas.author}}</td>
+                                    <td>{{datas.bookPublisher}}</td>
+                                    <td>{{datas.copiesAvailable}}</td>
+                                    <td>{{datas.bookIsbn}}</td>
+ <td><a routerLink="/admin/update-library/{{this.baseEncode(datas.bookId)}}"><img src="assets/icons/edit.png" 
+    width="25px" /></a><a (click)="deleteLibrary(this.baseEncode(datas.bookId))"><img src="assets/icons/delete.png" 
+        width="25px" /></a></td>
                                      </tr>
                      </tbody> 
                  </table> 

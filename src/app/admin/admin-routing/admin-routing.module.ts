@@ -43,7 +43,6 @@ import { NewsListComponent } from './../../admin/news-list/news-list.component';
 import { DrawingListComponent } from './../../admin/drawing-list/drawing-list.component';
 import { AddHostelComponent } from './../../admin/add-hostel/add-hostel.component';
 import { AddClassComponent } from './../../admin/add-class/add-class.component';
-import { AddBookComponent } from './../../admin/add-book/add-book.component';
 import { AddAssignmentComponent } from './../../admin/add-assignment/add-assignment.component';
 import { AddTimetableComponent } from './../../admin/add-timetable/add-timetable.component';
 import { AddInventoryComponent } from './../../admin/add-inventory/add-inventory.component';
@@ -67,6 +66,7 @@ import { TimetableScheduleComponent } from './../../admin/timetable-schedule/tim
 import { AddTimetableScheduleComponent } from './../../admin/add-timetable-schedule/add-timetable-schedule.component';
 import { AddFlipbookComponent } from './../../admin/add-flipbook/add-flipbook.component';
 import { FlipbookListComponent } from './../../admin/flipbook-list/flipbook-list.component';
+import { AddBookComponent } from './../../admin/add-book/add-book.component';
 import { BooksPurchaseListComponent } from './../../admin/books-purchase-list/books-purchase-list.component';
 import { AddBooksPurchaseComponent } from './../../admin/add-books-purchase/add-books-purchase.component';
 import { AddBooksIssuedComponent } from './../../admin/add-books-issued/add-books-issued.component';
