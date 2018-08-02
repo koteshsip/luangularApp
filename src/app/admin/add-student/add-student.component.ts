@@ -6,7 +6,7 @@ import { UserServices }     from './../../service/user-service';
 import { Base64 } from 'js-base64';
 
 @Component({
-  selector: 'app-add-student',
+  selector: 'add-student',
   templateUrl: './add-student.component.html',
   styleUrls: ['./add-student.component.css']
 })

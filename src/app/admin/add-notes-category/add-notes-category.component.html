@@ -1,0 +1,128 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="panel-body box box-info"><h1>
+    <div *ngIf="model.id; else falsyTemplate">
+      Edit Notes Category
+    </div>
+    <ng-template #falsyTemplate>
+      Add Notes Category
+    </ng-template>
+  </h1>
+  </div>
+</section>
+<div class="content ">
+<div class="box box-info">
+   <div class="row">
+     <p>                            </p>
+   </div>
+  <form (ngSubmit)="doAddNotesCategory(model)" #notesCategoryForm="ngForm">
+    <!-- <div class="row">
+    <div class="form-group col-sm-8">
+      <label class="col-sm-4 control-label" for="name">PageType</label>
+      <div class="col-sm-8">
+      <input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="TopicName"
+             required 
+             [(ngModel)]="model.TopicName" name="TopicName"
+             #TopicName="ngModel">
+            </div>
+       <div [hidden]="TopicName.valid || TopicName.pristine"
+           class="alert alert-danger">
+           Topic Name  is required
+      </div>  
+    </div>
+    </div> -->
+<div class="row">
+    <div class="form-group col-sm-8">
+         <label class="col-sm-4 control-label" for="alterEgo">Page Type</label>
+      <div class="col-sm-8">
+    <select class="form-control" id="PageType" 
+              required
+              [(ngModel)]="model.PageType" name="PageType"
+              #PageType="ngModel">
+        <option *ngFor="let notifyC of TypeOfMaterial" [value]="notifyC">{{notifyC}}</option>
+      </select>         
+    </div>
+       <div [hidden]="PageType.valid || PageType.pristine"
+           class="alert alert-danger">
+           Page Type is required
+      </div> 
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <label class="col-sm-4 control-label" for="name">Assignment AssociateTeacher*</label>
+              <div class="col-sm-8">
+              <select required class="form-control" name="associateTeacherId" 
+              id="associateTeacherId" [(ngModel)]="model.associateTeacherId" 
+              #associateTeacherId="ngModel">
+                <option *ngFor='let users of userdata'  [ngValue]='users.userId' >{{users.emailId}}</option>
+        </select></div>
+              <div [hidden]="associateTeacherId.valid || associateTeacherId.pristine"
+                  class="alert alert-danger">
+                  associate Teacher is required
+              </div> 
+      </div>
+    </div>
+
+
+    <div class="row">
+    <div class="form-group col-sm-8">
+         <label class="col-sm-4 control-label" for="alterEgo">Topic Book Path</label>
+      <div class="col-sm-8">
+      <input type="text" maxlength="50" class="form-control" id="TopicBookPath"
+      required       
+      [(ngModel)]="model.TopicBookPath"  pattern="[a-zA-Z0-9-\&quot;-'-$-.- ,]*" name="TopicBookPath" #TopicBookPath="ngModel">        
+    </div>
+     <div [hidden]="TopicBookPath.valid || TopicBookPath.pristine"
+           class="alert alert-danger">
+           Topic Book Path is required
+      </div> 
+    </div>
+    </div>
+<div class="row">
+    <div class="form-group col-sm-8">
+         <label class="col-sm-4 control-label" for="alterEgo">Topic Book Link</label>
+      <div class="col-sm-8">
+        <input type="hidden" name="test" [value]="model.id"/>
+        <input type="text" maxlength="500" class="form-control" id="TopicBookLink"
+      required       
+      [(ngModel)]="model.TopicBookLink" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" name="TopicBookLink" #TopicBookLink="ngModel" rows="5" cols="120"/>
+    </div>
+     <div [hidden]="TopicBookLink.valid || TopicBookLink.pristine"
+           class="alert alert-danger">
+           Topic Book Link is required
+      </div> 
+    </div>
+    </div>
+  
+
+    <div class="row">
+      <div class="form-group col-sm-8">
+           <label class="col-sm-4 control-label" for="alterEgo">Topic Material Filetype</label>
+        <div class="col-sm-8">
+      <select class="form-control" id="TopicMaterialFiletype" 
+                required
+                [(ngModel)]="model.TopicMaterialFiletype" name="TopicMaterialFiletype"
+                #TopicMaterialFiletype="ngModel">
+          <option *ngFor="let notifyC of TopicMaterialFiletype" [value]="notifyC">{{notifyC}}</option>
+        </select>         
+      </div>
+         <div [hidden]="TopicMaterialFiletype.valid || TopicMaterialFiletype.pristine"
+             class="alert alert-danger">
+             Material File type is required
+        </div> 
+      </div>
+      </div>
+    
+    <div class="row">
+      <div class="form-group col-sm-4">
+      </div>
+      <div class="form-group col-sm-4">
+        <button type="submit" class="btn btn-success" [disabled]="!notesCategoryForm.form.valid || IsExist">Save</button>
+        <button type="button" class="btn btn-default" (click)="backlist();">Cancel</button>
+      </div>
+      </div>
+  </form>
+</div>
+</div>

@@ -23,6 +23,8 @@ export class DrawingListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.page=1;
+    this.getDrowingData(this.page,""); 
   }
 
   deleteDrowing(id){
@@ -30,14 +32,15 @@ export class DrawingListComponent implements OnInit {
     this.showConfirm(myid);
 }
 	public getDrowingData(event,filter){
-          this.message=this.mystorage.get("message");
-          this.mystorage.remove("message");
-		this.myservice.getallnotifications(event,filter).subscribe((data:any)=>{
+            this.message=this.mystorage.get("message");
+            this.mystorage.remove("message");
+		    this.myservice.getAllDrawing(event,filter).subscribe((data:any)=>{
 				if(data.error) { 
 					alert('Server Error');
 				} else {
-          this.data=data['notifications'];
-        this.totalItem = data['count'];
+            this.data=data['drawing'];
+            this.totalItem = data['count'];
+            
         }
 			},
 			error =>{
@@ -46,9 +49,6 @@ export class DrawingListComponent implements OnInit {
 		);
 		return event;
     }
-  addDepartment(){
-    this.router.navigate(['/admin/addNotificatin']);
-  }
 
   showConfirm(id) {
             let disposable = this.dialogService.addDialog(MessageComponent, {

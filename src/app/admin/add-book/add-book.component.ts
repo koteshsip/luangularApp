@@ -43,7 +43,7 @@ export class AddBookComponent implements OnInit {
 }
 addBook(bookinfo){
   if(bookinfo.bookId){
-  this.bookService.updateBook(bookinfo).subscribe((data:any)=>{
+        this.bookService.updateBook(bookinfo).subscribe((data:any)=>{
         this.mystorage.set("message","Record Updated Successfully");
         this.router.navigate(['/admin/book-list']);
       });

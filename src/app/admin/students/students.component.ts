@@ -48,7 +48,7 @@ deleteStudent(id){
 		);
 		return event;
     }
-  addStudent(){
+    addStudent1(){
     this.router.navigate(['/admin/addStudent']);
   }
 

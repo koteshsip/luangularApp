@@ -30,7 +30,8 @@
 			   <option value="Story" >Story</option>
 			   <option value="Autobiography" >Autobiography</option>
 			   <option value="Novel" >Novel</option>
-			   <option value="Historical">Historical</option>
+         <option value="Historical">Historical</option>
+         <option value="Textbook">Textbook</option>
 			   </select>
               </div> 
               <div [hidden]="bookType.valid || bookType.pristine"
@@ -103,7 +104,7 @@
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">tblClass*</label>
         <div class="col-sm-8">
-<input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="tblClass"
+          <input type="text"  maxlength="50"  class="form-control" pattern="[a-zA-Z0-9-\&quot;-'-$-.-, ]*" id="tblClass"
                required
                [(ngModel)]="model.tblClass" name="tblClass"
                #tblClass="ngModel">

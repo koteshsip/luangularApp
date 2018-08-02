@@ -83,6 +83,10 @@ import { AddClassSectionComponent } from '../add-class-section/add-class-section
 import { AddAssignmentEvaluationComponent } from './../../admin/add-assignment-evaluation/add-assignment-evaluation.component';
 import { AddStudentComponent } from './../../admin/add-student/add-student.component';
 import { StudentListComponent } from './../../admin/student-list/student-list.component';
+import { TopicListComponent } from './../../admin/topic-list/topic-list.component';
+import { AddTopicComponent } from './../../admin/add-topic/add-topic.component';
+import { NotesCategoryListComponent } from './../../admin/notes-category-list/notes-category-list.component';
+import { AddNotesCategoryComponent } from './../../admin/add-notes-category/add-notes-category.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
@@ -632,8 +636,7 @@ import { StudentListComponent } from './../../admin/student-list/student-list.co
             path:'add-assignment-evaluation/:studentId/:assignId',
             component: AddAssignmentEvaluationComponent,
             canActivate:[AuthGuard]
-          }
-          ,
+          },
           {
             path: 'student-list',
             component: StudentListComponent,
@@ -645,6 +648,35 @@ import { StudentListComponent } from './../../admin/student-list/student-list.co
           },{
             path:'add-student/:userId',
             component: AddStudentComponent,
+            canActivate:[AuthGuard]
+          },{
+            path:'topic-list',
+            component: TopicListComponent,
+            canActivate:[AuthGuard]
+          },
+          {
+            path: 'add-topic',
+            component: AddTopicComponent,
+            canActivate: [AuthGuard]
+          }
+          ,{
+            path:'add-topic/:topicId',
+            component: AddTopicComponent,
+            canActivate:[AuthGuard]
+          },  
+          {
+            path:'notes-category-list',
+            component: NotesCategoryListComponent,
+            canActivate:[AuthGuard]
+          },
+          {
+            path: 'add-topic',
+            component: AddNotesCategoryComponent,
+            canActivate: [AuthGuard]
+          }
+          ,{
+            path:'add-notes-category/:notesCategoryId',
+            component: AddNotesCategoryComponent,
             canActivate:[AuthGuard]
           }
 

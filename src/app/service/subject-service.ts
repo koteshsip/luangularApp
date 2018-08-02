@@ -12,9 +12,7 @@ getAllSubject(event,filter){
     if(!filter){
       filter=null;
     }
-
     const url=this.baseurl+"listOfAllSubjectMaster/"+event+"/"+Base64.encode(filter);
-
     return this.http.get(url);
   }
 getSubjectcount(){
@@ -22,19 +20,19 @@ getSubjectcount(){
     return this.http.get(url);
 }
 addSubject(formdata){   
-    const url=this.baseurl+"addSubject";
+    const url=this.baseurl+"addSubjectMaster";
     return this.http.post(url,formdata);
   }
-updateSubject(formdata){ 
-    const url=this.baseurl+"addSubject/"+formdata.subjectId;
+updateSubject(formdata,subjectId,textBookISBN){ 
+    const url=this.baseurl+"addSubjectMaster/"+subjectId+"/"+textBookISBN;
     return this.http.put(url,formdata);
   }
-  getSubjectById(SubjectId,textBookISBN){   
-    const url=this.baseurl+"getSubjectMasterbyId/"+SubjectId+"/"+textBookISBN;
-    return this.http.get(url);
-  }
+getSubjectById(SubjectId,textBookISBN){   
+  const url=this.baseurl+"getSubjectMasterbyId/"+SubjectId+"/"+textBookISBN;
+  return this.http.get(url);
+}
 deleteSubject(id){
-    const url=this.baseurl+"deleteSubject/"+id;
+    const url=this.baseurl+"deleteSubjectMaster/"+id;
     return this.http.put(url,"");
 }
 SubjectAlreadyExist(drawingName){

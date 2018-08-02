@@ -21,6 +21,13 @@ getalllogs(event,filter){
     const url=this.baseurl+"logs/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
 }
+getAllDrawing(event,filter){
+    if(!filter){
+      filter=null;
+    }
+    const url=this.baseurl+"getAllDrawing/"+event+"/"+Base64.encode(filter);
+    return this.http.get(url);
+  }
   getallnotifications(event,filter){
     if(!filter){
       filter=null;

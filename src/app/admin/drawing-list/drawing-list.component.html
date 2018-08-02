@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="panel-body custom-panel"><h1>
-      List Of Department<button class="btn btn-primary pull-right" (click)="addDepartment()">Add Department</button>
+      List Of Drawings
     </h1></div>
   </section>
   <div class="content">
@@ -20,7 +20,7 @@
   <div class="row">
         <div class="col-md-3">
     <nav class="navbar">
-      <input class="form-control" placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getDepartmentData(page,$event)">      
+      <input placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getDrowingData(page,$event)">      
     </nav>
     </div>
     </div>
@@ -28,15 +28,23 @@
   <table *ngIf="totalItem" class="table-bordered custom-table">
                     <thead>
                         <tr>
-                            <th>Department Name</th>
-                            <th>Action</th>
+                            <th>Drawing Name</th>
+                            <!-- <th>{{datas.className}}</th>
+                                    <th>{{datas.SectionName}}</th>
+                                    <th>{{datas.StudentName}}</th> -->
+                                    <th>DrawingCategory</th>
+                                    <th>CreatedAt</th>
                         </tr>
                     </thead>
                     <tbody>
                                 <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                     totalItems: totalItem}">
-                                    <td>{{datas.notifyType}}</td>
-  <td><a class="col-xs-3 btn btn-success" routerLink="/admin/addDepartment/{{this.baseEncode(datas.id)}}">Edit</a><a class="btn btn-danger" (click)="deleteDepartment(this.baseEncode(datas.id))">Delete</a></td>
+                                    <td>{{datas.drawingName}}</td>
+                                    <!-- <td>{{datas.className}}</td>
+                                    <td>{{datas.SectionName}}</td>
+                                    <td>{{datas.StudentName}}</td> -->
+                                    <td>{{datas.drawingCategory}}</td>
+                                    <td>{{datas.createdAt}}</td>
                                     </tr>
                     </tbody>
                 </table>
@@ -48,7 +56,7 @@
     </div>
   </div>
                 <pagination-controls *ngIf="totalItem"
-      (pageChange) = "page = getDepartmentData($event,filter)" 
+      (pageChange) = "page = getDrowingData($event,filter)" 
       id="server"
             maxSize = "5"
       directionLinks = "true"

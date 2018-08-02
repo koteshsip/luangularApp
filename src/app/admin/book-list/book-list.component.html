@@ -24,36 +24,38 @@
      </nav>
      </div>
      </div>
- <div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
- <table *ngIf="totalItem" class="table-bordered custom-table">
-                     <thead>
-                         <tr>
-                             <th>Book Type</th>
-                             <th>Book Category</th>
-                             <th>Book Name</th>
-                             <th>Action</th>
-                         </tr>
-                     </thead>
-                      <tbody>
-                                 <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
-                                     totalItems: totalItem}">  
-                                     <td>{{datas.bookType}}</td>
-                                     <td>{{datas.bookCategory}}</td>
-                                     <td>{{datas.bookName}}</td>
- <td><a routerLink="/admin/update-book/{{this.baseEncode(datas.bookId)}}"><img src="assets/img/edit-icon.png" 
-    width="25px" /></a><a (click)="deleteBook(this.baseEncode(datas.bookId))"><img src="assets/img/delete-icon.png" 
-        width="25px" /></a></td>
-                                     </tr>
-                     </tbody> 
-                 </table>
-                 <div *ngIf="!totalItem" class="row">
+ <div class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
+    <div class="row"  *ngIf="totalItem" >
+        <div class="col-md-2" style="border:1px solid white;margin:5px;" *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
+        totalItems: totalItem}">
+            <div class="row" >
+                <div>
+                    <a href="{{datas.bookCoverImage}}" target="new">
+                        <img src="{{datas.bookCoverImage}}" width="75px" align="left" style="margin:5px;border:1px #888"/>
+                        {{datas.bookName}}<br>
+                        {{datas.bookType}}
+                    </a><br><br>
+                    <a routerLink="/admin/update-book/{{this.baseEncode(datas.bookId)}}"><img src="assets/img/edit-icon.png" 
+                        width="10px" /></a><a (click)="deleteBook(this.baseEncode(datas.bookId))"><img src="assets/img/delete-icon.png" 
+                            width="10px" /></a>
+                </div>
+                <!-- <div class="col-md-7">
+                    <div>{{datas.bookName}}</div><br>
+                    <div>{{datas.bookType}}</div><br>
+                    <div></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <br>
+    <div *ngIf="!totalItem" class="row">
      <div class="col-md-6" >
      <div class="alert alert-success">
    <strong>Success!</strong> Record not found
  </div>
      </div>
  </div>
-                 <pagination-controls *ngIf="totalItem"
+    <pagination-controls *ngIf="totalItem"
        (pageChange) = "page = getAllTblClasss($event,filter)" 
        id="server"
              maxSize = "5"

@@ -70,6 +70,8 @@ import { DepartmentService }    from './service/department-service';
 import { ClassSectionMasterService }    from './service/class-section-master.service';
 import { AssignmentEvaluationService }    from './service/assignment-evaluation-service';
 import { ClassSubjectService }    from './service/class-subject-service';
+import { NotesService }    from './service/notes-service';
+
 //AssignmentEvaluation
 // https://github.com/ngx-translate/core
 // AoT requires an exported function for factories
@@ -118,7 +120,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ResourceBankService,TimeTableService,EmailService,LibraryTransactionService,
     SupplierService,TransportService,AttendenceService,BookService,HostelService,TblClassService,
     ExamDetailService,DrawingService,ClassRoomService,SubjectService,ClassSubjectService,
-    DepartmentService,ClassSectionMasterService,AssignmentEvaluationService,
+    DepartmentService,ClassSectionMasterService,AssignmentEvaluationService,NotesService,
                 { provide: HTTP_INTERCEPTORS,useClass: TokenInterceptor,multi: true},
                 { provide: FormDataService, useClass: FormDataService },
                 { provide: StudentDataService, useClass: StudentDataService },
