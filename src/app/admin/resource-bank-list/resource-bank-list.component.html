@@ -30,7 +30,7 @@
                          <tr>
                              <th>Resource Name</th>
                              <th>Resource Type</th>
-                             <th>Title</th>
+                             <th>Cover Page</th>
                              <th>Subject Name</th>
                              <th>Action</th>
                          </tr>
@@ -38,9 +38,9 @@
                       <tbody>
                                  <tr *ngFor="let datas of data | paginate : { itemsPerPage:10, currentPage:page, id : 'server', 
                                      totalItems: totalItem}">
-                                     <td>{{datas.ResourceId}}</td>  
-                                     <td>{{datas.ResourceTitle}}</td>
+                                     <td>{{datas.ResourceTitle}}</td>  
                                      <td>{{datas.ResourceType}}</td>
+                                     <td><img src="{{datas.ResourceType}}" /></td>
                                      <td>{{datas.SubjectName}}</td>
                                       
  <td><a routerLink="/admin/update-resource-bank/{{this.baseEncode(datas.resourceBankId)}}"><img src="assets/img/edit-icon.png" 

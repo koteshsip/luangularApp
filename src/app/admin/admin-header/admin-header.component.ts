@@ -74,7 +74,7 @@ export class AdminHeaderComponent implements OnInit {
     jQuery('#leftSideBar').mouseenter(function(){
       if(jQuery('#leftSideBar').css('width')!='227px'){
         jQuery('.sidebar-toggle').trigger('click');
-        jQuery('label').hide();
+        //jQuery('label').hide();
       }
     });
     

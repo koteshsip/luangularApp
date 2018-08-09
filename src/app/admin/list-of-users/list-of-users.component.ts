@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MessageComponent } from '../message/message.component';
 declare var AdminLTE: any;
 import { LocalStorageService } from 'angular-2-local-storage';
+import { AssignmentService } from './../../service/assignment-service';
 import { UserServices } from './../../service/user-service';
 import { DialogService } from "ng2-bootstrap-modal";
 import { DatepickerOptions } from 'ng2-datepicker';
@@ -17,23 +18,37 @@ export class ListOfUsersComponent implements OnInit {
   private data  = [];
   private baseEncode:any;
   public totalItem:any;
+  public classSectiondata:any;
+  subjectmasterdata:any;
   page:any;
-  constructor(private dialogService:DialogService,public router: Router,public mystorage:LocalStorageService,public userService:UserServices) { 
+  constructor(private dialogService:DialogService,
+    public assignmentService:AssignmentService,
+    public router: Router,public mystorage:LocalStorageService,public userService:UserServices) { 
     this.baseEncode=Base64.encode;
   }
 
   ngOnInit() {
     this.page=1;
-   this.getAllUsers(this.page,""); 
+    this.getAllUsers(this.page,"", "", ""); 
+    this.getAllClassSection();
   }
 addUser(){
   this.router.navigate(['/admin/addUser']);
 }
-
-getAllUsers(event,filter){
+getAllClassSection(){
+    this.assignmentService.getAllClassSection().subscribe((data:any)=>{
+                this.classSectiondata=data;
+                });
+              }
+  getAllSubjectMasterSelect(){
+    this.assignmentService.getAllSubjectMasterSelect().subscribe((data:any)=>{
+      this.subjectmasterdata=data;
+     });
+  }
+getAllUsers(event,filter,classname,sectionname){
 this.message=this.mystorage.get("message");
           this.mystorage.remove("message");
-		this.userService.getAllUsers(event,filter).subscribe((data:any)=>{
+		this.userService.getAllUsers(event,filter,classname,sectionname).subscribe((data:any)=>{
 				if(data.error) { 
 					alert('Server Error');
 				} else {
@@ -59,7 +74,7 @@ let myid=Base64.decode(id);
                     //We get dialog result
                     if(isConfirmed) {
                         this.userService.deleteUser(id).subscribe((data:any)=>{
-                            this.getAllUsers(1,'');
+                            this.getAllUsers(1,'','','');
                             this.message="Record deleted Successfully";
                         });
                     }else {

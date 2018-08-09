@@ -68,6 +68,20 @@
       </div>
 </div>
 <div class="row">
+    <div class="form-group col-sm-8">
+      <label class="col-sm-4 control-label" for="name">Subject</label>
+      <div class="col-sm-8">
+        <select required class="lu-input" name="subjectId" id="subjectId" [(ngModel)]="model.subjectId" #subjectId="ngModel" 
+  >
+          <option *ngFor='let subjectmaster of subjectmasterdata' [selected]="subjectmaster['subjectMasterId'].subjectId === model.subjectId" [ngValue]='subjectmaster["subjectMasterId"].subjectId' >{{subjectmaster.subjectName}}</option>
+  </select></div>
+            <div [hidden]="subjectId.valid || subjectId.pristine"
+                class="alert alert-danger">
+                subject Id is required
+            </div> 
+    </div>
+  </div>
+<div class="row">
       <div class="form-group col-sm-8">
         <label class="col-sm-4 control-label" for="name">Thumbnail Url *</label>
         <div class="col-sm-8">

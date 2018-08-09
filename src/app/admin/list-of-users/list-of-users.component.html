@@ -23,6 +23,21 @@
             <input placeholder="Enter Search Element" type="text" name="search" [(ngModel)]="filter" (ngModelChange)="getAllUsers(page,$event)">
         </nav>
     </div>
+    <div class="col-md-3">
+        <!-- <nav class="navbar">
+            <input placeholder="Enter Class Name" type="text" name="classSearch" [(ngModel)]="classname" (ngModelChange)="getAllUsers(page,$event)">
+        </nav> -->
+    </div>
+    <!-- <div class="col-md-3">
+        
+        <select required minlength="1" class="lu-input" name="classId" id="classId"   [(ngModel)]="model.classId"  #classId="ngModel">
+           
+            <option *ngFor='let mydata of classSectiondata'
+            [selected]="mydata['classSectionMasterId'].classId+','+mydata['classSectionMasterId'].sectionId == model.classId"  
+            [value]='mydata["classSectionMasterId"].classId+","+mydata["classSectionMasterId"].sectionId' 
+            >{{mydata.className }}  {{mydata.sectionName}}</option>
+    </select>
+    </div> -->
 </div>
 <div  class="pagination-data"><div class="loader" [ngClass]="{ 'hidden': !loading }"></div>
     <table  *ngIf="totalItem" class="table-bordered custom-table">

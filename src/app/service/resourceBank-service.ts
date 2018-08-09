@@ -20,11 +20,11 @@ getResourceBankcount(){
     return this.http.get(url);
 }
 addResourceBank(formdata){   
-    const url=this.baseurl+"addResourceBank";
+    const url=this.baseurl+"InsertResource";
     return this.http.post(url,formdata);
   }
 updateResourceBank(formdata){ 
-    const url=this.baseurl+"addResourceBank/"+formdata.resourceBankId;
+    const url=this.baseurl+"InsertResource/"+formdata.resourceBankId;
     return this.http.put(url,formdata);
   }
 getResourceBankById(id){   

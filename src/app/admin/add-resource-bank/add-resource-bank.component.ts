@@ -4,6 +4,7 @@ import { NgModule }      from '@angular/core';
 import { ResourceBank } from "./resourcebank";
 import { LocalStorageService } from 'angular-2-local-storage';
 import { ResourceBankService } from './../../service/resourceBank-service';
+import { AssignmentService } from './../../service/assignment-service';
 import * as moment from 'moment/moment';
 import { Base64 } from 'js-base64';
 import { FormGroup, FormArray, FormBuilder,
@@ -19,7 +20,9 @@ export class AddResourceBankComponent implements OnInit {
   form: FormGroup;
   private resourceBank:any
   private IsExist:any;
+  subjectmasterdata:any;
   constructor(public mystorage:LocalStorageService,
+    public assignmentService:AssignmentService,
     public resourceBankService:ResourceBankService
     ,public router: Router,private route: ActivatedRoute,
      public _FB: FormBuilder) { }
@@ -29,9 +32,12 @@ export class AddResourceBankComponent implements OnInit {
     if(this.id['id']){
       let myid=Base64.decode(this.id['id']);
       this.getResourceBankById(myid);
+      
     }
+    this.getAllSubjectMasterSelect();
   }
   addResourceBank(ResourceBankinfo){
+    alert(ResourceBankinfo);
     if(ResourceBankinfo.resourceBankId){
       this.resourceBankService.updateResourceBank(ResourceBankinfo).subscribe((data:any)=>{
             this.mystorage.set("message","Record Updated Successfully");
@@ -43,6 +49,11 @@ export class AddResourceBankComponent implements OnInit {
               this.router.navigate(['/admin/resourceBank-list']);
               });
     }
+  }
+  getAllSubjectMasterSelect(){
+    this.assignmentService.getAllSubjectMasterSelect().subscribe((data:any)=>{
+      this.subjectmasterdata=data;
+     });
   }
   getResourceBankById(id){
     this.resourceBankService.getResourceBankById(id).subscribe((data:any)=>{

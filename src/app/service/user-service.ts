@@ -60,7 +60,7 @@ private _errorHandler(error: Response) {
   const url=this.baseurl+"getAllCitySelect/"+event;
     return this.http.get(url);
   }
-  getAllUsers(event,filter){
+  getAllUsers(event,filter,classname,sectionname){
     if(!filter){
       filter=null;
     }

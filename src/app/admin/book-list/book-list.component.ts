@@ -26,7 +26,7 @@ export class BookListComponent implements OnInit {
 
   ngOnInit() {
     this.page=1;
-   this.getAllTblClasss(this.page,""); 
+    this.getAllTblClasss(this.page,""); 
   }
 addBook(){
   this.router.navigate(['/admin/add-book']);
@@ -36,7 +36,7 @@ getAllTblClasss(event,filter){
 this.message=this.mystorage.get("message");
           this.mystorage.remove("message");
 		this.bookService.getAllBook(event,filter).subscribe((data:any)=>{
-				if(data.error) { 
+            if(data.error) { 
 					alert('Server Error');
 				} else {
                     this.totalItem = data['Count'];
