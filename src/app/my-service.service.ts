@@ -50,7 +50,7 @@ getToken(){
     // const headers = new Headers({'Content-Type':'application/json'});
     // const options = new RequestOptions({headers:headers});
     //  headers.append('token', `${this.localStorageService.get("token")}`);   
-    const url=this.baseurl+"addNotification";
+    const url=this.baseurl+"InsertNotification";
     return this.http.post(url,formdata);
   }
 updateNotification(formdata){

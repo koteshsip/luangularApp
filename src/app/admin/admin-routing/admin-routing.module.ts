@@ -670,11 +670,6 @@ import { AddNotesCategoryComponent } from './../../admin/add-notes-category/add-
             canActivate:[AuthGuard]
           },
           {
-            path: 'add-topic',
-            component: AddNotesCategoryComponent,
-            canActivate: [AuthGuard]
-          }
-          ,{
             path:'add-notes-category/:notesCategoryId',
             component: AddNotesCategoryComponent,
             canActivate:[AuthGuard]

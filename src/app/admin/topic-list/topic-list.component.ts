@@ -38,7 +38,7 @@ export class TopicListComponent implements OnInit {
               alert('Server Error');
             } else {
               // alert(data['count']);
-                        this.data=data['SubjectUnitMasterList'];
+                        this.data=data['  '];
                         this.totalItem = data['Count'];
                     }
           },
