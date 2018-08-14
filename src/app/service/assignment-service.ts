@@ -11,7 +11,7 @@ getAllAssignment(event,filter){
     if(!filter){
       filter=null;
     }
-    const url=AppSettings['API_ENDPOINT']+"getAllAssignments";//+event+"/"+Base64.encode(filter);
+    const url=AppSettings['API_ENDPOINT']+"listAllAssignments/"+event+"/"+Base64.encode(filter);
     return this.http.get(url);
   }
 getAssignmentcount(){
