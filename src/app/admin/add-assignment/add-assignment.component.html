@@ -40,10 +40,8 @@
                required
                [(ngModel)]="model.assignType" name="assignType"
                #assignType="ngModel">
-			   <option value="Incomplete" >Story</option>
-			   <option value="Punishment" >Autobiography</option>
-			   <option value="Normal" >Novel</option>
-			   <option value="Partioned">Fiction</option>
+			   <option value="Write">Write</option>
+			   <option value="Draw">Draw</option>
 			   </select>
               </div> 
               <div [hidden]="assignType.valid || assignType.pristine"
